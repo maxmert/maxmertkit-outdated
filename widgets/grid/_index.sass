@@ -1,0 +1,46 @@
+// Class names
+$container: -container
+$row: -row
+$col: -col
+$offset: -offset
+
+// Change the grid settings
+$column: 90px
+$gutter: 30px
+$grid-columns: 10
+$max-width: em(1088)
+ 
+@import "imports" 
+@import "params"
+
+	 
+
+@if $dependent == null 
+	.#{$container}
+		@include outer-container
+
+	.#{$row}
+		@include row( table )
+
+	@for $index from 1 through $grid-columns
+		
+		.#{$col}#{$index}
+			@include span-columns($index, table)
+
+		.#{$offset}#{$index}
+			@include shift( $index )
+
+@else 
+	%#{$container}
+		@include outer-container
+
+	%#{$row}
+		@include row( table )
+
+	@for $index from 1 through $grid-columns
+		
+		%#{$col}#{$index}
+			@include span-columns($index, table)
+
+		%#{$offset}#{$index}
+			@include shift( $index )

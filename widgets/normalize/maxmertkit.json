@@ -1,0 +1,9 @@
+{
+    "type": "widget",
+    "name": "normalize",
+    "version": "0.0.0",
+    "description": "Reset file",
+    "repository": "https://github.com/kristerkari/normalize.scss",
+    "author": "maxmert",
+    "license": "BSD"
+}
