@@ -1,0 +1,99 @@
+$typography: -typography 
+ 
+@import "imports" 
+@import "params" 
+@import "vars"
+@import "myvars"
+
+
+	
+body
+	font: $font-size $font-family
+	line-height: $line-height
+
+section,
+.#{$section}
+	margin-bottom: $section-margin-bottom
+
+article,
+.#{$article}
+	margin-bottom: $article-margin-bottom
+
+p
+	margin-bottom: $section-margin-bottom / 2
+
+small
+	font-size: 85%
+
+strong
+	font-weight: bold 
+
+em
+	font-style: normal
+
+abbr
+	border-bottom: 1px dotted
+	&[title]
+		cursor: help
+
+
+@for $index from 1 through 6
+	
+	h#{$index}
+		@include header( $index )
+
+
+blockquote
+	padding: 0 0 0 $blockquote-padding
+	border-left: $blockquote-border
+	margin: 0 0 $blockquote-padding
+	font-weight: 300
+	
+	small
+		color: $blockquote--sign-color
+		&:before
+			content: '\2014 \00A0'
+
+	&.#{$mod-right}
+		float: right
+		padding: 0 $blockquote-padding 0 0
+		border-left: none
+		border-right: $blockquote-border
+		text-align: right
+
+
+address
+	font-style: normal
+	margin: 0 0 $section-margin-bottom 0
+
+
+ul, ol
+	margin: $list-margin
+	padding: 0
+	line-height: $list-line-height
+
+	ul, ol
+		margin-bottom: 0
+
+
+dl
+	margin: $description-margin
+	line-height: $description-line-height
+
+	dt
+		font-weight: bold
+
+	dd
+		margin-left: $description__defenition-margin-left
+
+	&.#{$mod-horizontal}
+		dt
+			width: $description__defenition__inline-width
+			float: left
+			text-overflow: ellipsis
+			overflow: hidden
+			white-space: nowrap
+			text-align: right
+
+		dd
+			margin-left: $description__defenition__inline-width + 10px

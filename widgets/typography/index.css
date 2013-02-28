@@ -1,0 +1,94 @@
+body {
+  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 16px; }
+
+section {
+  margin-bottom: 15px; }
+
+article {
+  margin-bottom: 30px; }
+
+p {
+  margin-bottom: 7.5px; }
+
+small {
+  font-size: 85%; }
+
+strong {
+  font-weight: bold; }
+
+em {
+  font-style: normal; }
+
+abbr {
+  border-bottom: 1px dotted; }
+  abbr[title] {
+    cursor: help; }
+
+h1 {
+  font-size: 36px;
+  line-height: 49px; }
+
+h2 {
+  font-size: 27px;
+  line-height: 36px; }
+
+h3 {
+  font-size: 22px;
+  line-height: 28px; }
+
+h4 {
+  font-size: 19px;
+  line-height: 23px; }
+
+h5 {
+  font-size: 17px;
+  line-height: 20px; }
+
+h6 {
+  font-size: 16px;
+  line-height: 19px; }
+
+blockquote {
+  padding: 0 0 0 10px;
+  border-left: 4px solid #eeeeee;
+  margin: 0 0 10px;
+  font-weight: 300; }
+  blockquote small {
+    color: #999999; }
+    blockquote small:before {
+      content: "\2014 \00A0"; }
+  blockquote._right_ {
+    float: right;
+    padding: 0 10px 0 0;
+    border-left: none;
+    border-right: 4px solid #eeeeee;
+    text-align: right; }
+
+address {
+  font-style: normal;
+  margin: 0 0 15px 0; }
+
+ul, ol {
+  margin: 0 0 0 20px;
+  padding: 0;
+  line-height: 21px; }
+  ul ul, ul ol, ol ul, ol ol {
+    margin-bottom: 0; }
+
+dl {
+  margin: 0 0 15px 0;
+  line-height: 21px; }
+  dl dt {
+    font-weight: bold; }
+  dl dd {
+    margin-left: 15px; }
+  dl._horizontal_ dt {
+    width: 120px;
+    float: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: right; }
+  dl._horizontal_ dd {
+    margin-left: 130px; }

@@ -1,0 +1,28 @@
+$border-box-sizing: false
+
+@import "imports"
+@import "params" 
+
+@function getOpposite( $current, $max )
+	@return ( $max - ($current - 1) )
+
+@mixin header( $index ) 
+	
+	font-size: floor( 14px + golden-ratio( 2px, getOpposite( $index, 6 ) - 1 ) )
+	line-height: floor( 16px + golden-ratio( 3px, getOpposite( $index, 6 ) - 1 ) )
+
+
+
+@if $dependent == null
+
+	@for $index from 1 through 6
+		
+		h#{$index}
+			@include header( $index )
+
+@else
+
+	@for $index from 1 through 6
+		
+		%h#{$index}
+			@include header( $index )

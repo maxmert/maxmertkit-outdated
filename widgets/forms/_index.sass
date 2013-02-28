@@ -1,0 +1,68 @@
+@import "imports" 
+@import "params" 
+@import "vars"
+@import "myvars" 
+ 
+@mixin form-field( $index ) 
+	border-color: nth( $border-color-lighten, $index )
+ 
+ 
+$themes: null !default 
+
+@if $dependent == null
+	
+	.#{$form}
+		.#{$form-field}
+			@extend %object
+			border: $form-field-border-width
+			border-style: solid
+			line-height: 0
+			@include border-radius( $form-field-border-radius )
+
+
+	.#{$form}
+		
+		@for $index from 1 through $grid-columns
+			
+			.#{$form-field}.#{$col}#{$index}
+				@extend %#{$col}#{$index}
+				@include omega(table)
+
+			.#{$form-field}.#{$offset}#{$index}
+				@extend %#{$offset}#{$index}
+				@include omega(table)
+
+
+
+
+
+ 
+@if $themes
+	@if type-of( $themes ) == list
+
+			
+	  
+		@each $theme in $themes 
+	 
+			$index: index( $themes, $theme ) 
+	 
+			// With each theme do 
+			@if $dependent == null 
+				.#{$form}
+					.#{$form-field}.#{$theme} 
+						@include form-field( $index ) 
+			@else 
+				%#{$form}
+					.#{$form-field}.#{$theme} 
+						@include form-field( $index ) 
+ 
+	@else 
+		@if type-of( $themes ) == string 
+			@if $dependent == null 
+				.#{$form}
+					.#{$form-field}.#{$themes} 
+						@include form-field( 1 ) 
+			@else 
+				%#{$form}
+					.#{$form-field}.#{$themes} 
+						@include form-field( 1 ) 

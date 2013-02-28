@@ -1,0 +1,41 @@
+{
+    "theme": "",
+
+    "color": "",
+    "color-lighten": "",
+    "color-lightener": "",
+    "color-darken": "",
+    "color-darkener": "",
+
+    "color-invert": "",
+    "color-invert-lighten": "",
+    "color-invert-lightener": "",
+    "color-invert-darken": "",
+    "color-invert-darkener": "",
+
+    "border-color": "",
+    "border-color-lighten": "",
+    "border-color-lightener": "",
+    "border-color-darken": "",
+    "border-color-darkener": "",
+    
+    "outline": "",
+    
+    "background-color": "",
+    "background-color-lighten": "",
+    "background-color-lightener": "",
+    "background-color-darken": "",
+    "background-color-darkener": "",
+    
+    "background-color-invert": "",
+    "background-color-invert-lighten": "",
+    "background-color-invert-lightener": "",
+    "background-color-invert-darken": "",
+    "background-color-invert-darkener": "",
+    
+    "shadow": "",
+    "shadow-invert": "",
+    
+    "text-shadow": "",
+    "text-shadow-invert": ""
+}

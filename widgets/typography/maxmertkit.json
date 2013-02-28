@@ -1,0 +1,20 @@
+{
+    "type": "widget",
+    "name": "typography",
+    "version": "0.0.0",
+    "description": "Standart typography for maxmertkit",
+    "repository": "",
+    "author": "maxmert",
+    "license": "BSD",
+
+    "dependences": {
+    	"headers": {
+    		"version": "0.0.0"
+    	}
+    },
+
+    "modifyers": {
+    	"horizontal": "0.0.0",
+    	"right": "0.0.0"
+    }
+}
