@@ -3,23 +3,45 @@
 	<head>
 		<title>Maxmertkit</title>
 		<link rel="stylesheet" type="text/css" href="widgets/normalize/index.css">
+		<link rel="stylesheet" type="text/css" href="widgets/grid/index.css">
 		<link rel="stylesheet" type="text/css" href="widgets/forms/index.css">
 		<!-- // <script type="text/javascript" src="js/libs/html5shiv.js"></script> -->
 		
 	</head>
 	<body>
 		
+		<!-- GRID -->
+		<div class="-container">
+			<div class="-row">
+				<div class="-col6">
+					First
+				</div>
+				<div class="-col6">
+					Second
+				</div>
+			</div>
+		</div>
+
+
 		<!-- FORMS -->
-		<div class="-form">
+		<div class="-container">
+			<div class="-form -row">
 
-			<div class="-field -col6">
-				<input type="text">
+				<div class="-col6">
+					<label>Hello</label>
+					<span class="-field -primary-">
+						<input type="text">
+					</span>
+				</div>
+
+				<div class="-col6">
+					<label>Hi</label>
+					<span class="-field">
+						<input type="text">
+					</span>
+				</div>
+
 			</div>
-
-			<div class="-field -col6">
-				<input type="text">
-			</div>
-
 		</div>
 
 	</body>

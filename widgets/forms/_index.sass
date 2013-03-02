@@ -5,6 +5,17 @@
  
 @mixin form-field( $index ) 
 	border-color: nth( $border-color-lighten, $index )
+	
+	input
+		border-color: nth( $border-color, $index )
+
+		&:focus
+			@include box-shadow( unquote(nth( $outline, $index )) )
+			border-color: nth( $border-color-darken, $index )
+
+	&:hover
+		input
+			border-color: nth( $border-color-darken, $index )
  
  
 $themes: null !default 
@@ -16,21 +27,34 @@ $themes: null !default
 			@extend %object
 			border: $form-field-border-width
 			border-style: solid
-			line-height: 0
 			@include border-radius( $form-field-border-radius )
 
 
 	.#{$form}
 		
+		&.#{$row}
+			@extend %#{$row}
+
+		input
+			border-width: 1px
+			border-style: solid
+			outline: none
+
+		.#{$form-field} input
+			width: 100%
+
+		.#{$form-field},
+		.#{$form-field} input
+			display: block
+
+
 		@for $index from 1 through $grid-columns
 			
-			.#{$form-field}.#{$col}#{$index}
+			.#{$col}#{$index}
 				@extend %#{$col}#{$index}
-				@include omega(table)
 
-			.#{$form-field}.#{$offset}#{$index}
+			.#{$offset}#{$index}
 				@extend %#{$offset}#{$index}
-				@include omega(table)
 
 
 

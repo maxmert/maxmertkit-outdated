@@ -1,17 +1,7 @@
-// Class names
-$container: -container
-$row: -row
-$col: -col
-$offset: -offset
-
-// Change the grid settings
-$column: 90px
-$gutter: 30px
-$grid-columns: 10
-$max-width: em(1088)
- 
 @import "imports" 
 @import "params"
+@import "vars"
+@import "myvars"
 
 	 
 
@@ -20,12 +10,12 @@ $max-width: em(1088)
 		@include outer-container
 
 	.#{$row}
-		@include row( table )
+		@include row( block )
 
 	@for $index from 1 through $grid-columns
 		
 		.#{$col}#{$index}
-			@include span-columns($index, table)
+			@include span-columns($index, block)
 
 		.#{$offset}#{$index}
 			@include shift( $index )
@@ -35,12 +25,12 @@ $max-width: em(1088)
 		@include outer-container
 
 	%#{$row}
-		@include row( table )
+		@include row( block )
 
 	@for $index from 1 through $grid-columns
 		
 		%#{$col}#{$index}
-			@include span-columns($index, table)
+			@include span-columns($index, block)
 
 		%#{$offset}#{$index}
 			@include shift( $index )

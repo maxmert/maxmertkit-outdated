@@ -10,12 +10,12 @@
 		@include outer-container
 
 	.#{$row}
-		@include row( table )
+		@include row( block )
 
 	@for $index from 1 through $grid-columns
 		
 		.#{$col}#{$index}
-			@include span-columns($index, table)
+			@include span-columns($index, block)
 
 		.#{$offset}#{$index}
 			@include shift( $index )
@@ -25,12 +25,12 @@
 		@include outer-container
 
 	%#{$row}
-		@include row( table )
+		@include row( block )
 
 	@for $index from 1 through $grid-columns
 		
 		%#{$col}#{$index}
-			@include span-columns($index, table)
+			@include span-columns($index, block)
 
 		%#{$offset}#{$index}
 			@include shift( $index )
