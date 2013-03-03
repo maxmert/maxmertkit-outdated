@@ -9,7 +9,12 @@ $border-box-sizing: false
 @mixin header( $index ) 
 	
 	font-size: floor( 14px + golden-ratio( 2px, getOpposite( $index, 6 ) - 1 ) )
-	line-height: floor( 16px + golden-ratio( 3px, getOpposite( $index, 6 ) - 1 ) )
+	line-height: floor( 14px + golden-ratio( 3px, getOpposite( $index, 6 ) - 1 ) )
+	padding: 0
+
+	@if $index > 1
+		& + p
+			margin-top: -.83em
 
 
 

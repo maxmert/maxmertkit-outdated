@@ -6,7 +6,7 @@
 @mixin form-field( $index ) 
 	border-color: nth( $border-color-lighten, $index )
 	
-	input
+	#{$all-text-inputs}
 		border-color: nth( $border-color, $index )
 
 		&:focus
@@ -14,18 +14,98 @@
 			border-color: nth( $border-color-darken, $index )
 
 	&:hover
-		input
+		#{$all-text-inputs}
 			border-color: nth( $border-color-darken, $index )
- 
+
+
+
+
+@mixin form-input( $index )
+	border-color: nth( $border-color, $index )
+
+	&:focus
+		@include box-shadow( unquote(nth( $outline, $index )) )
+		border-color: nth( $border-color-darken, $index )
+
+	&:hover
+		border-color: nth( $border-color-darken, $index )
+
+
+
+@mixin form-field-size( $mod, $top, $left, $font )
+	#{$all-text-inputs},
+	label
+		font-size: $font
+
+	.#{$form-field}
+		#{$all-text-inputs}
+			padding: $top $left
+
+	& >
+		#{$all-text-inputs}
+			padding: $top + $form-field-border-width $left
+			width: 100%
+
+	label
+		padding: $top + $form-field-border-width + $form-input-border-width + $form-input-border-width + 1 0 $form-field-border-width 0
+		line-height: $font + 1
+
+
+	@if $mod != ''
+		label.#{$mod}
+			font-size: $font
+
+		#{$all-text-inputs}
+			&.#{$mod}
+				font-size: $font
+
+		.#{$form-field}
+			#{$all-text-inputs}
+				&.#{$mod}
+					padding: $top $left
+
+		& >
+			#{$all-text-inputs}
+				.#{$mod}
+					padding: $top + $form-field-border-width $left
+					width: 100%
+
+		label.#{$mod}
+			padding: $top + $form-field-border-width + $form-input-border-width + $form-input-border-width + 1 0 $form-field-border-width 0
+			line-height: $font + 1
+
+@mixin form-fields-size( $mod, $top, $left, $font )
+
+	@if $mod != ''
+		&.#{$mod}
+			@include form-field-size( $mod, $top, $left, $font )
+
+	@else
+		@include form-field-size( $mod, $top, $left, $font )
+
+
  
 $themes: null !default 
 
 @if $dependent == null
 	
 	.#{$form}
+		
+		label
+			@extend %object
+
+			&[class^="#{$col}"]
+				padding-top: 0
+
+
+		.#{$form-info}
+			margin-top: -$form-field-margin-bottom + 2
+			margin-bottom: $form-field-margin-bottom
+
+
 		.#{$form-field}
 			@extend %object
-			border: $form-field-border-width
+			border-width: $form-field-border-width
 			border-style: solid
 			@include border-radius( $form-field-border-radius )
 
@@ -35,18 +115,31 @@ $themes: null !default
 		&.#{$row}
 			@extend %#{$row}
 
-		input
-			border-width: 1px
+		#{$all-text-inputs}
+			border-width: $form-input-border-width
 			border-style: solid
 			outline: none
+			margin-bottom: $form-field-margin-bottom
+		// input[type="checkbox"]
+		// 	margin-bottom: inherit
 
-		.#{$form-field} input
-			width: 100%
+		.#{$form-field}
+			margin-bottom: $form-field-margin-bottom
 
-		.#{$form-field},
-		.#{$form-field} input
+		.#{$form-field}
+			#{$all-text-inputs}
+				width: 100%
+				margin-bottom: 0
+
+		.#{$form-field}
 			display: block
+		
+		.#{$form-field}
+			#{$all-text-inputs}
+				display: block
 
+
+		// Create GRID
 
 		@for $index from 1 through $grid-columns
 			
@@ -57,36 +150,72 @@ $themes: null !default
 				@extend %#{$offset}#{$index}
 
 
+		
+		// Create different sizes
 
 
+		[class^="#{$col}"]
 
- 
-@if $themes
-	@if type-of( $themes ) == list
+			&.#{$mod-right}
+				text-align: right
+
+			@include form-fields-size( '', 4px, 6px, 16px )
+			@include form-fields-size( $mod-tiny, 2px, 3px, 11px )
+			@include form-fields-size( $mod-small, 2px, 3px, 13px )
+			@include form-fields-size( $mod-big, 6px, 8px, 20px )
+			@include form-fields-size( $mod-huge, 8px, 10px, 26px )
+
+		@include form-fields-size( '', 4px, 6px, 16px )
+		@include form-fields-size( $mod-tiny, 2px, 3px, 11px )
+		@include form-fields-size( $mod-small, 2px, 3px, 13px )
+		@include form-fields-size( $mod-big, 6px, 8px, 20px )
+		@include form-fields-size( $mod-huge, 8px, 10px, 26px )
 
 			
-	  
-		@each $theme in $themes 
-	 
-			$index: index( $themes, $theme ) 
-	 
-			// With each theme do 
-			@if $dependent == null 
-				.#{$form}
-					.#{$form-field}.#{$theme} 
-						@include form-field( $index ) 
-			@else 
-				%#{$form}
-					.#{$form-field}.#{$theme} 
-						@include form-field( $index ) 
+
+
+
+
+
+
+@if $themes
+
+	$length: length( $themes )
+	// @each $theme in $themes 
+
+	@for $index from 1 through $length
  
-	@else 
-		@if type-of( $themes ) == string 
-			@if $dependent == null 
-				.#{$form}
-					.#{$form-field}.#{$themes} 
-						@include form-field( 1 ) 
-			@else 
-				%#{$form}
-					.#{$form-field}.#{$themes} 
-						@include form-field( 1 ) 
+		// $index: index( $themes, $theme ) 
+		$theme: nth( $themes, $index )
+		
+		// With each theme do 
+		@if $dependent == null 
+			.#{$form}
+				@if $theme != 'default'
+					.#{$form-field}.#{$theme} 
+						@include form-field( $index )
+					#{$all-text-inputs}
+						&.#{$theme} 
+							@include form-input( $index )
+
+				@else
+					.#{$form-field}
+						@include form-field( $index )
+					#{$all-text-inputs}
+						@include form-input( $index )
+
+
+		@else 
+			%#{$form}
+				@if $theme != 'default'
+					.#{$form-field}.#{$theme} 
+						@include form-field( $index )
+					#{$all-text-inputs}
+						.#{$theme} 
+							@include form-input( $index )
+				
+				@else
+					.#{$form-field}
+						@include form-field( $index )
+					#{$all-text-inputs}
+						@include form-input( $index )

@@ -1,8 +1,8 @@
 {
-    "type": "theme",
-    "name": "default",
+    "type": "modifyer",
+    "name": "small",
     "version": "0.0.0",
-    "description": "If there is no theme",
+    "description": "Small size modifyer",
     "repository": "",
     "author": "maxmert",
     "license": "BSD"
