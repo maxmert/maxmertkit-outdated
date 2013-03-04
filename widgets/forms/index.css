@@ -1,428 +1,97 @@
-.-form label, .-form .-field {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  display: inline-block;
-  outline: none;
-  vertical-align: middle; }
+/*
+Syntax error: Undefined mixin 'box-sizing'.
+        on line 8 of dependences/widgets/object/_index.sass, in `box-sizing'
+        from line 8 of dependences/widgets/object/_index.sass
+        from line 1 of ./_imports.sass
+        from line 1 of _index.sass
 
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+3: @import "vars"
+4: @import "myvars" 
+5:  
+6: @mixin form-field( $index ) 
+7: 	border-color: nth( $border-color-lighten, $index )
+8: 	
+9: 	#{$all-text-inputs}
+10: 		border-color: nth( $border-color, $index )
+11: 
+12: 		&:focus
+13: 			@include box-shadow( unquote(nth( $outline, $index )) )
 
-.-form.-row {
-  *zoom: 1;
-  display: block; }
-  .-form.-row:before, .-form.-row:after {
-    content: " ";
-    display: table; }
-  .-form.-row:after {
-    clear: both; }
-
-.-form .-col1 {
-  display: block;
-  float: left;
-  margin-right: 2.12766%;
-  width: 6.38298%; }
-  .-form .-col1:last-child {
-    margin-right: 0; }
-
-.-form .-offset1 {
-  margin-left: 8.51064%; }
-
-.-form .-col2 {
-  display: block;
-  float: left;
-  margin-right: 2.12766%;
-  width: 14.89362%; }
-  .-form .-col2:last-child {
-    margin-right: 0; }
-
-.-form .-offset2 {
-  margin-left: 17.02128%; }
-
-.-form .-col3 {
-  display: block;
-  float: left;
-  margin-right: 2.12766%;
-  width: 23.40426%; }
-  .-form .-col3:last-child {
-    margin-right: 0; }
-
-.-form .-offset3 {
-  margin-left: 25.53191%; }
-
-.-form .-col4 {
-  display: block;
-  float: left;
-  margin-right: 2.12766%;
-  width: 31.91489%; }
-  .-form .-col4:last-child {
-    margin-right: 0; }
-
-.-form .-offset4 {
-  margin-left: 34.04255%; }
-
-.-form .-col5 {
-  display: block;
-  float: left;
-  margin-right: 2.12766%;
-  width: 40.42553%; }
-  .-form .-col5:last-child {
-    margin-right: 0; }
-
-.-form .-offset5 {
-  margin-left: 42.55319%; }
-
-.-form .-col6 {
-  display: block;
-  float: left;
-  margin-right: 2.12766%;
-  width: 48.93617%; }
-  .-form .-col6:last-child {
-    margin-right: 0; }
-
-.-form .-offset6 {
-  margin-left: 51.06383%; }
-
-.-form .-col7 {
-  display: block;
-  float: left;
-  margin-right: 2.12766%;
-  width: 57.44681%; }
-  .-form .-col7:last-child {
-    margin-right: 0; }
-
-.-form .-offset7 {
-  margin-left: 59.57447%; }
-
-.-form .-col8 {
-  display: block;
-  float: left;
-  margin-right: 2.12766%;
-  width: 65.95745%; }
-  .-form .-col8:last-child {
-    margin-right: 0; }
-
-.-form .-offset8 {
-  margin-left: 68.08511%; }
-
-.-form .-col9 {
-  display: block;
-  float: left;
-  margin-right: 2.12766%;
-  width: 74.46809%; }
-  .-form .-col9:last-child {
-    margin-right: 0; }
-
-.-form .-offset9 {
-  margin-left: 76.59574%; }
-
-.-form .-col10 {
-  display: block;
-  float: left;
-  margin-right: 2.12766%;
-  width: 82.97872%; }
-  .-form .-col10:last-child {
-    margin-right: 0; }
-
-.-form .-offset10 {
-  margin-left: 85.10638%; }
-
-.-form .-col11 {
-  display: block;
-  float: left;
-  margin-right: 2.12766%;
-  width: 91.48936%; }
-  .-form .-col11:last-child {
-    margin-right: 0; }
-
-.-form .-offset11 {
-  margin-left: 93.61702%; }
-
-.-form .-col12 {
-  display: block;
-  float: left;
-  margin-right: 2.12766%;
-  width: 100%; }
-  .-form .-col12:last-child {
-    margin-right: 0; }
-
-.-form .-offset12 {
-  margin-left: 102.12766%; }
-
-.-form label[class^="-col"] {
-  padding-top: 0; }
-.-form .-info {
-  margin-top: -8px;
-  margin-bottom: 10px; }
-.-form .-field {
-  border-width: 3px;
-  border-style: solid;
-  border-radius: 3px; }
-
-.-form input[type="email"], .-form input[type="number"], .-form input[type="password"], .-form input[type="search"], .-form input[type="tel"], .-form input[type="text"], .-form input[type="url"], .-form input[type="color"], .-form input[type="date"], .-form input[type="datetime"], .-form input[type="datetime-local"], .-form input[type="month"], .-form input[type="time"], .-form input[type="week"] {
-  border-width: 1px;
-  border-style: solid;
-  outline: none;
-  margin-bottom: 10px; }
-.-form .-field {
-  margin-bottom: 10px; }
-.-form .-field input[type="email"], .-form .-field input[type="number"], .-form .-field input[type="password"], .-form .-field input[type="search"], .-form .-field input[type="tel"], .-form .-field input[type="text"], .-form .-field input[type="url"], .-form .-field input[type="color"], .-form .-field input[type="date"], .-form .-field input[type="datetime"], .-form .-field input[type="datetime-local"], .-form .-field input[type="month"], .-form .-field input[type="time"], .-form .-field input[type="week"] {
-  width: 100%;
-  margin-bottom: 0; }
-.-form .-field {
-  display: block; }
-.-form .-field input[type="email"], .-form .-field input[type="number"], .-form .-field input[type="password"], .-form .-field input[type="search"], .-form .-field input[type="tel"], .-form .-field input[type="text"], .-form .-field input[type="url"], .-form .-field input[type="color"], .-form .-field input[type="date"], .-form .-field input[type="datetime"], .-form .-field input[type="datetime-local"], .-form .-field input[type="month"], .-form .-field input[type="time"], .-form .-field input[type="week"] {
-  display: block; }
-.-form [class^="-col"]._right_ {
-  text-align: right; }
-.-form [class^="-col"] input[type="email"], .-form [class^="-col"] input[type="number"], .-form [class^="-col"] input[type="password"], .-form [class^="-col"] input[type="search"], .-form [class^="-col"] input[type="tel"], .-form [class^="-col"] input[type="text"], .-form [class^="-col"] input[type="url"], .-form [class^="-col"] input[type="color"], .-form [class^="-col"] input[type="date"], .-form [class^="-col"] input[type="datetime"], .-form [class^="-col"] input[type="datetime-local"], .-form [class^="-col"] input[type="month"], .-form [class^="-col"] input[type="time"], .-form [class^="-col"] input[type="week"],
-.-form [class^="-col"] label {
-  font-size: 16px; }
-.-form [class^="-col"] .-field input[type="email"], .-form [class^="-col"] .-field input[type="number"], .-form [class^="-col"] .-field input[type="password"], .-form [class^="-col"] .-field input[type="search"], .-form [class^="-col"] .-field input[type="tel"], .-form [class^="-col"] .-field input[type="text"], .-form [class^="-col"] .-field input[type="url"], .-form [class^="-col"] .-field input[type="color"], .-form [class^="-col"] .-field input[type="date"], .-form [class^="-col"] .-field input[type="datetime"], .-form [class^="-col"] .-field input[type="datetime-local"], .-form [class^="-col"] .-field input[type="month"], .-form [class^="-col"] .-field input[type="time"], .-form [class^="-col"] .-field input[type="week"] {
-  padding: 4px 6px; }
-.-form [class^="-col"] > input[type="email"], .-form [class^="-col"] > input[type="number"], .-form [class^="-col"] > input[type="password"], .-form [class^="-col"] > input[type="search"], .-form [class^="-col"] > input[type="tel"], .-form [class^="-col"] > input[type="text"], .-form [class^="-col"] > input[type="url"], .-form [class^="-col"] > input[type="color"], .-form [class^="-col"] > input[type="date"], .-form [class^="-col"] > input[type="datetime"], .-form [class^="-col"] > input[type="datetime-local"], .-form [class^="-col"] > input[type="month"], .-form [class^="-col"] > input[type="time"], .-form [class^="-col"] > input[type="week"] {
-  padding: 7px 6px;
-  width: 100%; }
-.-form [class^="-col"] label {
-  padding: 10px 0 3px 0;
-  line-height: 17px; }
-.-form [class^="-col"]._tiny input[type="email"], .-form [class^="-col"]._tiny input[type="number"], .-form [class^="-col"]._tiny input[type="password"], .-form [class^="-col"]._tiny input[type="search"], .-form [class^="-col"]._tiny input[type="tel"], .-form [class^="-col"]._tiny input[type="text"], .-form [class^="-col"]._tiny input[type="url"], .-form [class^="-col"]._tiny input[type="color"], .-form [class^="-col"]._tiny input[type="date"], .-form [class^="-col"]._tiny input[type="datetime"], .-form [class^="-col"]._tiny input[type="datetime-local"], .-form [class^="-col"]._tiny input[type="month"], .-form [class^="-col"]._tiny input[type="time"], .-form [class^="-col"]._tiny input[type="week"],
-.-form [class^="-col"]._tiny label {
-  font-size: 11px; }
-.-form [class^="-col"]._tiny .-field input[type="email"], .-form [class^="-col"]._tiny .-field input[type="number"], .-form [class^="-col"]._tiny .-field input[type="password"], .-form [class^="-col"]._tiny .-field input[type="search"], .-form [class^="-col"]._tiny .-field input[type="tel"], .-form [class^="-col"]._tiny .-field input[type="text"], .-form [class^="-col"]._tiny .-field input[type="url"], .-form [class^="-col"]._tiny .-field input[type="color"], .-form [class^="-col"]._tiny .-field input[type="date"], .-form [class^="-col"]._tiny .-field input[type="datetime"], .-form [class^="-col"]._tiny .-field input[type="datetime-local"], .-form [class^="-col"]._tiny .-field input[type="month"], .-form [class^="-col"]._tiny .-field input[type="time"], .-form [class^="-col"]._tiny .-field input[type="week"] {
-  padding: 2px 3px; }
-.-form [class^="-col"]._tiny > input[type="email"], .-form [class^="-col"]._tiny > input[type="number"], .-form [class^="-col"]._tiny > input[type="password"], .-form [class^="-col"]._tiny > input[type="search"], .-form [class^="-col"]._tiny > input[type="tel"], .-form [class^="-col"]._tiny > input[type="text"], .-form [class^="-col"]._tiny > input[type="url"], .-form [class^="-col"]._tiny > input[type="color"], .-form [class^="-col"]._tiny > input[type="date"], .-form [class^="-col"]._tiny > input[type="datetime"], .-form [class^="-col"]._tiny > input[type="datetime-local"], .-form [class^="-col"]._tiny > input[type="month"], .-form [class^="-col"]._tiny > input[type="time"], .-form [class^="-col"]._tiny > input[type="week"] {
-  padding: 5px 3px;
-  width: 100%; }
-.-form [class^="-col"]._tiny label {
-  padding: 8px 0 3px 0;
-  line-height: 12px; }
-.-form [class^="-col"]._tiny label._tiny {
-  font-size: 11px; }
-.-form [class^="-col"]._tiny input[type="email"]._tiny, .-form [class^="-col"]._tiny input[type="number"]._tiny, .-form [class^="-col"]._tiny input[type="password"]._tiny, .-form [class^="-col"]._tiny input[type="search"]._tiny, .-form [class^="-col"]._tiny input[type="tel"]._tiny, .-form [class^="-col"]._tiny input[type="text"]._tiny, .-form [class^="-col"]._tiny input[type="url"]._tiny, .-form [class^="-col"]._tiny input[type="color"]._tiny, .-form [class^="-col"]._tiny input[type="date"]._tiny, .-form [class^="-col"]._tiny input[type="datetime"]._tiny, .-form [class^="-col"]._tiny input[type="datetime-local"]._tiny, .-form [class^="-col"]._tiny input[type="month"]._tiny, .-form [class^="-col"]._tiny input[type="time"]._tiny, .-form [class^="-col"]._tiny input[type="week"]._tiny {
-  font-size: 11px; }
-.-form [class^="-col"]._tiny .-field input[type="email"]._tiny, .-form [class^="-col"]._tiny .-field input[type="number"]._tiny, .-form [class^="-col"]._tiny .-field input[type="password"]._tiny, .-form [class^="-col"]._tiny .-field input[type="search"]._tiny, .-form [class^="-col"]._tiny .-field input[type="tel"]._tiny, .-form [class^="-col"]._tiny .-field input[type="text"]._tiny, .-form [class^="-col"]._tiny .-field input[type="url"]._tiny, .-form [class^="-col"]._tiny .-field input[type="color"]._tiny, .-form [class^="-col"]._tiny .-field input[type="date"]._tiny, .-form [class^="-col"]._tiny .-field input[type="datetime"]._tiny, .-form [class^="-col"]._tiny .-field input[type="datetime-local"]._tiny, .-form [class^="-col"]._tiny .-field input[type="month"]._tiny, .-form [class^="-col"]._tiny .-field input[type="time"]._tiny, .-form [class^="-col"]._tiny .-field input[type="week"]._tiny {
-  padding: 2px 3px; }
-.-form [class^="-col"]._tiny > input[type="email"] ._tiny, .-form [class^="-col"]._tiny > input[type="number"] ._tiny, .-form [class^="-col"]._tiny > input[type="password"] ._tiny, .-form [class^="-col"]._tiny > input[type="search"] ._tiny, .-form [class^="-col"]._tiny > input[type="tel"] ._tiny, .-form [class^="-col"]._tiny > input[type="text"] ._tiny, .-form [class^="-col"]._tiny > input[type="url"] ._tiny, .-form [class^="-col"]._tiny > input[type="color"] ._tiny, .-form [class^="-col"]._tiny > input[type="date"] ._tiny, .-form [class^="-col"]._tiny > input[type="datetime"] ._tiny, .-form [class^="-col"]._tiny > input[type="datetime-local"] ._tiny, .-form [class^="-col"]._tiny > input[type="month"] ._tiny, .-form [class^="-col"]._tiny > input[type="time"] ._tiny, .-form [class^="-col"]._tiny > input[type="week"] ._tiny {
-  padding: 5px 3px;
-  width: 100%; }
-.-form [class^="-col"]._tiny label._tiny {
-  padding: 8px 0 3px 0;
-  line-height: 12px; }
-.-form [class^="-col"]._small input[type="email"], .-form [class^="-col"]._small input[type="number"], .-form [class^="-col"]._small input[type="password"], .-form [class^="-col"]._small input[type="search"], .-form [class^="-col"]._small input[type="tel"], .-form [class^="-col"]._small input[type="text"], .-form [class^="-col"]._small input[type="url"], .-form [class^="-col"]._small input[type="color"], .-form [class^="-col"]._small input[type="date"], .-form [class^="-col"]._small input[type="datetime"], .-form [class^="-col"]._small input[type="datetime-local"], .-form [class^="-col"]._small input[type="month"], .-form [class^="-col"]._small input[type="time"], .-form [class^="-col"]._small input[type="week"],
-.-form [class^="-col"]._small label {
-  font-size: 13px; }
-.-form [class^="-col"]._small .-field input[type="email"], .-form [class^="-col"]._small .-field input[type="number"], .-form [class^="-col"]._small .-field input[type="password"], .-form [class^="-col"]._small .-field input[type="search"], .-form [class^="-col"]._small .-field input[type="tel"], .-form [class^="-col"]._small .-field input[type="text"], .-form [class^="-col"]._small .-field input[type="url"], .-form [class^="-col"]._small .-field input[type="color"], .-form [class^="-col"]._small .-field input[type="date"], .-form [class^="-col"]._small .-field input[type="datetime"], .-form [class^="-col"]._small .-field input[type="datetime-local"], .-form [class^="-col"]._small .-field input[type="month"], .-form [class^="-col"]._small .-field input[type="time"], .-form [class^="-col"]._small .-field input[type="week"] {
-  padding: 2px 3px; }
-.-form [class^="-col"]._small > input[type="email"], .-form [class^="-col"]._small > input[type="number"], .-form [class^="-col"]._small > input[type="password"], .-form [class^="-col"]._small > input[type="search"], .-form [class^="-col"]._small > input[type="tel"], .-form [class^="-col"]._small > input[type="text"], .-form [class^="-col"]._small > input[type="url"], .-form [class^="-col"]._small > input[type="color"], .-form [class^="-col"]._small > input[type="date"], .-form [class^="-col"]._small > input[type="datetime"], .-form [class^="-col"]._small > input[type="datetime-local"], .-form [class^="-col"]._small > input[type="month"], .-form [class^="-col"]._small > input[type="time"], .-form [class^="-col"]._small > input[type="week"] {
-  padding: 5px 3px;
-  width: 100%; }
-.-form [class^="-col"]._small label {
-  padding: 8px 0 3px 0;
-  line-height: 14px; }
-.-form [class^="-col"]._small label._small {
-  font-size: 13px; }
-.-form [class^="-col"]._small input[type="email"]._small, .-form [class^="-col"]._small input[type="number"]._small, .-form [class^="-col"]._small input[type="password"]._small, .-form [class^="-col"]._small input[type="search"]._small, .-form [class^="-col"]._small input[type="tel"]._small, .-form [class^="-col"]._small input[type="text"]._small, .-form [class^="-col"]._small input[type="url"]._small, .-form [class^="-col"]._small input[type="color"]._small, .-form [class^="-col"]._small input[type="date"]._small, .-form [class^="-col"]._small input[type="datetime"]._small, .-form [class^="-col"]._small input[type="datetime-local"]._small, .-form [class^="-col"]._small input[type="month"]._small, .-form [class^="-col"]._small input[type="time"]._small, .-form [class^="-col"]._small input[type="week"]._small {
-  font-size: 13px; }
-.-form [class^="-col"]._small .-field input[type="email"]._small, .-form [class^="-col"]._small .-field input[type="number"]._small, .-form [class^="-col"]._small .-field input[type="password"]._small, .-form [class^="-col"]._small .-field input[type="search"]._small, .-form [class^="-col"]._small .-field input[type="tel"]._small, .-form [class^="-col"]._small .-field input[type="text"]._small, .-form [class^="-col"]._small .-field input[type="url"]._small, .-form [class^="-col"]._small .-field input[type="color"]._small, .-form [class^="-col"]._small .-field input[type="date"]._small, .-form [class^="-col"]._small .-field input[type="datetime"]._small, .-form [class^="-col"]._small .-field input[type="datetime-local"]._small, .-form [class^="-col"]._small .-field input[type="month"]._small, .-form [class^="-col"]._small .-field input[type="time"]._small, .-form [class^="-col"]._small .-field input[type="week"]._small {
-  padding: 2px 3px; }
-.-form [class^="-col"]._small > input[type="email"] ._small, .-form [class^="-col"]._small > input[type="number"] ._small, .-form [class^="-col"]._small > input[type="password"] ._small, .-form [class^="-col"]._small > input[type="search"] ._small, .-form [class^="-col"]._small > input[type="tel"] ._small, .-form [class^="-col"]._small > input[type="text"] ._small, .-form [class^="-col"]._small > input[type="url"] ._small, .-form [class^="-col"]._small > input[type="color"] ._small, .-form [class^="-col"]._small > input[type="date"] ._small, .-form [class^="-col"]._small > input[type="datetime"] ._small, .-form [class^="-col"]._small > input[type="datetime-local"] ._small, .-form [class^="-col"]._small > input[type="month"] ._small, .-form [class^="-col"]._small > input[type="time"] ._small, .-form [class^="-col"]._small > input[type="week"] ._small {
-  padding: 5px 3px;
-  width: 100%; }
-.-form [class^="-col"]._small label._small {
-  padding: 8px 0 3px 0;
-  line-height: 14px; }
-.-form [class^="-col"]._big input[type="email"], .-form [class^="-col"]._big input[type="number"], .-form [class^="-col"]._big input[type="password"], .-form [class^="-col"]._big input[type="search"], .-form [class^="-col"]._big input[type="tel"], .-form [class^="-col"]._big input[type="text"], .-form [class^="-col"]._big input[type="url"], .-form [class^="-col"]._big input[type="color"], .-form [class^="-col"]._big input[type="date"], .-form [class^="-col"]._big input[type="datetime"], .-form [class^="-col"]._big input[type="datetime-local"], .-form [class^="-col"]._big input[type="month"], .-form [class^="-col"]._big input[type="time"], .-form [class^="-col"]._big input[type="week"],
-.-form [class^="-col"]._big label {
-  font-size: 20px; }
-.-form [class^="-col"]._big .-field input[type="email"], .-form [class^="-col"]._big .-field input[type="number"], .-form [class^="-col"]._big .-field input[type="password"], .-form [class^="-col"]._big .-field input[type="search"], .-form [class^="-col"]._big .-field input[type="tel"], .-form [class^="-col"]._big .-field input[type="text"], .-form [class^="-col"]._big .-field input[type="url"], .-form [class^="-col"]._big .-field input[type="color"], .-form [class^="-col"]._big .-field input[type="date"], .-form [class^="-col"]._big .-field input[type="datetime"], .-form [class^="-col"]._big .-field input[type="datetime-local"], .-form [class^="-col"]._big .-field input[type="month"], .-form [class^="-col"]._big .-field input[type="time"], .-form [class^="-col"]._big .-field input[type="week"] {
-  padding: 6px 8px; }
-.-form [class^="-col"]._big > input[type="email"], .-form [class^="-col"]._big > input[type="number"], .-form [class^="-col"]._big > input[type="password"], .-form [class^="-col"]._big > input[type="search"], .-form [class^="-col"]._big > input[type="tel"], .-form [class^="-col"]._big > input[type="text"], .-form [class^="-col"]._big > input[type="url"], .-form [class^="-col"]._big > input[type="color"], .-form [class^="-col"]._big > input[type="date"], .-form [class^="-col"]._big > input[type="datetime"], .-form [class^="-col"]._big > input[type="datetime-local"], .-form [class^="-col"]._big > input[type="month"], .-form [class^="-col"]._big > input[type="time"], .-form [class^="-col"]._big > input[type="week"] {
-  padding: 9px 8px;
-  width: 100%; }
-.-form [class^="-col"]._big label {
-  padding: 12px 0 3px 0;
-  line-height: 21px; }
-.-form [class^="-col"]._big label._big {
-  font-size: 20px; }
-.-form [class^="-col"]._big input[type="email"]._big, .-form [class^="-col"]._big input[type="number"]._big, .-form [class^="-col"]._big input[type="password"]._big, .-form [class^="-col"]._big input[type="search"]._big, .-form [class^="-col"]._big input[type="tel"]._big, .-form [class^="-col"]._big input[type="text"]._big, .-form [class^="-col"]._big input[type="url"]._big, .-form [class^="-col"]._big input[type="color"]._big, .-form [class^="-col"]._big input[type="date"]._big, .-form [class^="-col"]._big input[type="datetime"]._big, .-form [class^="-col"]._big input[type="datetime-local"]._big, .-form [class^="-col"]._big input[type="month"]._big, .-form [class^="-col"]._big input[type="time"]._big, .-form [class^="-col"]._big input[type="week"]._big {
-  font-size: 20px; }
-.-form [class^="-col"]._big .-field input[type="email"]._big, .-form [class^="-col"]._big .-field input[type="number"]._big, .-form [class^="-col"]._big .-field input[type="password"]._big, .-form [class^="-col"]._big .-field input[type="search"]._big, .-form [class^="-col"]._big .-field input[type="tel"]._big, .-form [class^="-col"]._big .-field input[type="text"]._big, .-form [class^="-col"]._big .-field input[type="url"]._big, .-form [class^="-col"]._big .-field input[type="color"]._big, .-form [class^="-col"]._big .-field input[type="date"]._big, .-form [class^="-col"]._big .-field input[type="datetime"]._big, .-form [class^="-col"]._big .-field input[type="datetime-local"]._big, .-form [class^="-col"]._big .-field input[type="month"]._big, .-form [class^="-col"]._big .-field input[type="time"]._big, .-form [class^="-col"]._big .-field input[type="week"]._big {
-  padding: 6px 8px; }
-.-form [class^="-col"]._big > input[type="email"] ._big, .-form [class^="-col"]._big > input[type="number"] ._big, .-form [class^="-col"]._big > input[type="password"] ._big, .-form [class^="-col"]._big > input[type="search"] ._big, .-form [class^="-col"]._big > input[type="tel"] ._big, .-form [class^="-col"]._big > input[type="text"] ._big, .-form [class^="-col"]._big > input[type="url"] ._big, .-form [class^="-col"]._big > input[type="color"] ._big, .-form [class^="-col"]._big > input[type="date"] ._big, .-form [class^="-col"]._big > input[type="datetime"] ._big, .-form [class^="-col"]._big > input[type="datetime-local"] ._big, .-form [class^="-col"]._big > input[type="month"] ._big, .-form [class^="-col"]._big > input[type="time"] ._big, .-form [class^="-col"]._big > input[type="week"] ._big {
-  padding: 9px 8px;
-  width: 100%; }
-.-form [class^="-col"]._big label._big {
-  padding: 12px 0 3px 0;
-  line-height: 21px; }
-.-form [class^="-col"]._huge input[type="email"], .-form [class^="-col"]._huge input[type="number"], .-form [class^="-col"]._huge input[type="password"], .-form [class^="-col"]._huge input[type="search"], .-form [class^="-col"]._huge input[type="tel"], .-form [class^="-col"]._huge input[type="text"], .-form [class^="-col"]._huge input[type="url"], .-form [class^="-col"]._huge input[type="color"], .-form [class^="-col"]._huge input[type="date"], .-form [class^="-col"]._huge input[type="datetime"], .-form [class^="-col"]._huge input[type="datetime-local"], .-form [class^="-col"]._huge input[type="month"], .-form [class^="-col"]._huge input[type="time"], .-form [class^="-col"]._huge input[type="week"],
-.-form [class^="-col"]._huge label {
-  font-size: 26px; }
-.-form [class^="-col"]._huge .-field input[type="email"], .-form [class^="-col"]._huge .-field input[type="number"], .-form [class^="-col"]._huge .-field input[type="password"], .-form [class^="-col"]._huge .-field input[type="search"], .-form [class^="-col"]._huge .-field input[type="tel"], .-form [class^="-col"]._huge .-field input[type="text"], .-form [class^="-col"]._huge .-field input[type="url"], .-form [class^="-col"]._huge .-field input[type="color"], .-form [class^="-col"]._huge .-field input[type="date"], .-form [class^="-col"]._huge .-field input[type="datetime"], .-form [class^="-col"]._huge .-field input[type="datetime-local"], .-form [class^="-col"]._huge .-field input[type="month"], .-form [class^="-col"]._huge .-field input[type="time"], .-form [class^="-col"]._huge .-field input[type="week"] {
-  padding: 8px 10px; }
-.-form [class^="-col"]._huge > input[type="email"], .-form [class^="-col"]._huge > input[type="number"], .-form [class^="-col"]._huge > input[type="password"], .-form [class^="-col"]._huge > input[type="search"], .-form [class^="-col"]._huge > input[type="tel"], .-form [class^="-col"]._huge > input[type="text"], .-form [class^="-col"]._huge > input[type="url"], .-form [class^="-col"]._huge > input[type="color"], .-form [class^="-col"]._huge > input[type="date"], .-form [class^="-col"]._huge > input[type="datetime"], .-form [class^="-col"]._huge > input[type="datetime-local"], .-form [class^="-col"]._huge > input[type="month"], .-form [class^="-col"]._huge > input[type="time"], .-form [class^="-col"]._huge > input[type="week"] {
-  padding: 11px 10px;
-  width: 100%; }
-.-form [class^="-col"]._huge label {
-  padding: 14px 0 3px 0;
-  line-height: 27px; }
-.-form [class^="-col"]._huge label._huge {
-  font-size: 26px; }
-.-form [class^="-col"]._huge input[type="email"]._huge, .-form [class^="-col"]._huge input[type="number"]._huge, .-form [class^="-col"]._huge input[type="password"]._huge, .-form [class^="-col"]._huge input[type="search"]._huge, .-form [class^="-col"]._huge input[type="tel"]._huge, .-form [class^="-col"]._huge input[type="text"]._huge, .-form [class^="-col"]._huge input[type="url"]._huge, .-form [class^="-col"]._huge input[type="color"]._huge, .-form [class^="-col"]._huge input[type="date"]._huge, .-form [class^="-col"]._huge input[type="datetime"]._huge, .-form [class^="-col"]._huge input[type="datetime-local"]._huge, .-form [class^="-col"]._huge input[type="month"]._huge, .-form [class^="-col"]._huge input[type="time"]._huge, .-form [class^="-col"]._huge input[type="week"]._huge {
-  font-size: 26px; }
-.-form [class^="-col"]._huge .-field input[type="email"]._huge, .-form [class^="-col"]._huge .-field input[type="number"]._huge, .-form [class^="-col"]._huge .-field input[type="password"]._huge, .-form [class^="-col"]._huge .-field input[type="search"]._huge, .-form [class^="-col"]._huge .-field input[type="tel"]._huge, .-form [class^="-col"]._huge .-field input[type="text"]._huge, .-form [class^="-col"]._huge .-field input[type="url"]._huge, .-form [class^="-col"]._huge .-field input[type="color"]._huge, .-form [class^="-col"]._huge .-field input[type="date"]._huge, .-form [class^="-col"]._huge .-field input[type="datetime"]._huge, .-form [class^="-col"]._huge .-field input[type="datetime-local"]._huge, .-form [class^="-col"]._huge .-field input[type="month"]._huge, .-form [class^="-col"]._huge .-field input[type="time"]._huge, .-form [class^="-col"]._huge .-field input[type="week"]._huge {
-  padding: 8px 10px; }
-.-form [class^="-col"]._huge > input[type="email"] ._huge, .-form [class^="-col"]._huge > input[type="number"] ._huge, .-form [class^="-col"]._huge > input[type="password"] ._huge, .-form [class^="-col"]._huge > input[type="search"] ._huge, .-form [class^="-col"]._huge > input[type="tel"] ._huge, .-form [class^="-col"]._huge > input[type="text"] ._huge, .-form [class^="-col"]._huge > input[type="url"] ._huge, .-form [class^="-col"]._huge > input[type="color"] ._huge, .-form [class^="-col"]._huge > input[type="date"] ._huge, .-form [class^="-col"]._huge > input[type="datetime"] ._huge, .-form [class^="-col"]._huge > input[type="datetime-local"] ._huge, .-form [class^="-col"]._huge > input[type="month"] ._huge, .-form [class^="-col"]._huge > input[type="time"] ._huge, .-form [class^="-col"]._huge > input[type="week"] ._huge {
-  padding: 11px 10px;
-  width: 100%; }
-.-form [class^="-col"]._huge label._huge {
-  padding: 14px 0 3px 0;
-  line-height: 27px; }
-.-form input[type="email"], .-form input[type="number"], .-form input[type="password"], .-form input[type="search"], .-form input[type="tel"], .-form input[type="text"], .-form input[type="url"], .-form input[type="color"], .-form input[type="date"], .-form input[type="datetime"], .-form input[type="datetime-local"], .-form input[type="month"], .-form input[type="time"], .-form input[type="week"],
-.-form label {
-  font-size: 16px; }
-.-form .-field input[type="email"], .-form .-field input[type="number"], .-form .-field input[type="password"], .-form .-field input[type="search"], .-form .-field input[type="tel"], .-form .-field input[type="text"], .-form .-field input[type="url"], .-form .-field input[type="color"], .-form .-field input[type="date"], .-form .-field input[type="datetime"], .-form .-field input[type="datetime-local"], .-form .-field input[type="month"], .-form .-field input[type="time"], .-form .-field input[type="week"] {
-  padding: 4px 6px; }
-.-form > input[type="email"], .-form > input[type="number"], .-form > input[type="password"], .-form > input[type="search"], .-form > input[type="tel"], .-form > input[type="text"], .-form > input[type="url"], .-form > input[type="color"], .-form > input[type="date"], .-form > input[type="datetime"], .-form > input[type="datetime-local"], .-form > input[type="month"], .-form > input[type="time"], .-form > input[type="week"] {
-  padding: 7px 6px;
-  width: 100%; }
-.-form label {
-  padding: 10px 0 3px 0;
-  line-height: 17px; }
-.-form._tiny input[type="email"], .-form._tiny input[type="number"], .-form._tiny input[type="password"], .-form._tiny input[type="search"], .-form._tiny input[type="tel"], .-form._tiny input[type="text"], .-form._tiny input[type="url"], .-form._tiny input[type="color"], .-form._tiny input[type="date"], .-form._tiny input[type="datetime"], .-form._tiny input[type="datetime-local"], .-form._tiny input[type="month"], .-form._tiny input[type="time"], .-form._tiny input[type="week"],
-.-form._tiny label {
-  font-size: 11px; }
-.-form._tiny .-field input[type="email"], .-form._tiny .-field input[type="number"], .-form._tiny .-field input[type="password"], .-form._tiny .-field input[type="search"], .-form._tiny .-field input[type="tel"], .-form._tiny .-field input[type="text"], .-form._tiny .-field input[type="url"], .-form._tiny .-field input[type="color"], .-form._tiny .-field input[type="date"], .-form._tiny .-field input[type="datetime"], .-form._tiny .-field input[type="datetime-local"], .-form._tiny .-field input[type="month"], .-form._tiny .-field input[type="time"], .-form._tiny .-field input[type="week"] {
-  padding: 2px 3px; }
-.-form._tiny > input[type="email"], .-form._tiny > input[type="number"], .-form._tiny > input[type="password"], .-form._tiny > input[type="search"], .-form._tiny > input[type="tel"], .-form._tiny > input[type="text"], .-form._tiny > input[type="url"], .-form._tiny > input[type="color"], .-form._tiny > input[type="date"], .-form._tiny > input[type="datetime"], .-form._tiny > input[type="datetime-local"], .-form._tiny > input[type="month"], .-form._tiny > input[type="time"], .-form._tiny > input[type="week"] {
-  padding: 5px 3px;
-  width: 100%; }
-.-form._tiny label {
-  padding: 8px 0 3px 0;
-  line-height: 12px; }
-.-form._tiny label._tiny {
-  font-size: 11px; }
-.-form._tiny input[type="email"]._tiny, .-form._tiny input[type="number"]._tiny, .-form._tiny input[type="password"]._tiny, .-form._tiny input[type="search"]._tiny, .-form._tiny input[type="tel"]._tiny, .-form._tiny input[type="text"]._tiny, .-form._tiny input[type="url"]._tiny, .-form._tiny input[type="color"]._tiny, .-form._tiny input[type="date"]._tiny, .-form._tiny input[type="datetime"]._tiny, .-form._tiny input[type="datetime-local"]._tiny, .-form._tiny input[type="month"]._tiny, .-form._tiny input[type="time"]._tiny, .-form._tiny input[type="week"]._tiny {
-  font-size: 11px; }
-.-form._tiny .-field input[type="email"]._tiny, .-form._tiny .-field input[type="number"]._tiny, .-form._tiny .-field input[type="password"]._tiny, .-form._tiny .-field input[type="search"]._tiny, .-form._tiny .-field input[type="tel"]._tiny, .-form._tiny .-field input[type="text"]._tiny, .-form._tiny .-field input[type="url"]._tiny, .-form._tiny .-field input[type="color"]._tiny, .-form._tiny .-field input[type="date"]._tiny, .-form._tiny .-field input[type="datetime"]._tiny, .-form._tiny .-field input[type="datetime-local"]._tiny, .-form._tiny .-field input[type="month"]._tiny, .-form._tiny .-field input[type="time"]._tiny, .-form._tiny .-field input[type="week"]._tiny {
-  padding: 2px 3px; }
-.-form._tiny > input[type="email"] ._tiny, .-form._tiny > input[type="number"] ._tiny, .-form._tiny > input[type="password"] ._tiny, .-form._tiny > input[type="search"] ._tiny, .-form._tiny > input[type="tel"] ._tiny, .-form._tiny > input[type="text"] ._tiny, .-form._tiny > input[type="url"] ._tiny, .-form._tiny > input[type="color"] ._tiny, .-form._tiny > input[type="date"] ._tiny, .-form._tiny > input[type="datetime"] ._tiny, .-form._tiny > input[type="datetime-local"] ._tiny, .-form._tiny > input[type="month"] ._tiny, .-form._tiny > input[type="time"] ._tiny, .-form._tiny > input[type="week"] ._tiny {
-  padding: 5px 3px;
-  width: 100%; }
-.-form._tiny label._tiny {
-  padding: 8px 0 3px 0;
-  line-height: 12px; }
-.-form._small input[type="email"], .-form._small input[type="number"], .-form._small input[type="password"], .-form._small input[type="search"], .-form._small input[type="tel"], .-form._small input[type="text"], .-form._small input[type="url"], .-form._small input[type="color"], .-form._small input[type="date"], .-form._small input[type="datetime"], .-form._small input[type="datetime-local"], .-form._small input[type="month"], .-form._small input[type="time"], .-form._small input[type="week"],
-.-form._small label {
-  font-size: 13px; }
-.-form._small .-field input[type="email"], .-form._small .-field input[type="number"], .-form._small .-field input[type="password"], .-form._small .-field input[type="search"], .-form._small .-field input[type="tel"], .-form._small .-field input[type="text"], .-form._small .-field input[type="url"], .-form._small .-field input[type="color"], .-form._small .-field input[type="date"], .-form._small .-field input[type="datetime"], .-form._small .-field input[type="datetime-local"], .-form._small .-field input[type="month"], .-form._small .-field input[type="time"], .-form._small .-field input[type="week"] {
-  padding: 2px 3px; }
-.-form._small > input[type="email"], .-form._small > input[type="number"], .-form._small > input[type="password"], .-form._small > input[type="search"], .-form._small > input[type="tel"], .-form._small > input[type="text"], .-form._small > input[type="url"], .-form._small > input[type="color"], .-form._small > input[type="date"], .-form._small > input[type="datetime"], .-form._small > input[type="datetime-local"], .-form._small > input[type="month"], .-form._small > input[type="time"], .-form._small > input[type="week"] {
-  padding: 5px 3px;
-  width: 100%; }
-.-form._small label {
-  padding: 8px 0 3px 0;
-  line-height: 14px; }
-.-form._small label._small {
-  font-size: 13px; }
-.-form._small input[type="email"]._small, .-form._small input[type="number"]._small, .-form._small input[type="password"]._small, .-form._small input[type="search"]._small, .-form._small input[type="tel"]._small, .-form._small input[type="text"]._small, .-form._small input[type="url"]._small, .-form._small input[type="color"]._small, .-form._small input[type="date"]._small, .-form._small input[type="datetime"]._small, .-form._small input[type="datetime-local"]._small, .-form._small input[type="month"]._small, .-form._small input[type="time"]._small, .-form._small input[type="week"]._small {
-  font-size: 13px; }
-.-form._small .-field input[type="email"]._small, .-form._small .-field input[type="number"]._small, .-form._small .-field input[type="password"]._small, .-form._small .-field input[type="search"]._small, .-form._small .-field input[type="tel"]._small, .-form._small .-field input[type="text"]._small, .-form._small .-field input[type="url"]._small, .-form._small .-field input[type="color"]._small, .-form._small .-field input[type="date"]._small, .-form._small .-field input[type="datetime"]._small, .-form._small .-field input[type="datetime-local"]._small, .-form._small .-field input[type="month"]._small, .-form._small .-field input[type="time"]._small, .-form._small .-field input[type="week"]._small {
-  padding: 2px 3px; }
-.-form._small > input[type="email"] ._small, .-form._small > input[type="number"] ._small, .-form._small > input[type="password"] ._small, .-form._small > input[type="search"] ._small, .-form._small > input[type="tel"] ._small, .-form._small > input[type="text"] ._small, .-form._small > input[type="url"] ._small, .-form._small > input[type="color"] ._small, .-form._small > input[type="date"] ._small, .-form._small > input[type="datetime"] ._small, .-form._small > input[type="datetime-local"] ._small, .-form._small > input[type="month"] ._small, .-form._small > input[type="time"] ._small, .-form._small > input[type="week"] ._small {
-  padding: 5px 3px;
-  width: 100%; }
-.-form._small label._small {
-  padding: 8px 0 3px 0;
-  line-height: 14px; }
-.-form._big input[type="email"], .-form._big input[type="number"], .-form._big input[type="password"], .-form._big input[type="search"], .-form._big input[type="tel"], .-form._big input[type="text"], .-form._big input[type="url"], .-form._big input[type="color"], .-form._big input[type="date"], .-form._big input[type="datetime"], .-form._big input[type="datetime-local"], .-form._big input[type="month"], .-form._big input[type="time"], .-form._big input[type="week"],
-.-form._big label {
-  font-size: 20px; }
-.-form._big .-field input[type="email"], .-form._big .-field input[type="number"], .-form._big .-field input[type="password"], .-form._big .-field input[type="search"], .-form._big .-field input[type="tel"], .-form._big .-field input[type="text"], .-form._big .-field input[type="url"], .-form._big .-field input[type="color"], .-form._big .-field input[type="date"], .-form._big .-field input[type="datetime"], .-form._big .-field input[type="datetime-local"], .-form._big .-field input[type="month"], .-form._big .-field input[type="time"], .-form._big .-field input[type="week"] {
-  padding: 6px 8px; }
-.-form._big > input[type="email"], .-form._big > input[type="number"], .-form._big > input[type="password"], .-form._big > input[type="search"], .-form._big > input[type="tel"], .-form._big > input[type="text"], .-form._big > input[type="url"], .-form._big > input[type="color"], .-form._big > input[type="date"], .-form._big > input[type="datetime"], .-form._big > input[type="datetime-local"], .-form._big > input[type="month"], .-form._big > input[type="time"], .-form._big > input[type="week"] {
-  padding: 9px 8px;
-  width: 100%; }
-.-form._big label {
-  padding: 12px 0 3px 0;
-  line-height: 21px; }
-.-form._big label._big {
-  font-size: 20px; }
-.-form._big input[type="email"]._big, .-form._big input[type="number"]._big, .-form._big input[type="password"]._big, .-form._big input[type="search"]._big, .-form._big input[type="tel"]._big, .-form._big input[type="text"]._big, .-form._big input[type="url"]._big, .-form._big input[type="color"]._big, .-form._big input[type="date"]._big, .-form._big input[type="datetime"]._big, .-form._big input[type="datetime-local"]._big, .-form._big input[type="month"]._big, .-form._big input[type="time"]._big, .-form._big input[type="week"]._big {
-  font-size: 20px; }
-.-form._big .-field input[type="email"]._big, .-form._big .-field input[type="number"]._big, .-form._big .-field input[type="password"]._big, .-form._big .-field input[type="search"]._big, .-form._big .-field input[type="tel"]._big, .-form._big .-field input[type="text"]._big, .-form._big .-field input[type="url"]._big, .-form._big .-field input[type="color"]._big, .-form._big .-field input[type="date"]._big, .-form._big .-field input[type="datetime"]._big, .-form._big .-field input[type="datetime-local"]._big, .-form._big .-field input[type="month"]._big, .-form._big .-field input[type="time"]._big, .-form._big .-field input[type="week"]._big {
-  padding: 6px 8px; }
-.-form._big > input[type="email"] ._big, .-form._big > input[type="number"] ._big, .-form._big > input[type="password"] ._big, .-form._big > input[type="search"] ._big, .-form._big > input[type="tel"] ._big, .-form._big > input[type="text"] ._big, .-form._big > input[type="url"] ._big, .-form._big > input[type="color"] ._big, .-form._big > input[type="date"] ._big, .-form._big > input[type="datetime"] ._big, .-form._big > input[type="datetime-local"] ._big, .-form._big > input[type="month"] ._big, .-form._big > input[type="time"] ._big, .-form._big > input[type="week"] ._big {
-  padding: 9px 8px;
-  width: 100%; }
-.-form._big label._big {
-  padding: 12px 0 3px 0;
-  line-height: 21px; }
-.-form._huge input[type="email"], .-form._huge input[type="number"], .-form._huge input[type="password"], .-form._huge input[type="search"], .-form._huge input[type="tel"], .-form._huge input[type="text"], .-form._huge input[type="url"], .-form._huge input[type="color"], .-form._huge input[type="date"], .-form._huge input[type="datetime"], .-form._huge input[type="datetime-local"], .-form._huge input[type="month"], .-form._huge input[type="time"], .-form._huge input[type="week"],
-.-form._huge label {
-  font-size: 26px; }
-.-form._huge .-field input[type="email"], .-form._huge .-field input[type="number"], .-form._huge .-field input[type="password"], .-form._huge .-field input[type="search"], .-form._huge .-field input[type="tel"], .-form._huge .-field input[type="text"], .-form._huge .-field input[type="url"], .-form._huge .-field input[type="color"], .-form._huge .-field input[type="date"], .-form._huge .-field input[type="datetime"], .-form._huge .-field input[type="datetime-local"], .-form._huge .-field input[type="month"], .-form._huge .-field input[type="time"], .-form._huge .-field input[type="week"] {
-  padding: 8px 10px; }
-.-form._huge > input[type="email"], .-form._huge > input[type="number"], .-form._huge > input[type="password"], .-form._huge > input[type="search"], .-form._huge > input[type="tel"], .-form._huge > input[type="text"], .-form._huge > input[type="url"], .-form._huge > input[type="color"], .-form._huge > input[type="date"], .-form._huge > input[type="datetime"], .-form._huge > input[type="datetime-local"], .-form._huge > input[type="month"], .-form._huge > input[type="time"], .-form._huge > input[type="week"] {
-  padding: 11px 10px;
-  width: 100%; }
-.-form._huge label {
-  padding: 14px 0 3px 0;
-  line-height: 27px; }
-.-form._huge label._huge {
-  font-size: 26px; }
-.-form._huge input[type="email"]._huge, .-form._huge input[type="number"]._huge, .-form._huge input[type="password"]._huge, .-form._huge input[type="search"]._huge, .-form._huge input[type="tel"]._huge, .-form._huge input[type="text"]._huge, .-form._huge input[type="url"]._huge, .-form._huge input[type="color"]._huge, .-form._huge input[type="date"]._huge, .-form._huge input[type="datetime"]._huge, .-form._huge input[type="datetime-local"]._huge, .-form._huge input[type="month"]._huge, .-form._huge input[type="time"]._huge, .-form._huge input[type="week"]._huge {
-  font-size: 26px; }
-.-form._huge .-field input[type="email"]._huge, .-form._huge .-field input[type="number"]._huge, .-form._huge .-field input[type="password"]._huge, .-form._huge .-field input[type="search"]._huge, .-form._huge .-field input[type="tel"]._huge, .-form._huge .-field input[type="text"]._huge, .-form._huge .-field input[type="url"]._huge, .-form._huge .-field input[type="color"]._huge, .-form._huge .-field input[type="date"]._huge, .-form._huge .-field input[type="datetime"]._huge, .-form._huge .-field input[type="datetime-local"]._huge, .-form._huge .-field input[type="month"]._huge, .-form._huge .-field input[type="time"]._huge, .-form._huge .-field input[type="week"]._huge {
-  padding: 8px 10px; }
-.-form._huge > input[type="email"] ._huge, .-form._huge > input[type="number"] ._huge, .-form._huge > input[type="password"] ._huge, .-form._huge > input[type="search"] ._huge, .-form._huge > input[type="tel"] ._huge, .-form._huge > input[type="text"] ._huge, .-form._huge > input[type="url"] ._huge, .-form._huge > input[type="color"] ._huge, .-form._huge > input[type="date"] ._huge, .-form._huge > input[type="datetime"] ._huge, .-form._huge > input[type="datetime-local"] ._huge, .-form._huge > input[type="month"] ._huge, .-form._huge > input[type="time"] ._huge, .-form._huge > input[type="week"] ._huge {
-  padding: 11px 10px;
-  width: 100%; }
-.-form._huge label._huge {
-  padding: 14px 0 3px 0;
-  line-height: 27px; }
-
-.-form .-field {
-  border-color: #e6e6e6; }
-  .-form .-field input[type="email"], .-form .-field input[type="number"], .-form .-field input[type="password"], .-form .-field input[type="search"], .-form .-field input[type="tel"], .-form .-field input[type="text"], .-form .-field input[type="url"], .-form .-field input[type="color"], .-form .-field input[type="date"], .-form .-field input[type="datetime"], .-form .-field input[type="datetime-local"], .-form .-field input[type="month"], .-form .-field input[type="time"], .-form .-field input[type="week"] {
-    border-color: #e6e6e6; }
-    .-form .-field input[type="email"]:focus, .-form .-field input[type="number"]:focus, .-form .-field input[type="password"]:focus, .-form .-field input[type="search"]:focus, .-form .-field input[type="tel"]:focus, .-form .-field input[type="text"]:focus, .-form .-field input[type="url"]:focus, .-form .-field input[type="color"]:focus, .-form .-field input[type="date"]:focus, .-form .-field input[type="datetime"]:focus, .-form .-field input[type="datetime-local"]:focus, .-form .-field input[type="month"]:focus, .-form .-field input[type="time"]:focus, .-form .-field input[type="week"]:focus {
-      -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
-      -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
-      box-shadow: 0 0 10px rgba(0,0,0,.3);
-      border-color: #d9d9d9; }
-  .-form .-field:hover input[type="email"], .-form .-field:hover input[type="number"], .-form .-field:hover input[type="password"], .-form .-field:hover input[type="search"], .-form .-field:hover input[type="tel"], .-form .-field:hover input[type="text"], .-form .-field:hover input[type="url"], .-form .-field:hover input[type="color"], .-form .-field:hover input[type="date"], .-form .-field:hover input[type="datetime"], .-form .-field:hover input[type="datetime-local"], .-form .-field:hover input[type="month"], .-form .-field:hover input[type="time"], .-form .-field:hover input[type="week"] {
-    border-color: #d9d9d9; }
-.-form input[type="email"], .-form input[type="number"], .-form input[type="password"], .-form input[type="search"], .-form input[type="tel"], .-form input[type="text"], .-form input[type="url"], .-form input[type="color"], .-form input[type="date"], .-form input[type="datetime"], .-form input[type="datetime-local"], .-form input[type="month"], .-form input[type="time"], .-form input[type="week"] {
-  border-color: #e6e6e6; }
-  .-form input[type="email"]:focus, .-form input[type="number"]:focus, .-form input[type="password"]:focus, .-form input[type="search"]:focus, .-form input[type="tel"]:focus, .-form input[type="text"]:focus, .-form input[type="url"]:focus, .-form input[type="color"]:focus, .-form input[type="date"]:focus, .-form input[type="datetime"]:focus, .-form input[type="datetime-local"]:focus, .-form input[type="month"]:focus, .-form input[type="time"]:focus, .-form input[type="week"]:focus {
-    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    box-shadow: 0 0 10px rgba(0,0,0,.3);
-    border-color: #d9d9d9; }
-  .-form input[type="email"]:hover, .-form input[type="number"]:hover, .-form input[type="password"]:hover, .-form input[type="search"]:hover, .-form input[type="tel"]:hover, .-form input[type="text"]:hover, .-form input[type="url"]:hover, .-form input[type="color"]:hover, .-form input[type="date"]:hover, .-form input[type="datetime"]:hover, .-form input[type="datetime-local"]:hover, .-form input[type="month"]:hover, .-form input[type="time"]:hover, .-form input[type="week"]:hover {
-    border-color: #d9d9d9; }
-
-.-form .-field.-primary- {
-  border-color: #1b88d6; }
-  .-form .-field.-primary- input[type="email"], .-form .-field.-primary- input[type="number"], .-form .-field.-primary- input[type="password"], .-form .-field.-primary- input[type="search"], .-form .-field.-primary- input[type="tel"], .-form .-field.-primary- input[type="text"], .-form .-field.-primary- input[type="url"], .-form .-field.-primary- input[type="color"], .-form .-field.-primary- input[type="date"], .-form .-field.-primary- input[type="datetime"], .-form .-field.-primary- input[type="datetime-local"], .-form .-field.-primary- input[type="month"], .-form .-field.-primary- input[type="time"], .-form .-field.-primary- input[type="week"] {
-    border-color: #187abf; }
-    .-form .-field.-primary- input[type="email"]:focus, .-form .-field.-primary- input[type="number"]:focus, .-form .-field.-primary- input[type="password"]:focus, .-form .-field.-primary- input[type="search"]:focus, .-form .-field.-primary- input[type="tel"]:focus, .-form .-field.-primary- input[type="text"]:focus, .-form .-field.-primary- input[type="url"]:focus, .-form .-field.-primary- input[type="color"]:focus, .-form .-field.-primary- input[type="date"]:focus, .-form .-field.-primary- input[type="datetime"]:focus, .-form .-field.-primary- input[type="datetime-local"]:focus, .-form .-field.-primary- input[type="month"]:focus, .-form .-field.-primary- input[type="time"]:focus, .-form .-field.-primary- input[type="week"]:focus {
-      -webkit-box-shadow: 0 0 10px rgba(26,120,217,1);
-      -moz-box-shadow: 0 0 10px rgba(26,120,217,1);
-      box-shadow: 0 0 10px rgba(26,120,217,1);
-      border-color: #156ba9; }
-  .-form .-field.-primary-:hover input[type="email"], .-form .-field.-primary-:hover input[type="number"], .-form .-field.-primary-:hover input[type="password"], .-form .-field.-primary-:hover input[type="search"], .-form .-field.-primary-:hover input[type="tel"], .-form .-field.-primary-:hover input[type="text"], .-form .-field.-primary-:hover input[type="url"], .-form .-field.-primary-:hover input[type="color"], .-form .-field.-primary-:hover input[type="date"], .-form .-field.-primary-:hover input[type="datetime"], .-form .-field.-primary-:hover input[type="datetime-local"], .-form .-field.-primary-:hover input[type="month"], .-form .-field.-primary-:hover input[type="time"], .-form .-field.-primary-:hover input[type="week"] {
-    border-color: #156ba9; }
-.-form input[type="email"].-primary-, .-form input[type="number"].-primary-, .-form input[type="password"].-primary-, .-form input[type="search"].-primary-, .-form input[type="tel"].-primary-, .-form input[type="text"].-primary-, .-form input[type="url"].-primary-, .-form input[type="color"].-primary-, .-form input[type="date"].-primary-, .-form input[type="datetime"].-primary-, .-form input[type="datetime-local"].-primary-, .-form input[type="month"].-primary-, .-form input[type="time"].-primary-, .-form input[type="week"].-primary- {
-  border-color: #187abf; }
-  .-form input[type="email"].-primary-:focus, .-form input[type="number"].-primary-:focus, .-form input[type="password"].-primary-:focus, .-form input[type="search"].-primary-:focus, .-form input[type="tel"].-primary-:focus, .-form input[type="text"].-primary-:focus, .-form input[type="url"].-primary-:focus, .-form input[type="color"].-primary-:focus, .-form input[type="date"].-primary-:focus, .-form input[type="datetime"].-primary-:focus, .-form input[type="datetime-local"].-primary-:focus, .-form input[type="month"].-primary-:focus, .-form input[type="time"].-primary-:focus, .-form input[type="week"].-primary-:focus {
-    -webkit-box-shadow: 0 0 10px rgba(26,120,217,1);
-    -moz-box-shadow: 0 0 10px rgba(26,120,217,1);
-    box-shadow: 0 0 10px rgba(26,120,217,1);
-    border-color: #156ba9; }
-  .-form input[type="email"].-primary-:hover, .-form input[type="number"].-primary-:hover, .-form input[type="password"].-primary-:hover, .-form input[type="search"].-primary-:hover, .-form input[type="tel"].-primary-:hover, .-form input[type="text"].-primary-:hover, .-form input[type="url"].-primary-:hover, .-form input[type="color"].-primary-:hover, .-form input[type="date"].-primary-:hover, .-form input[type="datetime"].-primary-:hover, .-form input[type="datetime-local"].-primary-:hover, .-form input[type="month"].-primary-:hover, .-form input[type="time"].-primary-:hover, .-form input[type="week"].-primary-:hover {
-    border-color: #156ba9; }
+Backtrace:
+dependences/widgets/object/_index.sass:8:in `box-sizing'
+dependences/widgets/object/_index.sass:8
+./_imports.sass:1
+_index.sass:1
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/perform.rb:251:in `visit_mixin'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `send'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/perform.rb:98:in `visit'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `map'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/perform.rb:107:in `visit_children'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/perform.rb:119:in `with_environment'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/perform.rb:106:in `visit_children'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/perform.rb:318:in `visit_rule'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `send'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/perform.rb:98:in `visit'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/perform.rb:225:in `visit_import'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/perform.rb:225:in `map'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/perform.rb:225:in `visit_import'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `send'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/perform.rb:98:in `visit'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/perform.rb:225:in `visit_import'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/perform.rb:225:in `map'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/perform.rb:225:in `visit_import'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `send'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/perform.rb:98:in `visit'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `map'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/perform.rb:107:in `visit_children'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/perform.rb:119:in `with_environment'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/perform.rb:106:in `visit_children'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/perform.rb:126:in `visit_root'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `send'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/perform.rb:98:in `visit'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/perform.rb:7:in `send'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/visitors/perform.rb:7:in `visit'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/tree/root_node.rb:20:in `render'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/engine.rb:315:in `_render'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/engine.rb:262:in `render'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/plugin/compiler.rb:341:in `update_stylesheet'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/plugin/compiler.rb:203:in `update_stylesheets'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/plugin/compiler.rb:201:in `each'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/plugin/compiler.rb:201:in `update_stylesheets'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/plugin/compiler.rb:299:in `watch'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/vendor/listen/lib/listen/multi_listener.rb:86:in `call'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/vendor/listen/lib/listen/multi_listener.rb:86:in `on_change'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/vendor/listen/lib/listen/multi_listener.rb:95:in `initialize_adapter'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/vendor/listen/lib/listen/adapters/polling.rb:55:in `call'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/vendor/listen/lib/listen/adapters/polling.rb:55:in `poll'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/vendor/listen/lib/listen/adapters/polling.rb:31:in `start'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/vendor/listen/lib/listen/adapters/polling.rb:31:in `initialize'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/vendor/listen/lib/listen/adapters/polling.rb:31:in `new'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/vendor/listen/lib/listen/adapters/polling.rb:31:in `start'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/vendor/listen/lib/listen/multi_listener.rb:44:in `start'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/plugin/compiler.rb:307:in `watch'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/plugin.rb:107:in `send'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/plugin.rb:107:in `method_missing'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/exec.rb:444:in `watch_or_update'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/exec.rb:307:in `process_result'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/exec.rb:41:in `parse'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/../lib/sass/../sass/exec.rb:21:in `parse!'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.3/bin/sass:8
+/usr/bin/sass:19:in `load'
+/usr/bin/sass:19
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined mixin 'box-sizing'.\A         on line 8 of dependences/widgets/object/_index.sass, in `box-sizing'\A         from line 8 of dependences/widgets/object/_index.sass\A         from line 1 of ./_imports.sass\A         from line 1 of _index.sass\A \A 3: @import \"vars\"\A 4: @import \"myvars\" \A 5:  \A 6: @mixin form-field( $index ) \A 7: 	border-color: nth( $border-color-lighten, $index )\A 8: 	\A 9: 	#{$all-text-inputs}\A 10: 		border-color: nth( $border-color, $index )\A 11: \A 12: 		&:focus\A 13: 			@include box-shadow( unquote(nth( $outline, $index )) )"; }
