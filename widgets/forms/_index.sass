@@ -4,6 +4,7 @@
 @import "myvars" 
  
 @mixin form-field( $index ) 
+	position: relative
 	border-color: nth( $border-color-lighten, $index )
 	
 	#{$all-text-inputs}
@@ -13,9 +14,47 @@
 			@include box-shadow( unquote(nth( $outline, $index )) )
 			border-color: nth( $border-color-darken, $index )
 
+	select
+		width: 100%
+		background-color: transparent
+		border-color: nth( $border-color, $index )
+		@include border-radius( 0 )
+		@include appearance( textfield )
+
+	.#{$caret}
+		@extend %object
+		position: absolute
+		right: 10px
+		top: 50%
+		z-index: -1
+		margin-top: -2px
+		@include triangle( 10px, nth( $border-color-darken, $index ), down )
+
 	&:hover
 		#{$all-text-inputs}
 			border-color: nth( $border-color-darken, $index )
+
+
+	@if nth( $themes, $index ) == '-disabled-'
+		border-color: nth( $border-color-lighten, $index )!important
+		
+		#{$all-text-inputs},
+		select
+			background-color: nth( $background-color, $index )!important
+			color: nth( $color, $index )!important
+			border-color: nth( $border-color, $index )!important
+			
+			&:focus
+				@include box-shadow( unquote(nth( $shadow, $index ))!important )
+
+		.#{$caret}
+			@include triangle( 10px, nth( $border-color, $index ), down )
+
+		&:focus,
+		&:hover
+			#{$all-text-inputs}
+				background-color: nth( $background-color, $index )!important
+				color: nth( $color, $index )!important
 
 
 
@@ -30,19 +69,70 @@
 	&:hover
 		border-color: nth( $border-color-darken, $index )
 
+	@if nth( $themes, $index ) == '-disabled-'
+		background-color: nth( $background-color, $index )!important
+		color: nth( $color, $index )!important
+		border-color: nth( $border-color, $index )!important
+		&:focus,
+		&:hover
+			background-color: nth( $background-color, $index )!important
+			color: nth( $color, $index )!important
+		&:focus
+			@include box-shadow( unquote(nth( $shadow, $index ))!important )
+
+
+
+
+@mixin form-select( $index )
+
+	width: 100%
+	background-color: transparent
+	border-color: nth( $border-color, $index )
+	@include border-radius( 0 )
+	@include appearance( textfield )
+
+	& + .#{$caret}
+		@extend %object
+		position: absolute
+		right: 10px
+		top: 50%
+		z-index: -1
+		margin-top: -2px
+		@include triangle( 10px, nth( $border-color-darken, $index ), down )
+
+	@if nth( $themes, $index ) == '-disabled-'
+		background-color: nth( $background-color, $index )!important
+		color: nth( $color, $index )!important
+		border-color: nth( $border-color, $index )!important
+		&:focus,
+		&:hover
+			background-color: nth( $background-color, $index )!important
+			color: nth( $color, $index )!important
+		&:focus
+			@include box-shadow( unquote(nth( $shadow, $index ))!important )
+
+		& + .#{$caret}
+			display: none
 
 
 @mixin form-field-size( $mod, $top, $left, $font )
 	#{$all-text-inputs},
-	label
+	label,
+	select
 		font-size: $font
 
 	.#{$form-field}
-		#{$all-text-inputs}
+		#{$all-text-inputs},
+		select
 			padding: $top $left
 
 	& >
 		#{$all-text-inputs}
+			padding: $top + $form-field-border-width $left
+			width: 100%
+
+	& >
+		.#{$form-select} select
 			padding: $top + $form-field-border-width $left
 			width: 100%
 
@@ -55,20 +145,20 @@
 		label.#{$mod}
 			font-size: $font
 
-		#{$all-text-inputs}
-			&.#{$mod}
-				font-size: $font
+		#{$all-text-inputs},
+		.#{$form-select} select
+			font-size: $font
 
 		.#{$form-field}
-			#{$all-text-inputs}
-				&.#{$mod}
-					padding: $top $left
+			#{$all-text-inputs},
+			select
+				padding: $top $left
 
 		& >
-			#{$all-text-inputs}
-				.#{$mod}
-					padding: $top + $form-field-border-width $left
-					width: 100%
+			#{$all-text-inputs},
+			select
+				padding: $top + $form-field-border-width $left
+				width: 100%
 
 		label.#{$mod}
 			padding: $top + $form-field-border-width + $form-input-border-width + $form-input-border-width + 1 0 $form-field-border-width 0
@@ -97,6 +187,8 @@ $themes: null !default
 			&[class^="#{$col}"]
 				padding-top: 0
 
+		.#{$form-select}
+			position: relative
 
 		.#{$form-info}
 			margin-top: -$form-field-margin-bottom + 2
@@ -138,6 +230,12 @@ $themes: null !default
 			#{$all-text-inputs}
 				display: block
 
+			@include form-fields-size( '', 4px, 6px, 16px )
+			@include form-fields-size( $mod-tiny, 2px, 3px, 11px )
+			@include form-fields-size( $mod-small, 2px, 3px, 13px )
+			@include form-fields-size( $mod-big, 6px, 8px, 20px )
+			@include form-fields-size( $mod-huge, 8px, 10px, 26px )
+
 
 		// Create GRID
 
@@ -165,12 +263,6 @@ $themes: null !default
 			@include form-fields-size( $mod-big, 6px, 8px, 20px )
 			@include form-fields-size( $mod-huge, 8px, 10px, 26px )
 
-		@include form-fields-size( '', 4px, 6px, 16px )
-		@include form-fields-size( $mod-tiny, 2px, 3px, 11px )
-		@include form-fields-size( $mod-small, 2px, 3px, 13px )
-		@include form-fields-size( $mod-big, 6px, 8px, 20px )
-		@include form-fields-size( $mod-huge, 8px, 10px, 26px )
-
 			
 
 
@@ -180,8 +272,7 @@ $themes: null !default
 
 @if $themes
 
-	$length: length( $themes )
-	// @each $theme in $themes 
+	$length: length( $themes ) 
 
 	@for $index from 1 through $length
  
@@ -197,12 +288,16 @@ $themes: null !default
 					#{$all-text-inputs}
 						&.#{$theme} 
 							@include form-input( $index )
+					select.#{$theme}
+						@include form-select( $index )
 
 				@else
 					.#{$form-field}
 						@include form-field( $index )
 					#{$all-text-inputs}
 						@include form-input( $index )
+					select
+						@include form-select( $index )
 
 
 		@else 
@@ -213,9 +308,13 @@ $themes: null !default
 					#{$all-text-inputs}
 						.#{$theme} 
 							@include form-input( $index )
+					select.#{$theme}
+						@include form-select( $index )
 				
 				@else
 					.#{$form-field}
 						@include form-field( $index )
 					#{$all-text-inputs}
 						@include form-input( $index )
+					select
+						@include form-select( $index )
