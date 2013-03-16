@@ -1,0 +1,9 @@
+{
+    "type": "modifyer",
+    "name": "loading",
+    "version": "0.0.0",
+    "description": "Loading modifyer",
+    "repository": "",
+    "author": "maxmert",
+    "license": "BSD"
+}

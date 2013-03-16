@@ -1,0 +1,33 @@
+{
+    "type": "widget",
+    "name": "btn",
+    "version": "0.0.0",
+    "description": "Standart button for maxmertkit",
+    "repository": "",
+    "author": "maxmert",
+    "license": "BSD",
+
+    "dependences": {
+    	"bourbon": "*",
+    	"object": "*",
+        "loading": "*"
+    },
+
+    "themes": {
+    	"default": "*",
+        "disabled": "*",
+        "primary": "*"
+    },
+
+    "modifyers": {
+        "small": "*",
+        "big": "*",
+        "huge": "*",
+
+        "hover": "*",
+        "active": "*",
+
+        "loading": "*",
+        "unstyled": "*"
+    }
+}
