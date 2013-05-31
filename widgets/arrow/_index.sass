@@ -1,0 +1,46 @@
+@import "imports" 
+@import "params" 
+@import "vars" 
+@import "myvars" 
+ 
+
+// .#{$arrow}
+// 	@extend %object
+
+// @mixin arrow( $index ) 
+// 	// All here
+
+ 
+// $themes: null !default 
+ 
+// @if $themes 
+// 	@if type-of( $themes ) == list 
+	  
+// 		@each $theme in $themes 
+	 
+// 			$index: index( $themes, $theme ) 
+	 
+// 			// With each theme do 
+// 			@if $dependent == null 
+// 				@if $theme != "default" 
+// 					.#{$arrow}.#{$theme} 
+// 						@include arrow( $index ) 
+// 				@else 
+// 					.#{$arrow} 
+// 						@include arrow( $index ) 
+// 			@else 
+// 				%#{$arrow}.#{$theme} 
+// 					@include arrow( $index ) 
+ 
+// 	@else 
+// 		@if type-of( $themes ) == string 
+// 			@if $dependent == null 
+// 				@if $theme != "default" 
+// 					.#{$arrow}.#{$theme} 
+// 						@include arrow( $index ) 
+// 				@else 
+// 					.#{$arrow} 
+// 						@include arrow( $index ) 
+// 			@else 
+// 				%#{$arrow}.#{$theme} 
+// 					@include arrow( $index ) 

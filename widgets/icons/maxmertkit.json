@@ -1,0 +1,9 @@
+{
+    "type": "widget",
+    "name": "icons",
+    "version": "0.0.0",
+    "description": "Standart icons for maxmertkit. Uses awesome font.",
+    "repository": "",
+    "author": "maxmert",
+    "license": "BSD"
+}

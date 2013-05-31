@@ -1,0 +1,15 @@
+@import "imports" 
+@import "params" 
+@import "vars" 
+
+@include keyframes(move)
+	from
+		background-position: 0 0
+	to
+		background-position: 52px 52px
+
+
+@mixin loading( $animation-color, $animation-color-second )
+	@include background-size( 52px 52px )
+	@include background-image(linear-gradient( -45deg, $animation-color 25%, $animation-color-second 25%, $animation-color-second 50%, $animation-color 50%, $animation-color 75%, $animation-color-second 75%, $animation-color-second ))
+	@include animation( move 2s linear infinite )

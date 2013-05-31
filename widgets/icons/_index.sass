@@ -1,0 +1,530 @@
+@import "imports" 
+@import "params" 
+@import "vars" 
+@import "myvars" 
+ 
+@font-face
+	font-family: 'FontAwesome'
+	src: url('font/fontawesome-webfont.eot?v=3.0.1')
+	src: url('font/fontawesome-webfont.eot?#iefix&v=3.0.1') format("embedded-opentype"), url('font/fontawesome-webfont.woff?v=3.0.1') format("woff"), url('font/fontawesome-webfont.ttf?v=3.0.1') format("truetype")
+	font-weight: normal
+	font-style: normal
+
+@mixin icons 
+	font-family: FontAwesome
+	font-weight: normal
+	font-style: normal
+	text-decoration: inherit
+	-webkit-font-smoothing: antialiased
+ 
+ 
+// With each theme do 
+@if $dependent == null 
+	[class*="#{$icons}"],
+	[class^="#{$icons}"]
+		@include icons
+
+	
+	.#{$icons}-glass:before
+		content: "\f000"
+	.#{$icons}-music:before
+		content: "\f001"
+	.#{$icons}-search:before
+		content: "\f002"
+	.#{$icons}-envelope:before
+		content: "\f003"
+	.#{$icons}-heart:before
+		content: "\f004"
+	.#{$icons}-star:before
+		content: "\f005"
+	.#{$icons}-star-empty:before
+		content: "\f006"
+	.#{$icons}-user:before
+		content: "\f007"
+	.#{$icons}-film:before
+		content: "\f008"
+	.#{$icons}-th-large:before
+		content: "\f009"
+	.#{$icons}-th:before
+		content: "\f00a"
+	.#{$icons}-th-list:before
+		content: "\f00b"
+	.#{$icons}-ok:before
+		content: "\f00c"
+	.#{$icons}-remove:before
+		content: "\f00d"
+	.#{$icons}-zoom-in:before
+		content: "\f00e"
+	.#{$icons}-zoom-out:before
+		content: "\f010"
+	.#{$icons}-off:before
+		content: "\f011"
+	.#{$icons}-signal:before
+		content: "\f012"
+	.#{$icons}-cog:before
+		content: "\f013"
+	.#{$icons}-trash:before
+		content: "\f014"
+	.#{$icons}-home:before
+		content: "\f015"
+	.#{$icons}-file:before
+		content: "\f016"
+	.#{$icons}-time:before
+		content: "\f017"
+	.#{$icons}-road:before
+		content: "\f018"
+	.#{$icons}-download-alt:before
+		content: "\f019"
+	.#{$icons}-download:before
+		content: "\f01a"
+	.#{$icons}-upload:before
+		content: "\f01b"
+	.#{$icons}-inbox:before
+		content: "\f01c"
+	.#{$icons}-play-circle:before
+		content: "\f01d"
+	.#{$icons}-repeat:before
+		content: "\f01e"
+
+	.#{$icons}-refresh:before
+		content: "\f021"
+	.#{$icons}-list-alt:before
+		content: "\f022"
+	.#{$icons}-lock:before
+		content: "\f023"
+	.#{$icons}-flag:before
+		content: "\f024"
+	.#{$icons}-headphones:before
+		content: "\f025"
+	.#{$icons}-volume-off:before
+		content: "\f026"
+	.#{$icons}-volume-down:before
+		content: "\f027"
+	.#{$icons}-volume-up:before
+		content: "\f028"
+	.#{$icons}-qrcode:before
+		content: "\f029"
+	.#{$icons}-barcode:before
+		content: "\f02a"
+	.#{$icons}-tag:before
+		content: "\f02b"
+	.#{$icons}-tags:before
+		content: "\f02c"
+	.#{$icons}-book:before
+		content: "\f02d"
+	.#{$icons}-bookmark:before
+		content: "\f02e"
+	.#{$icons}-print:before
+		content: "\f02f"
+	.#{$icons}-camera:before
+		content: "\f030"
+	.#{$icons}-font:before
+		content: "\f031"
+	.#{$icons}-bold:before
+		content: "\f032"
+	.#{$icons}-italic:before
+		content: "\f033"
+	.#{$icons}-text-height:before
+		content: "\f034"
+	.#{$icons}-text-width:before
+		content: "\f035"
+	.#{$icons}-align-left:before
+		content: "\f036"
+	.#{$icons}-align-center:before
+		content: "\f037"
+	.#{$icons}-align-right:before
+		content: "\f038"
+	.#{$icons}-align-justify:before
+		content: "\f039"
+	.#{$icons}-list:before
+		content: "\f03a"
+	.#{$icons}-indent-left:before
+		content: "\f03b"
+	.#{$icons}-indent-right:before
+		content: "\f03c"
+	.#{$icons}-facetime-video:before
+		content: "\f03d"
+	.#{$icons}-picture:before
+		content: "\f03e"
+	.#{$icons}-pencil:before
+		content: "\f040"
+	.#{$icons}-map-marker:before
+		content: "\f041"
+	.#{$icons}-adjust:before
+		content: "\f042"
+	.#{$icons}-tint:before
+		content: "\f043"
+	.#{$icons}-edit:before
+		content: "\f044"
+	.#{$icons}-share:before
+		content: "\f045"
+	.#{$icons}-check:before
+		content: "\f046"
+	.#{$icons}-move:before
+		content: "\f047"
+	.#{$icons}-step-backward:before
+		content: "\f048"
+	.#{$icons}-fast-backward:before
+		content: "\f049"
+	.#{$icons}-backward:before
+		content: "\f04a"
+	.#{$icons}-play:before
+		content: "\f04b"
+	.#{$icons}-pause:before
+		content: "\f04c"
+	.#{$icons}-stop:before
+		content: "\f04d"
+	.#{$icons}-forward:before
+		content: "\f04e"
+	.#{$icons}-fast-forward:before
+		content: "\f050"
+	.#{$icons}-step-forward:before
+		content: "\f051"
+	.#{$icons}-eject:before
+		content: "\f052"
+	.#{$icons}-chevron-left:before
+		content: "\f053"
+	.#{$icons}-chevron-right:before
+		content: "\f054"
+	.#{$icons}-plus-sign:before
+		content: "\f055"
+	.#{$icons}-minus-sign:before
+		content: "\f056"
+	.#{$icons}-remove-sign:before
+		content: "\f057"
+	.#{$icons}-ok-sign:before
+		content: "\f058"
+	.#{$icons}-question-sign:before
+		content: "\f059"
+	.#{$icons}-info-sign:before
+		content: "\f05a"
+	.#{$icons}-screenshot:before
+		content: "\f05b"
+	.#{$icons}-remove-circle:before
+		content: "\f05c"
+	.#{$icons}-ok-circle:before
+		content: "\f05d"
+	.#{$icons}-ban-circle:before
+		content: "\f05e"
+	.#{$icons}-arrow-left:before
+		content: "\f060"
+	.#{$icons}-arrow-right:before
+		content: "\f061"
+	.#{$icons}-arrow-up:before
+		content: "\f062"
+	.#{$icons}-arrow-down:before
+		content: "\f063"
+	.#{$icons}-share-alt:before
+		content: "\f064"
+	.#{$icons}-resize-full:before
+		content: "\f065"
+	.#{$icons}-resize-small:before
+		content: "\f066"
+	.#{$icons}-plus:before
+		content: "\f067"
+	.#{$icons}-minus:before
+		content: "\f068"
+	.#{$icons}-asterisk:before
+		content: "\f069"
+	.#{$icons}-exclamation-sign:before
+		content: "\f06a"
+	.#{$icons}-gift:before
+		content: "\f06b"
+	.#{$icons}-leaf:before
+		content: "\f06c"
+	.#{$icons}-fire:before
+		content: "\f06d"
+	.#{$icons}-eye-open:before
+		content: "\f06e"
+	.#{$icons}-eye-close:before
+		content: "\f070"
+	.#{$icons}-warning-sign:before
+		content: "\f071"
+	.#{$icons}-plane:before
+		content: "\f072"
+	.#{$icons}-calendar:before
+		content: "\f073"
+	.#{$icons}-random:before
+		content: "\f074"
+	.#{$icons}-comment:before
+		content: "\f075"
+	.#{$icons}-magnet:before
+		content: "\f076"
+	.#{$icons}-chevron-up:before
+		content: "\f077"
+	.#{$icons}-chevron-down:before
+		content: "\f078"
+	.#{$icons}-retweet:before
+		content: "\f079"
+	.#{$icons}-shopping-cart:before
+		content: "\f07a"
+	.#{$icons}-folder-close:before
+		content: "\f07b"
+	.#{$icons}-folder-open:before
+		content: "\f07c"
+	.#{$icons}-resize-vertical:before
+		content: "\f07d"
+	.#{$icons}-resize-horizontal:before
+		content: "\f07e"
+	.#{$icons}-bar-chart:before
+		content: "\f080"
+	.#{$icons}-twitter-sign:before
+		content: "\f081"
+	.#{$icons}-facebook-sign:before
+		content: "\f082"
+	.#{$icons}-camera-retro:before
+		content: "\f083"
+	.#{$icons}-key:before
+		content: "\f084"
+	.#{$icons}-cogs:before
+		content: "\f085"
+	.#{$icons}-comments:before
+		content: "\f086"
+	.#{$icons}-thumbs-up:before
+		content: "\f087"
+	.#{$icons}-thumbs-down:before
+		content: "\f088"
+	.#{$icons}-star-half:before
+		content: "\f089"
+	.#{$icons}-heart-empty:before
+		content: "\f08a"
+	.#{$icons}-signout:before
+		content: "\f08b"
+	.#{$icons}-linkedin-sign:before
+		content: "\f08c"
+	.#{$icons}-pushpin:before
+		content: "\f08d"
+	.#{$icons}-external-link:before
+		content: "\f08e"
+	.#{$icons}-signin:before
+		content: "\f090"
+	.#{$icons}-trophy:before
+		content: "\f091"
+	.#{$icons}-github-sign:before
+		content: "\f092"
+	.#{$icons}-upload-alt:before
+		content: "\f093"
+	.#{$icons}-lemon:before
+		content: "\f094"
+	.#{$icons}-phone:before
+		content: "\f095"
+	.#{$icons}-check-empty:before
+		content: "\f096"
+	.#{$icons}-bookmark-empty:before
+		content: "\f097"
+	.#{$icons}-phone-sign:before
+		content: "\f098"
+	.#{$icons}-twitter:before
+		content: "\f099"
+	.#{$icons}-facebook:before
+		content: "\f09a"
+	.#{$icons}-github:before
+		content: "\f09b"
+	.#{$icons}-unlock:before
+		content: "\f09c"
+	.#{$icons}-credit-card:before
+		content: "\f09d"
+	.#{$icons}-rss:before
+		content: "\f09e"
+	.#{$icons}-hdd:before
+		content: "\f0a0"
+	.#{$icons}-bullhorn:before
+		content: "\f0a1"
+	.#{$icons}-bell:before
+		content: "\f0a2"
+	.#{$icons}-certificate:before
+		content: "\f0a3"
+	.#{$icons}-hand-right:before
+		content: "\f0a4"
+	.#{$icons}-hand-left:before
+		content: "\f0a5"
+	.#{$icons}-hand-up:before
+		content: "\f0a6"
+	.#{$icons}-hand-down:before
+		content: "\f0a7"
+	.#{$icons}-circle-arrow-left:before
+		content: "\f0a8"
+	.#{$icons}-circle-arrow-right:before
+		content: "\f0a9"
+	.#{$icons}-circle-arrow-up:before
+		content: "\f0aa"
+	.#{$icons}-circle-arrow-down:before
+		content: "\f0ab"
+	.#{$icons}-globe:before
+		content: "\f0ac"
+	.#{$icons}-wrench:before
+		content: "\f0ad"
+	.#{$icons}-tasks:before
+		content: "\f0ae"
+	.#{$icons}-filter:before
+		content: "\f0b0"
+	.#{$icons}-briefcase:before
+		content: "\f0b1"
+	.#{$icons}-fullscreen:before
+		content: "\f0b2"
+	.#{$icons}-group:before
+		content: "\f0c0"
+	.#{$icons}-link:before
+		content: "\f0c1"
+	.#{$icons}-cloud:before
+		content: "\f0c2"
+	.#{$icons}-beaker:before
+		content: "\f0c3"
+	.#{$icons}-cut:before
+		content: "\f0c4"
+	.#{$icons}-copy:before
+		content: "\f0c5"
+	.#{$icons}-paper-clip:before
+		content: "\f0c6"
+	.#{$icons}-save:before
+		content: "\f0c7"
+	.#{$icons}-sign-blank:before
+		content: "\f0c8"
+	.#{$icons}-reorder:before
+		content: "\f0c9"
+	.#{$icons}-list-ul:before
+		content: "\f0ca"
+	.#{$icons}-list-ol:before
+		content: "\f0cb"
+	.#{$icons}-strikethrough:before
+		content: "\f0cc"
+	.#{$icons}-underline:before
+		content: "\f0cd"
+	.#{$icons}-table:before
+		content: "\f0ce"
+	.#{$icons}-magic:before
+		content: "\f0d0"
+	.#{$icons}-truck:before
+		content: "\f0d1"
+	.#{$icons}-pinterest:before
+		content: "\f0d2"
+	.#{$icons}-pinterest-sign:before
+		content: "\f0d3"
+	.#{$icons}-google-plus-sign:before
+		content: "\f0d4"
+	.#{$icons}-google-plus:before
+		content: "\f0d5"
+	.#{$icons}-money:before
+		content: "\f0d6"
+	.#{$icons}-caret-down:before
+		content: "\f0d7"
+	.#{$icons}-caret-up:before
+		content: "\f0d8"
+	.#{$icons}-caret-left:before
+		content: "\f0d9"
+	.#{$icons}-caret-right:before
+		content: "\f0da"
+	.#{$icons}-columns:before
+		content: "\f0db"
+	.#{$icons}-sort:before
+		content: "\f0dc"
+	.#{$icons}-sort-down:before
+		content: "\f0dd"
+	.#{$icons}-sort-up:before
+		content: "\f0de"
+	.#{$icons}-envelope-alt:before
+		content: "\f0e0"
+	.#{$icons}-linkedin:before
+		content: "\f0e1"
+	.#{$icons}-undo:before
+		content: "\f0e2"
+	.#{$icons}-legal:before
+		content: "\f0e3"
+	.#{$icons}-dashboard:before
+		content: "\f0e4"
+	.#{$icons}-comment-alt:before
+		content: "\f0e5"
+	.#{$icons}-comments-alt:before
+		content: "\f0e6"
+	.#{$icons}-bolt:before
+		content: "\f0e7"
+	.#{$icons}-sitemap:before
+		content: "\f0e8"
+	.#{$icons}-umbrella:before
+		content: "\f0e9"
+	.#{$icons}-paste:before
+		content: "\f0ea"
+	.#{$icons}-lightbulb:before
+		content: "\f0eb"
+	.#{$icons}-exchange:before
+		content: "\f0ec"
+	.#{$icons}-cloud-download:before
+		content: "\f0ed"
+	.#{$icons}-cloud-upload:before
+		content: "\f0ee"
+	.#{$icons}-user-md:before
+		content: "\f0f0"
+	.#{$icons}-stethoscope:before
+		content: "\f0f1"
+	.#{$icons}-suitcase:before
+		content: "\f0f2"
+	.#{$icons}-bell-alt:before
+		content: "\f0f3"
+	.#{$icons}-coffee:before
+		content: "\f0f4"
+	.#{$icons}-food:before
+		content: "\f0f5"
+	.#{$icons}-file-alt:before
+		content: "\f0f6"
+	.#{$icons}-building:before
+		content: "\f0f7"
+	.#{$icons}-hospital:before
+		content: "\f0f8"
+	.#{$icons}-ambulance:before
+		content: "\f0f9"
+	.#{$icons}-medkit:before
+		content: "\f0fa"
+	.#{$icons}-fighter-jet:before
+		content: "\f0fb"
+	.#{$icons}-beer:before
+		content: "\f0fc"
+	.#{$icons}-h-sign:before
+		content: "\f0fd"
+	.#{$icons}-plus-sign-alt:before
+		content: "\f0fe"
+	.#{$icons}-double-angle-left:before
+		content: "\f100"
+	.#{$icons}-double-angle-right:before
+		content: "\f101"
+	.#{$icons}-double-angle-up:before
+		content: "\f102"
+	.#{$icons}-double-angle-down:before
+		content: "\f103"
+	.#{$icons}-angle-left:before
+		content: "\f104"
+	.#{$icons}-angle-right:before
+		content: "\f105"
+	.#{$icons}-angle-up:before
+		content: "\f106"
+	.#{$icons}-angle-down:before
+		content: "\f107"
+	.#{$icons}-desktop:before
+		content: "\f108"
+	.#{$icons}-laptop:before
+		content: "\f109"
+	.#{$icons}-tablet:before
+		content: "\f10a"
+	.#{$icons}-mobile-phone:before
+		content: "\f10b"
+	.#{$icons}-circle-blank:before
+		content: "\f10c"
+	.#{$icons}-quote-left:before
+		content: "\f10d"
+	.#{$icons}-quote-right:before
+		content: "\f10e"
+	.#{$icons}-spinner:before
+		content: "\f110"
+	.#{$icons}-circle:before
+		content: "\f111"
+	.#{$icons}-reply:before
+		content: "\f112"
+	.#{$icons}-github-alt:before
+		content: "\f113"
+	.#{$icons}-folder-close-alt:before
+		content: "\f114"
+	.#{$icons}-folder-open-alt:before
+		content: "\f115"
+		
+@else 
+	%#{$icons}
+		@include icons

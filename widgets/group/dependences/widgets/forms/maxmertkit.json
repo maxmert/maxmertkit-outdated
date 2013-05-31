@@ -1,0 +1,38 @@
+{
+    "type": "widget",
+    "name": "forms",
+    "version": "0.0.0",
+    "description": "Standart forms for maxmertkit",
+    "repository": "",
+    "author": "maxmert",
+    "license": "BSD",
+
+    "dependences": {
+        "object": {
+            "version": "*"
+        },
+        "bourbon": {
+            "version": "*"
+        },
+        "grid": {
+            "version": "*"
+        },
+         "caret": {
+            "version": "*"
+        }
+    },
+
+    "modifyers": {
+        "tiny": "0.0.0",
+        "small": "0.0.0",
+        "big": "0.0.0",
+        "huge": "0.0.0",
+        "right": "0.0.0"
+    },
+
+    "themes": {
+        "default": "0.0.0",
+        "disabled": "0.0.0",
+        "primary": "0.0.0"
+    }
+}

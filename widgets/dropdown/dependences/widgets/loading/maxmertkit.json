@@ -1,0 +1,9 @@
+{
+    "type": "widget",
+    "name": "loading",
+    "version": "0.0.0",
+    "description": "Loading mixins",
+    "repository": "",
+    "author": "maxmert",
+    "license": "BSD"
+}

@@ -1,0 +1,13 @@
+{
+    "type": "widget",
+    "name": "arrow",
+    "version": "0.0.0",
+    "description": "Standart arrow",
+    "repository": "",
+    "author": "maxmert",
+    "license": "BSD",
+
+    "dependences": {
+    	"object": "*"
+    }
+}

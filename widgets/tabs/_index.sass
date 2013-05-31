@@ -1,0 +1,166 @@
+@import "imports" 
+@import "params" 
+@import "vars" 
+@import "myvars" 
+
+
+@mixin tabs( $index )
+	border-bottom-color: nth( $border-color, $index )
+	color: nth( $color, $index )
+	
+	li
+		&:hover a
+			background-color: nth( $background-color, $index )
+			color: nth( $color-invert, $index )
+
+		&:active a
+			background-color: nth( $background-color-darken, $index )
+			color: nth( $color-invert, $index )
+
+		&.#{$mod-hover} a
+			background-color: nth( $background-color, $index )!important
+			color: nth( $color-invert, $index )!important
+
+		&.#{$mod-active} a
+			border-color: nth( $border-color, $index ) nth( $border-color, $index ) transparent nth( $border-color, $index )!important
+			background-color: nth( $background-color-darken, $index )!important
+			color: nth( $color-invert, $index )!important
+
+		&.#{$mod-loading} a
+			@include loading( rgba( nth( $background-color-darken, $index ), 1), rgba( nth( $background-color-lighten, $index ), 1) )
+
+
+@mixin tab( $index )
+	
+	color: nth( $color, $index )
+	
+	&:hover a
+		background-color: nth( $background-color, $index )
+		color: nth( $color-invert, $index )
+
+	&:active a
+		background-color: nth( $background-color-darken, $index )
+		color: nth( $color-invert, $index )
+
+	&.#{$mod-hover} a
+		background-color: nth( $background-color, $index )!important
+		color: nth( $color-invert, $index )!important
+
+	&.#{$mod-active} a
+		border-color: nth( $border-color, $index ) nth( $border-color, $index ) transparent nth( $border-color, $index )!important
+		background-color: nth( $background-color-darken, $index )!important
+		color: nth( $color-invert, $index )!important
+
+	&.#{$mod-loading} a
+		@include loading( rgba( nth( $background-color-darken, $index ), 1), rgba( nth( $background-color-lighten, $index ), 1) )
+ 
+
+
+
+@mixin tab-size( $mod, $top, $left, $font )
+	li > a
+		padding: $top $left
+		font-size: $font
+
+		.#{$caret}
+			@include triangle($font/1.7, rgba(0,0,0,.5), down)
+			border-bottom-width: 0!important
+
+	li.#{$mod-active} > a
+		.#{$caret}
+			@include triangle($font/1.7, rgba(0,0,0,.5), up)
+			border-top-width: 0!important
+			border-bottom-width: $font/1.7/2!important
+
+
+
+@mixin tabs-sizes( $mod, $top, $left, $font )
+
+	@if $mod != ''
+		&.#{$mod}
+			@include tab-size( $mod, $top, $left, $font )
+
+	@else
+		@include tab-size( $mod, $top, $left, $font )
+
+
+
+
+@if $dependent == null
+	.#{$tabs},
+	.#{$tabs} li > a
+		@extend %object
+		vertical-align: middle
+		@include user-select
+
+	.#{$tabs}
+		list-style: none
+		margin: 0
+		border-bottom: $tabs-border-width $tabs-border-style transparent
+		vertical-align: bottom
+		
+		li
+			display: inline-block
+
+		li > a
+			display: inline-block
+			border: $tabs-border-width $tabs-border-style transparent
+			@include border-radius($tabs-border-radius $tabs-border-radius 0 0)
+			@include user-select
+			cursor: pointer
+
+		li.#{$mod-active} a
+			cursor: inherit
+			margin-bottom: -$tabs-border-width - 1
+
+
+		.#{$caret}
+			@extend %object
+
+		@include tabs-sizes( $mod-small, 3px, 5px, round(golden-ratio(14px, -1) + 2) )
+		@include tabs-sizes( '', 6px, 10px, 14px )
+		@include tabs-sizes( $mod-big, 13px, 13px, round(golden-ratio(14px, 1)) )
+		@include tabs-sizes( $mod-huge, 22px, 16px, round(golden-ratio(14px, 2)) )
+
+ 
+$themes: null !default 
+ 
+@if $themes 
+	@if type-of( $themes ) == list 
+	  
+		@each $theme in $themes 
+	 
+			$index: index( $themes, $theme ) 
+	 
+			// With each theme do 
+			@if $dependent == null 
+				@if $theme != "default" 
+					.#{$tabs}.#{$theme} 
+						@include tabs( $index ) 
+					.#{$tabs} li.#{$theme}
+						@include tab( $index ) 
+				@else 
+					.#{$tabs} 
+						@include tabs( $index )
+			@else 
+				%#{$tabs}.#{$theme} 
+					@include tabs( $index )
+				li.%#{$theme}
+					@include tab( $index ) 
+ 
+	@else 
+		@if type-of( $themes ) == string 
+			@if $dependent == null 
+				@if $theme != "default" 
+					.#{$tabs}.#{$theme} 
+						@include tabs( $index )
+					.#{$tabs} li.#{$theme}
+						@include tab( $index ) 
+				@else 
+					.#{$tabs} 
+						@include tabs( $index ) 
+			@else 
+				%#{$tabs}.#{$theme} 
+					@include tabs( $index )
+				li.%#{$theme}
+					@include tab( $index ) 

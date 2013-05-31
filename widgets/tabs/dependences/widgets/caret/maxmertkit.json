@@ -1,0 +1,18 @@
+{
+    "type": "widget",
+    "name": "caret",
+    "version": "0.0.0",
+    "description": "Standart caret widget for maxmertkit",
+    "repository": "",
+    "author": "maxmert",
+    "license": "BSD",
+
+    "dependences": {
+    	"object": {
+    		"version": "*"
+    	},
+    	"bourbon": {
+    		"version": "*"
+    	}
+    }
+}

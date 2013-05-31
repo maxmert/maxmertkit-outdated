@@ -1,0 +1,15 @@
+{
+    "type": "widget",
+    "name": "object",
+    "version": "0.0.0",
+    "description": "",
+    "repository": "",
+    "author": "maxmert",
+    "license": "BSD",
+
+    "dependences": {
+    	"bourbon": {
+    		"version": "3.1.1"
+    	}
+    }
+}

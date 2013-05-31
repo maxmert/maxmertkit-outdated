@@ -7,6 +7,16 @@
 		<link rel="stylesheet" type="text/css" href="widgets/grid/index.css">
 		<link rel="stylesheet" type="text/css" href="widgets/forms/index.css">
 		<link rel="stylesheet" type="text/css" href="widgets/btn/index.css">
+		<link rel="stylesheet" type="text/css" href="widgets/group/index.css">
+		<link rel="stylesheet" type="text/css" href="widgets/icons/index.css">
+		<link rel="stylesheet" type="text/css" href="widgets/tabs/index.css">
+		<link rel="stylesheet" type="text/css" href="widgets/dropdown/index.css">
+		<link rel="stylesheet" type="text/css" href="widgets/tooltip/index.css">
+		<link rel="stylesheet" type="text/css" href="widgets/menu/index.css">
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="coffee/bar.js"></script>
+		<script src="coffee/index.js"></script>
 		<!-- // <script type="text/javascript" src="js/libs/html5shiv.js"></script> -->
 		
 	</head>
@@ -443,8 +453,8 @@
 				<div class="-col12">
 
 					<a class="-btn _small">Hello</a>
-					<a class="-btn -primary-">Hello</a>
-					<a class="-btn _big">Hello</a>
+					<a class="-btn -primary- _unclickable_">Hello</a>
+					<a class="-btn _big _active_">Hello <i class="-caret"></i></a>
 					<a class="-btn _huge -primary- _loading_">Hello</a>
 
 				</div>
@@ -454,6 +464,357 @@
 
 
 
+		<!-- GROUPS -->
+		<div class="-container">
+
+			<h1>Groups</h1>
+			
+			<div class="-row">
+				<div class="-col12">
+
+					<div class="-group _small">
+						<a class="-btn">Hello</a><a class="-btn"><i class="-caret"></i></a>
+					</div>
+					<div class="-group">
+						<a class="-btn">Hello</a><a class="-btn"><i class="-caret"></i></a>
+					</div>
+					<div class="-group">
+						<a class="-btn">Hello <i class="-caret"></i></a>
+					</div>
+					<div class="-group _big">
+						<a class="-btn">Hello</a><a class="-btn"><i class="-caret"></i></a>
+					</div>
+					<div class="-group _huge">
+						<a class="-btn">Hello</a><a class="-btn"><i class="-caret"></i></a>
+					</div>
+					<br>
+					<br>
+					<br>
+
+					<div class="-group">
+						<a class="-btn">Hello</a><a class="-btn">Hello</a><a class="-btn">Hello</a>
+					</div>
+					<br>
+					<br>
+					<br>
+					<div class="-group -form _huge">
+						<a class="-btn">Hello</a><a class="-btn">Hello</a><a class="-btn">Hello</a><div class="-field"><input type="text"></div>
+					</div>
+					<br>
+					<br>
+					<br>
+					<div class="-group -form _big">
+						<a class="-btn">Hello</a><a class="-btn">Hello</a><a class="-btn">Hello</a><input type="text">
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+
+
+		<!-- ICONS -->
+		<div class="-container">
+
+			<h1>Icons</h1>
+			
+			<div class="-row">
+				<div class="-col12">
+					<i class="-icon-angle-down"></i>
+				</div>
+			</div>
+
+		</div>
+
+
+
+		<!-- TABS -->
+		<div class="-container">
+
+			<h1>Tabs</h1>
+			
+			<div class="-row">
+				<div class="-col12">
+					<ul class="-tabs">
+						<li><a>One <i class="-caret"></i></a></li>
+						<li class="_active_"><a>Two</a></li>
+						<li><a>Three</a></li>
+					</ul>
+					<ul class="-tabs -primary-">
+						<li><a>One <i class="-caret"></i></a></li>
+						<li class="_active_"><a>Two <i class="-icon-star"></i></a></li>
+						<li><a>Three</a></li>
+					</ul>
+					<br>
+					<br>
+					<br>
+					<ul class="-tabs _small">
+						<li><a>One <i class="-caret"></i></a></li>
+						<li class="_active_"><a>Two <i class="-icon-star"></i></a></li>
+						<li><a>Three</a></li>
+					</ul>
+					<ul class="-tabs">
+						<li><a>One <i class="-caret"></i></a></li>
+						<li class="_active_"><a>Two</a></li>
+						<li><a>Three</a></li>
+					</ul>
+					<ul class="-tabs _big">
+						<li class="_loading_"><a>One <i class="-caret"></i></a></li>
+						<li class="_active_"><a>Two</a></li>
+						<li><a>Three</a></li>
+					</ul>
+					<ul class="-tabs _huge">
+						<li><a>One <i class="-caret"></i></a></li>
+						<li class="_active_"><a>Two</a></li>
+						<li><a>Three</a></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+
+		<br>
+		<br>
+		<br>
+		<br>
+
+
+
+
+
+
+
+
+		<!-- DROPDOWN -->
+		<div class="-container">
+
+			<h1>Dropdown</h1>
+			
+			<div class="-row">
+				<div class="-col12">
+					
+					<div class="-dropdown _top_">
+						<i class="-arrow"></i>
+						<div class="-header">Header</div>
+						<div class="-content">Content</div>
+					</div>
+
+					<div class="-dropdown _top_">
+						<i class="-arrow"></i>
+						<div class="-content">Content</div>
+					</div>
+
+					<div class="-dropdown -primary- _top_">
+						<i class="-arrow"></i>
+						<div class="-header">Header</div>
+						<div class="-content">Content</div>
+					</div>
+
+					<div class="-dropdown -primary- _top_ _loading_">
+						<i class="-arrow"></i>
+						<div class="-header">Header</div>
+						<div class="-content">Content</div>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+
+		<br>
+		<br>
+		<br>
+		<br>
+
+
+
+
+
+
+
+		<!-- TOOLTIP -->
+		<div class="-container">
+
+			<h1>Tooltip</h1>
+			
+			<div class="-row">
+				<div class="-col12">
+					
+					<div class="-tooltip _top_">
+						<i class="-arrow"></i>
+						Content
+					</div>
+
+					<div class="-tooltip -primary- _top_">
+						<i class="-arrow"></i>
+						Content
+					</div>
+
+					<div class="-tooltip -primary- _top_ _big">
+						<i class="-arrow"></i>
+						Content
+					</div>
+
+					<div class="-tooltip -primary- _top_ _huge">
+						<i class="-arrow"></i>
+						Content
+					</div>
+
+					<br>
+					<br>
+
+					<div class="-tooltip -primary- _left_">
+						<i class="-arrow"></i>
+						Content
+					</div>
+
+					<div class="-tooltip -primary- _bottom_ _big">
+						<i class="-arrow"></i>
+						Content
+					</div>
+
+					<div class="-tooltip -primary- _right_ _huge">
+						<i class="-arrow"></i>
+						Content
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+
+		<br>
+		<br>
+		<br>
+		<br>
+
+
+
+
+
+
+
+		<!-- MENU -->
+		<div class="-container">
+
+			<h1>Menu</h1>
+			
+			<div class="-row">
+				<div class="-col12">
+					
+					<ul class="-menu _tiny">
+						<li><a>menu 1</a></li>
+						<li><a>menu 2</a></li>
+						<li><a>menu 3</a></li>
+					</ul>
+
+					<ul class="-menu _small">
+						<li><a>menu 1</a></li>
+						<li class="_hover_"><a>menu 2</a></li>
+						<li><a>menu 3</a></li>
+					</ul>
+
+					<ul class="-menu">
+						<li><a>menu 1</a></li>
+						<li class="_active_"><a>menu 2</a></li>
+						<li><a>menu 3</a></li>
+					</ul>
+
+					<ul class="-menu _big">
+						<li><a>menu 1</a></li>
+						<li class="_loading_"><a>menu 2</a></li>
+						<li><a>menu 3</a></li>
+					</ul>
+
+					<ul class="-menu _huge">
+						<li><a>menu 1</a></li>
+						<li><a>menu 2</a></li>
+						<li><a>menu 3</a></li>
+					</ul>
+
+					<ul class="-menu -primary- _active_">
+						<li><a>menu 1</a></li>
+						<li class="_loading_"><a>menu 2</a></li>
+						<li>
+							<a>menu 3</a>
+							<div class="-dropdown _bottom_">
+								<ul class="-menu">
+									<li><a>menu 1 wefwefwefwg wefwefwef</a></li>
+									<li><a>menu 2 <i class="-icon-caret-right"></i></a>
+										<div class="-dropdown _right_">
+											<ul class="-menu">
+												<li><a>menu 1</a></li>
+												<li><a>menu 2</a></li>
+												<li><a>menu 3</a></li>
+											</ul>
+										</div>
+									</li>
+									<li><a>menu 3</a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+
+		</div>
+
+
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!-- JS. LEFT BAR. -->
+		<div class="-container">
+
+			<h1>Javascript. Left bar.</h1>
+			
+			<div class="-row" style="position: relative">
+				<div id="bar" class="-col4" style="background-color: #f1f1f1;">
+					<ul class="-menu _vertical_ _unstyled_">
+						<li><a>Hello</a></li>
+						<li><a>Hello</a></li>
+						<li><a>Hello</a></li>
+					</ul>
+				</div>
+				<div id="content" class="-col8" style="background-color: #f5f5f5;">
+					Right content
+				</div>
+			</div>
+
+		</div>
+
+
+		<br>
+		<br>
+		<br>
+		<br>
 		<br>
 		<br>
 		<br>

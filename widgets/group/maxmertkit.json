@@ -1,0 +1,34 @@
+{
+    "type": "widget",
+    "name": "group",
+    "version": "0.0.0",
+    "description": "Standart group",
+    "repository": "",
+    "author": "maxmert",
+    "license": "BSD",
+
+    "dependences": {
+    	"bourbon": "*",
+    	"object": "*",
+        "loading": "*",
+        "btn": "*",
+        "forms": "*"
+    },
+
+    "themes": {
+    	"default": "*",
+        "disabled": "*",
+        "primary": "*"
+    },
+
+    "modifyers": {
+        "small": "*",
+        "big": "*",
+        "huge": "*",
+
+        "active": "*",
+        "hover": "*",
+
+        "loading": "*"
+    }
+}

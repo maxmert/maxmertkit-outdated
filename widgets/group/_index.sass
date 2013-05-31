@@ -1,0 +1,144 @@
+@import "imports" 
+@import "params" 
+@import "vars" 
+@import "myvars" 
+ 
+@mixin group( $index ) 
+
+	#{$all-btn}
+		@if nth( $themes, $index ) != 'default'
+			@extend %#{$btn}#{nth( $themes, $index )}
+		@else
+			@extend %#{$btn}
+
+	&.#{$form}
+		#{$all-text-inputs},
+		select,
+		textfield
+			@if nth( $themes, $index ) != 'default'
+				@extend %input.#{nth( $themes, $index )}
+			@else
+				@extend %input
+
+		.#{$form-field}
+			@if nth( $themes, $index ) != 'default'
+				@extend %#{$form-field}.#{nth( $themes, $index )}
+			@else
+				@extend %#{$form-field}
+
+
+
+
+
+
+@mixin group-size( $mod, $top, $left, $font )
+	#{$all-btn}
+		@include btn-size( $mod, $top, $left, $font )
+
+
+	&.#{$form}
+		$field-top: $top - $form-field-border-width
+		#{$all-text-inputs},
+		select,
+		textfield
+			@include form-input-size( $mod, $field-top, $left, $font )
+
+		.#{$form-field}
+			@include form-field-size( $mod, $field-top, $left, $font )
+
+
+
+@mixin group-sizes( $mod, $top, $left, $font )
+
+	@if $mod != ''
+		&.#{$mod}
+			@include group-size( $mod, $top, $left, $font )
+
+	@else
+		@include group-size( $mod, $top, $left, $font )
+
+
+
+
+
+
+
+@if $dependent == null
+	.#{$group}
+		@extend %object
+		vertical-align: middle
+		
+		#{$all-btn}
+			@extend %#{$btn}-init
+			@extend %#{$btn}-shadow
+			vertical-align: middle
+			z-index: 1
+			position: relative
+			@include border-radius( 0 )
+			&:first-child
+				@include border-radius( $btn-border-radius 0 0 $btn-border-radius )
+			&:last-child
+				@include border-radius(  0 $btn-border-radius $btn-border-radius 0 )
+
+		&.#{$form}
+			@extend %#{$form}
+
+		&.#{$form}
+			.#{$form-field}
+				z-index: 0
+				margin: 0!important
+				@include border-radius( 0 )
+				&:first-child
+					@include border-radius( $form-field-border-radius 0 0 $form-field-border-radius )
+				&:last-child
+					@include border-radius(  0 $form-field-border-radius $form-field-border-radius 0 )
+
+			#{$all-text-inputs}
+				@extend %object
+				vertical-align: middle
+				z-index: 0
+				margin: 0!important
+
+		@include group-sizes( $mod-small, 3px, 5px, round(golden-ratio(14px, -1) + 2) )
+		@include group-sizes( '', 6px, 10px, 14px )
+		@include group-sizes( $mod-big, 7px, 13px, round(golden-ratio(14px, 1)) )
+		@include group-sizes( $mod-huge, 10px, 16px, round(golden-ratio(14px, 2)) )
+
+
+
+
+
+ 
+$themes: null !default 
+ 
+@if $themes 
+	@if type-of( $themes ) == list 
+	  
+		@each $theme in $themes 
+	 
+			$index: index( $themes, $theme ) 
+	 
+			// With each theme do 
+			@if $dependent == null 
+				@if $theme != "default" 
+					.#{$group}.#{$theme} 
+						@include group( $index ) 
+				@else 
+					.#{$group} 
+						@include group( $index ) 
+			@else 
+				%#{$group}.#{$theme} 
+					@include group( $index ) 
+ 
+	@else 
+		@if type-of( $themes ) == string 
+			@if $dependent == null 
+				@if $theme != "default" 
+					.#{$group}.#{$theme} 
+						@include group( $index ) 
+				@else 
+					.#{$group} 
+						@include group( $index ) 
+			@else 
+				%#{$group}.#{$theme} 
+					@include group( $index ) 

@@ -1,0 +1,33 @@
+{
+    "type": "widget",
+    "name": "tabs",
+    "version": "0.0.0",
+    "description": "Tabs",
+    "repository": "",
+    "author": "maxmert",
+    "license": "BSD",
+
+     "dependences": {
+    	"bourbon": "*",
+    	"object": "*",
+        "loading": "*",
+        "caret": "*"
+    },
+
+    "themes": {
+    	"default": "*",
+        "disabled": "*",
+        "primary": "*"
+    },
+
+    "modifyers": {
+        "small": "*",
+        "big": "*",
+        "huge": "*",
+
+        "active": "*",
+        "hover": "*",
+
+        "loading": "*"
+    }
+}
