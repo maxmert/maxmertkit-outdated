@@ -5,6 +5,7 @@
     "description": "Standart button for maxmertkit",
     "repository": "",
     "author": "maxmert",
+    "tags": "button, buttons",
     "license": "BSD",
 
     "dependences": {

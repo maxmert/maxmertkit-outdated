@@ -18,6 +18,12 @@
     "border-color-lightener": "",
     "border-color-darken": "",
     "border-color-darkener": "",
+
+    "border-color-invert": "",
+    "border-color-invert-lighten": "",
+    "border-color-invert-lightener": "",
+    "border-color-invert-darken": "",
+    "border-color-invert-darkener": "",
     
     "outline": "",
     

@@ -6,6 +6,7 @@
     "repository": "",
     "author": "maxmert",
     "license": "BSD",
+    "tags": "object, standart, default",
 
     "dependences": {
     	"bourbon": {
