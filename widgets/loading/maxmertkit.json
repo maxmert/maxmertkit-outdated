@@ -5,6 +5,7 @@
     "description": "Loading mixins",
     "repository": "",
     "author": "maxmert",
+    "tags": "load, loading, state, condition",
     "license": "BSD",
 
     "dependences": {
