@@ -5,6 +5,7 @@
     "description": "Grid system for maxmertkit",
     "repository": "",
     "author": "maxmert",
+    "tags": "grid, maxmertkit",
     "license": "BSD",
 
     "dependences": {

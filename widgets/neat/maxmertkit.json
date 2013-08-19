@@ -5,6 +5,7 @@
     "description": "Neat sass",
     "repository": "https://github.com/thoughtbot/neat",
     "author": "maxmert",
+    "tags": "grid, neat, sass, mixins",
     "license": "BSD",
 
     "dependences": {

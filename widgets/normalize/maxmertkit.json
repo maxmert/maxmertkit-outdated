@@ -2,8 +2,8 @@
     "type": "widget",
     "name": "normalize",
     "version": "0.0.0",
-    "description": "Reset file",
-    "repository": "https://github.com/kristerkari/normalize.scss",
+    "description": "Reset all styles",
+    "repository": "https://github.com/hail2u/normalize.scss",
     "author": "maxmert",
     "tags": "normalize, init, reset",
     "license": "BSD"
