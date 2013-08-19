@@ -1,0 +1,10 @@
+{
+    "type": "animation",
+    "name": "dropin",
+    "version": "0.0.0",
+    "description": "",
+    "image": "http://dribbble.s3.amazonaws.com/users/3342/screenshots/764064/animated-icons-finale.gif",
+    "repository": "",
+    "author": "maxmert",
+    "license": "BSD"
+}

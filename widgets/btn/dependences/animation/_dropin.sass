@@ -1,0 +1,24 @@
+$dropin-duration: 1000ms
+@-webkit-keyframes -anim-dropin-keyframes {}
+@-moz-keyframes -anim-dropin-keyframes {}
+@keyframes -anim-dropin-keyframes {}
+
+
+$dropin: -anim-dropin
+.#{$dropin}
+	-webkit-animation: #{$dropin}-keyframes #{$dropin-duration} ease both
+	-webkit-animation-play-state: paused
+	-moz-animation: #{$dropin}-keyframes #{$dropin-duration} ease both
+	-moz-animation-play-state: paused
+	-o-animation: #{$dropin}-keyframes #{$dropin-duration} ease both
+	-o-animation-play-state: paused
+	animation: #{$dropin}-keyframes #{$dropin-duration} ease both
+	animation-play-state: paused
+
+
+	&._anim-start_
+		-webkit-animation-play-state: running
+		-moz-animation-play-state: running
+		-o-animation-play-state: running
+		animation-play-state: running
+ 
