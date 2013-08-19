@@ -7,7 +7,7 @@
     "repository": "",
     "author": "maxmert",
     "license": "BSD",
-    "tags": "object, standart, default",
+    "tags": "object, standart, default, maxmertkit",
 
     "dependences": {
     	"bourbon": {
