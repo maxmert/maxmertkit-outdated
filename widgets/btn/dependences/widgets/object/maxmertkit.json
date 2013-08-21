@@ -2,10 +2,12 @@
     "type": "widget",
     "name": "object",
     "version": "0.0.0",
-    "description": "",
+    "description": "It used for inheritance in most widgets. If you want to create new widget, include it as dependency.",
+    "tags": "object, main, inheritance",
     "repository": "",
     "author": "maxmert",
     "license": "BSD",
+    "tags": "object, standart, default, maxmertkit",
 
     "dependences": {
     	"bourbon": {
