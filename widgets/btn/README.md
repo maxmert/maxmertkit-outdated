@@ -1,4 +1,4 @@
 # Hello
 
 Hello **there**
-![Alt text](http://dribbble.s3.amazonaws.com/users/51502/screenshots/1061640/drib_crew001_x2_1x.png "Optional title")
+![Alt text](http://habrastorage.org/storage2/66c/16b/171/66c16b171b4b838254d5c28b0526efa1.jpg "Optional title")
