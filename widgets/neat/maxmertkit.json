@@ -4,6 +4,7 @@
     "version": "1.2.0",
     "description": "Neat sass",
     "repository": "https://github.com/thoughtbot/neat",
+    "site": "http://neat.bourbon.io/",
     "author": "maxmert",
     "tags": "grid, neat, sass, mixins",
     "license": "BSD",
