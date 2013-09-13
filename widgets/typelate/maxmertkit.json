@@ -1,0 +1,11 @@
+{
+    "type": "widget",
+    "name": "typelate",
+    "version": "1.1.0",
+    "description": "Typeplate is a “typographic starter kit”. We don’t make aesthetic design choices, but define proper markup with extensible styling for common typographic patterns. A stripped-down Sass or CSS library of your choosing primarily concerned with the appropriate technical implementation of design patterns—not how they look.",
+    "image": null,
+    "repository": "https://github.com/typeplate/typeplate.github.io",
+    "site": "http://typeplate.com/",
+    "author": "maxmert",
+    "license": "BSD"
+}

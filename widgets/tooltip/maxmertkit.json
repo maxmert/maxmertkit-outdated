@@ -21,7 +21,7 @@
         "primary": "*"
     },
 
-    "modifyers": {
+    "modifiers": {
         "loading": "*",
         "big": "*",
         "huge": "*",

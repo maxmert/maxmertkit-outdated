@@ -8,10 +8,9 @@
     "author": "maxmert",
     "license": "BSD",
     "tags": "object, standart, default, maxmertkit",
+    "themeUse": false,
 
     "dependences": {
-    	"bourbon": {
-    		"version": "3.1.1"
-    	}
+    	"bourbon": "3.1.1"
     }
 }

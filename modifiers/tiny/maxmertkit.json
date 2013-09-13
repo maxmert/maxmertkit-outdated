@@ -1,0 +1,9 @@
+{
+    "type": "modifier",
+    "name": "tiny",
+    "version": "0.0.0",
+    "description": "Tiny size modificator",
+    "repository": "",
+    "author": "maxmert",
+    "license": "BSD"
+}

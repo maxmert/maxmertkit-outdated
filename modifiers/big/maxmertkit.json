@@ -1,0 +1,9 @@
+{
+    "type": "modifier",
+    "name": "big",
+    "version": "0.0.0",
+    "description": "Big size modifier",
+    "repository": "",
+    "author": "maxmert",
+    "license": "BSD"
+}

@@ -5,7 +5,9 @@
     "description": "Bourbon mixins",
     "tags": "bourbon, mixins, sass, bourbon.io",
     "repository": "https://github.com/thoughtbot/bourbon",
+    "site": "bourbon.io",
     "author": "maxmert",
     "tags": "mixins, sass, compilation",
+    "themeUse": false,
     "license": "BSD"
 }

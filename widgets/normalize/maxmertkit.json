@@ -4,7 +4,9 @@
     "version": "0.0.0",
     "description": "Reset all styles",
     "repository": "https://github.com/hail2u/normalize.scss",
+    "site": "http://necolas.github.io/normalize.css/",
     "author": "maxmert",
     "tags": "normalize, init, reset",
+    "themeUse": false,
     "license": "BSD"
 }

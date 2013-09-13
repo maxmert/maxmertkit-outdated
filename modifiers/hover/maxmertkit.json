@@ -1,0 +1,9 @@
+{
+    "type": "modifier",
+    "name": "hover",
+    "version": "0.0.0",
+    "description": "Hover modifier",
+    "repository": "",
+    "author": "maxmert",
+    "license": "BSD"
+}

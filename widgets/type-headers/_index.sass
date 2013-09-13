@@ -1,0 +1,123 @@
+@import "imports" 
+@import "params" 
+@import "vars" 
+@import "myvars" 
+
+
+
+
+
+
+// .x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x //
+//
+// $Functions
+//
+// .x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x //
+
+
+// $Function $Context Calculator
+// -------------------------------------//
+// divide a given font-size by base font-size & return a relative value
+
+@function context-calc($scale, $base, $value)
+	@return ($scale/$base)#{$value}
+
+
+// $Function $Measure-Margin
+// -------------------------------------//
+// divide 1 unit of measure by given font-size & return a relative em value
+
+@function measure-margin($scale, $measure, $value)
+	@return ($measure/$scale)#{$value}
+
+
+// .x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x //
+//
+// $Mixins / $Placeholders
+//
+// .x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x //
+
+
+// $Mixin $Type-Scale
+// -------------------------------------//
+// provides a pixel fallback if you decide
+// to use 'rems' as a unit over ems.
+
+@mixin type-scale($scale, $base, $value, $measure:"")
+	// If 'rem' is used as a $value then provide a px fallback.
+	@if $value == rem
+		font-size: $scale#{px}
+
+	font-size: context-calc($scale, $base, $value)
+	@if $measure != ""
+		margin-top: measure-margin($scale, $measure, '')
+		margin-bottom: measure-margin($scale, $measure, '')
+
+
+%hN
+	// voodoo to enable ligatures and kerning
+	text-rendering: optimizeLegibility
+	// this fixes huge spaces when a heading wraps onto two lines
+	line-height: 1
+	margin-top: 0
+
+// Sass loop to associate h1-h6 tags with their appropriate greek
+// heading based on a modular scale.
+// for each size in the scale, create a class
+@each $size in $sizes
+	%#{nth($size, 1)}type
+		@include type-scale(nth($size, 2), $font-base, '#{$type-scale-unit-value}', $measure)
+
+// associate h1-h6 tags with their appropriate greek heading
+@if $dependent == null 
+
+	h1
+		@extend %_divine_type
+		@extend %hN
+
+	h2
+		@extend %_giant_type
+		@extend %hN
+
+	h3
+		@extend %_huge_type
+		@extend %hN
+
+
+	h4
+		@extend %_big_type
+		@extend %hN
+
+	h5 
+		@extend %_major_type
+		@extend %hN
+
+	h6
+		@extend %_normal_type
+		@extend %hN
+
+@else
+	%h1
+		@extend %_divine_type
+		@extend %hN
+
+	%h2
+		@extend %_giant_type
+		@extend %hN
+
+	%h3
+		@extend %_huge_type
+		@extend %hN
+
+
+	%h4
+		@extend %_big_type
+		@extend %hN
+
+	%h5 
+		@extend %_major_type
+		@extend %hN
+
+	%h6
+		@extend %_normal_type
+		@extend %hN

@@ -4,7 +4,7 @@
 
 ## Classes
 
-Widget contains these main classes:
+Widget contains theese main classes:
 
 * **.-container** – block with max-width: 68em; positioned in center.
 * **.-row** – fluid block with 100% width.

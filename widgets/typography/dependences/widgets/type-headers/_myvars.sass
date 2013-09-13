@@ -1,0 +1,47 @@
+// $Variable $BaseType
+// -------------------------------------//
+//the serif boolean var can be redeclared from another stylesheet. However
+//the var must be placed after your @import "typeplate.scss";
+$serif-boolean: true !default
+
+// Non-font-face font-stack
+$font-family: if($serif-boolean, serif, sans-serif) !default
+
+$font-weight: normal !default
+$line-height: 1.65 !default
+
+// percentage value (16 * 112.5% = 18px)
+$font-size: 112.5 !default
+
+// converts our percentage to a pixel value
+$font-base: 16 * ($font-size/100) !default
+
+// Custom font-face stack, if set will be added to the $font-family
+$custom-font-family: false !default
+$measure: $font-base * $line-height
+
+
+// $Variable $Small-Print
+// -------------------------------------//
+
+$small-print-size: 65% !default
+
+
+// $Variable $Base-Color
+// -------------------------------------//
+
+$body-copy-color: #444 !default
+$heading-color: #222 !default
+
+
+// $Variable $Ampersand
+// -------------------------------------//
+
+$amp-fontface-name: Ampersand !default
+$amp-fontface-source: local('Georgia'), local('Garamond'), local('Palatino'), local('Book Antiqua') !default
+$amp-fontface-fallback: local('Georgia') !default
+
+// Allows for our ampersand element to have differing
+// font-family from the ampersand unicode font-family.
+$amp-font-family: Verdana, sans-serif !default
+$type-scale-unit-value: rem !default

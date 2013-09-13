@@ -1,0 +1,9 @@
+{
+    "type": "modifier",
+    "name": "loading",
+    "version": "0.0.0",
+    "description": "Loading modifier",
+    "repository": "",
+    "author": "maxmert",
+    "license": "BSD"
+}

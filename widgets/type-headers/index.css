@@ -1,0 +1,40 @@
+h1, h2, h3, h4, h5, h6 {
+  text-rendering: optimizeLegibility;
+  line-height: 1;
+  margin-top: 0; }
+
+h6 {
+  font-size: 24px;
+  font-size: 1.33333rem;
+  margin-top: 1.2375;
+  margin-bottom: 1.2375; }
+
+h5 {
+  font-size: 32px;
+  font-size: 1.77778rem;
+  margin-top: 0.92813;
+  margin-bottom: 0.92813; }
+
+h4 {
+  font-size: 40px;
+  font-size: 2.22222rem;
+  margin-top: 0.7425;
+  margin-bottom: 0.7425; }
+
+h3 {
+  font-size: 48px;
+  font-size: 2.66667rem;
+  margin-top: 0.61875;
+  margin-bottom: 0.61875; }
+
+h2 {
+  font-size: 60px;
+  font-size: 3.33333rem;
+  margin-top: 0.495;
+  margin-bottom: 0.495; }
+
+h1 {
+  font-size: 78px;
+  font-size: 4.33333rem;
+  margin-top: 0.38077;
+  margin-bottom: 0.38077; }
