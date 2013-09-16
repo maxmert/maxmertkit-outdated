@@ -1,0 +1,13 @@
+{
+    "type": "modifier",
+    "name": "divine",
+    "version": "0.0.0",
+    "description": "Size modifier for maxmertkit",
+    "image": null,
+    "tags": "size, divine",
+    "themeUse": null,
+    "repository": "",
+    "site": "",
+    "author": "maxmert",
+    "license": "BSD"
+}

@@ -1,7 +1,7 @@
 {
     "type": "widget",
     "name": "type-headers",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "description": "Headers for better typography.",
     "image": null,
     "tags": "type, font, headers, typography",
@@ -13,6 +13,6 @@
     "themeUse": false,
 
     "dependences": {
-        "sizes": "*"
+        "sizes": "0.0.1"
     }
 }

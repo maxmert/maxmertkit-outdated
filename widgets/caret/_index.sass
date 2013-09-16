@@ -1,4 +1,38 @@
 @import "imports" 
 @import "params" 
 @import "myvars"
-@import "vars" 
+@import "vars"
+
+
+@if $dependent == null
+	.#{$caret}
+		@extend %object
+
+		width: 0
+		height: 0
+		
+
+		@each $size in $sizes
+			&.#{nth($size, 1)}
+				border: nth($size,2)/2 solid
+		
+
+		&.#{$mod-bottom}
+			border-left-color: transparent
+			border-right-color: transparent
+			border-bottom: none
+
+		&.#{$mod-top}
+			border-left-color: transparent
+			border-right-color: transparent
+			border-top: none
+
+		&.#{$mod-left}
+			border-left: none
+			border-bottom-color: transparent
+			border-top-color: transparent
+
+		&.#{$mod-right}
+			border-right: none
+			border-bottom-color: transparent
+			border-top-color: transparent

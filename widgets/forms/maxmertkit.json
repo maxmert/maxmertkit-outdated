@@ -9,25 +9,29 @@
 
     "dependences": {
         "object": {
-            "version": "*"
+            "version": "0.0.0"
         },
         "bourbon": {
-            "version": "*"
+            "version": "3.1.8"
         },
         "grid": {
-            "version": "*"
+            "version": "0.0.0"
         },
          "caret": {
-            "version": "*"
+            "version": "0.0.0"
         }
     },
 
-    "modifiers": {
+   "modifiers": {
         "tiny": "0.0.0",
         "small": "0.0.0",
+        "minor": "0.0.0",
+        "normal": "0.0.0",
+        "major": "0.0.0",
         "big": "0.0.0",
         "huge": "0.0.0",
-        "right": "0.0.0"
+        "giant": "0.0.0",
+        "divine": "0.0.0"
     },
 
     "themes": {

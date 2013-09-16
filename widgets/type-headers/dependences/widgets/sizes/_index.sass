@@ -7,13 +7,11 @@
 // Multi-dimensional array, where:
 // the first value is the name of the class
 // and the second value is the variable for the size
-$sizes: _tiny_ $tiny, _small_ $small, _minor_ $minor, _normal_ $normal, _major_ $major, _big_ $big, _huge_ $huge, _giant_ $giant, _divine_ $divine
+$sizes: $mod-tiny $tiny, $mod-small $small, $mod-minor $minor, $mod-normal $normal, $mod-major $major, $mod-big $big, $mod-huge $huge, $mod-giant $giant, $mod-divine $divine
 
-// Sass loop to associate h1-h6 tags with their appropriate greek
-// heading based on a modular scale.
 // for each size in the scale, create a class
 // example:
 
 // @each $size in $sizes
-	// %#{nth($size, 1)}
-		// @include type-scale(nth($size, 2), $font-base, '#{$type-scale-unit-value}', $measure)
+// 	.#{nth($size, 1)}
+// 		font-size: nth($size, 2)
