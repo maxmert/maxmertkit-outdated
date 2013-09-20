@@ -1,0 +1,13 @@
+{
+    "type": "animation",
+    "name": "loading",
+    "version": "0.0.2",
+    "description": "Loading animation.",
+    "image": null,
+    "tags": "loading, stripes",
+    "themeUse": null,
+    "repository": "",
+    "site": "",
+    "author": "maxmert",
+    "license": "BSD"
+}

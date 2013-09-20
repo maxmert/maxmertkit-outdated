@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Maxmertkit</title>
+		
+		<link rel="stylesheet" type="text/css" href="index.css">
+		<link rel="stylesheet" type="text/css" href="../normalize/index.css">
+		
+	</head>
+	<body>
+		<div class="-group _tiny">
+			<a class="-btn">tiny</a><a class="-btn">tiny</a>
+		</div> 
+		<div class="-group _small">
+			<a class="-btn">small</a><a class="-btn">small</a>
+		</div> 
+		<div class="-group _minor">
+			<a class="-btn">minor</a><a class="-btn">minor</a>
+		</div> 
+		<div class="-group _normal">
+			<a class="-btn">normal</a><a class="-btn">normal</a>
+		</div> 
+		<div class="-group _major">
+			<a class="-btn">major</a><a class="-btn">major</a>
+		</div> <br><br>
+		<div class="-group _big">
+			<a class="-btn">big</a><a class="-btn">big</a>
+		</div> 
+		<div class="-group _huge">
+			<a class="-btn">huge</a><a class="-btn">huge</a>
+		</div> <br><br>
+		<div class="-group _giant">
+			<a class="-btn">giant</a><a class="-btn">giant</a>
+		</div> <br><br>
+		<div class="-group _divine">
+			<a class="-btn">divine</a><a class="-btn">divine</a>
+		</div>
+
+		<h2>Themes</h2>
+
+		<p>
+			Default<br>
+			<div class="-group">
+				<a class="-btn">default</a><a class="-btn">default</a>
+			</div>
+		</p>
+		<p>
+			Set themes to buttons, not to group:<br>
+			<div class="-group">
+				<a class="-btn">default</a><a class="-btn -disabled-">disabled</a>
+			</div> 
+			<div class="-group">
+				<a class="-btn -primary-">button</a><a class="-btn _unclickable_">button</a>
+			</div>
+		</p>
+		<p>
+			Set themes to groups:<br>
+			<div class="-group -primary-">
+				<a class="-btn">primary group</a><a class="-btn">primary group</a>
+			</div> 
+			<div class="-group -disabled-">
+				<a class="-btn">disabled group</a><a class="-btn">disabled group</a>
+			</div>
+		</p>
+		
+		<h2>Modifiers</h2>
+		<p>
+			Set modifiers to buttons, not to groups:<br>
+			<div class="-group">
+				<a class="-btn -primary- _unclickable_">uncklickable primary</a><a class="-btn">no mods</a>
+			</div> 
+			<div class="-group">
+				<a class="-btn -primary-">primary</a><a class="-btn _active_">active</a>
+			</div> 
+			<div class="-group">
+				<a class="-btn">button</a><a class="-btn -primary- _active_ _loading_ _anim-start_">primary active loading</a>
+			</div>
+		</p>
+
+		<p>
+			Set modifiers to groups, not to buttons:<br>
+			<div class="-group _active_">
+				<a class="-btn">active</a><a class="-btn">active</a>
+			</div> 
+			<div class="-group _unclickable_">
+				<a class="-btn">unclickable</a><a class="-btn">unclickable</a>
+			</div> 
+			<div class="-group _hover_">
+				<a class="-btn">hover</a><a class="-btn">hover</a>
+			</div> 
+			<div class="-group _loading_ _anim-start_">
+				<a class="-btn">loading</a><a class="-btn">loading</a>
+			</div> 
+			<div class="-group _active_ _loading_ _anim-start_">
+				<a class="-btn">active loading</a><a class="-btn">active loading</a>
+			</div> 
+			<div class="-group _unstyled_">
+				<a class="-btn">unstyled</a><a class="-btn">unstyled</a>
+			</div> 
+		</p>
+
+		
+		<h2>Use caret</h2>
+		<div class="-group _tiny">
+			<a class="-btn">button</a><a class="-btn">button <i class="-caret _bottom_"></i></a>
+		</div> 
+		<div class="-group">
+			<a class="-btn">button</a><a class="-btn">button <i class="-caret _bottom_"></i></a>
+		</div> 
+		<div class="-group">
+			<a class="-btn">button</a><a class="-btn -primary- _active_">button <i class="-caret _bottom_"></i></a>
+		</div> 
+
+
+		<h2>Include inputs and labels</h2>
+		<div class="-group">
+			<label class="-primary-">primary</label><div class="-field"><input type="text"></div><a class="-btn">Button <i class="-caret _bottom_"></i></a>
+		</div> 
+		<div class="-group -primary- _small">
+			<label>hello</label><input type="text"><a class="-btn">Button <i class="-caret _bottom_"></i></a>
+		</div>
+		<br>
+		<br>
+		<br>
+	</body>
+</html>

@@ -1,4 +1,72 @@
 @import "imports" 
 @import "params" 
 @import "myvars"
-@import "vars" 
+@import "vars"
+
+
+%caret
+	@extend %object
+
+	width: 0
+	height: 0
+	
+	$themes: null !default 
+
+	@if $themes 
+		@each $theme in $themes 
+		 
+			$index: 1
+			@if length( $themes ) != 1
+				$index: index( $themes, $theme )
+	
+
+			@if $theme != 'default'
+				&.#{$theme} 
+					border-color: nth( $border-color-darkener, $index )
+			@else
+				border-color: nth( $border-color-darkener, $index )
+				
+	 
+		
+
+	@each $size in $sizes
+		
+		$sz: #{nth($size, 1)}
+		
+		@if $sz != _minor
+			&.#{nth($size, 1)}
+				border-width: nth($size,2)/3
+				border-style: solid
+		@else
+			border-width: nth($size,2)/3
+			border-style: solid
+	
+
+	
+
+
+	&.#{$mod-bottom}
+		border-left-color: transparent
+		border-right-color: transparent
+		border-bottom: transparent
+
+	&.#{$mod-top}
+		border-left-color: transparent
+		border-right-color: transparent
+		border-top: transparent
+
+	&.#{$mod-left}
+		border-left: transparent
+		border-bottom-color: transparent
+		border-top-color: transparent
+
+	&.#{$mod-right}
+		border-right: transparent
+		border-bottom-color: transparent
+		border-top-color: transparent
+
+
+
+@if $dependent == null
+	.#{$caret}
+		@extend %caret

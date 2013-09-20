@@ -1,18 +1,20 @@
 {
     "type": "widget",
     "name": "group",
-    "version": "0.0.0",
+    "version": "0.0.4",
     "description": "Standart group",
     "repository": "",
     "author": "maxmert",
+    "themeUse": true,
+    "tags": "button, buttons, group, input, label, appendix",
     "license": "BSD",
 
     "dependences": {
-    	"bourbon": "*",
-    	"object": "*",
-        "loading": "*",
-        "btn": "*",
-        "forms": "*"
+    	"bourbon": "3.1.8",
+    	"object": "0.0.0",
+        "btn": "0.0.9",
+        "forms": "0.0.5",
+        "caret": "0.0.4"
     },
 
     "themes": {
@@ -22,13 +24,25 @@
     },
 
     "modifiers": {
-        "small": "*",
-        "big": "*",
-        "huge": "*",
+        "tiny": "0.0.0",
+        "small": "0.0.0",
+        "minor": "0.0.0",
+        "normal": "0.0.0",
+        "major": "0.0.0",
+        "big": "0.0.0",
+        "huge": "0.0.0",
+        "giant": "0.0.0",
+        "divine": "0.0.0",
 
         "active": "*",
         "hover": "*",
+        "unclickable": "*",
 
-        "loading": "*"
+        "loading": "*",
+        "unstyled": "*"
+    },
+
+    "animation": {
+        "loading": "0.0.2"
     }
 }

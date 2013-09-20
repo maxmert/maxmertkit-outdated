@@ -1,0 +1,23 @@
+@import "_animation"
+$loading: -anim-loading
+.#{$loading}
+	-webkit-animation: #{$loading}-keyframes #{$loading-duration} linear both
+	-webkit-animation-play-state: paused
+	-webkit-animation-iteration-count: infinite
+	-moz-animation: #{$loading}-keyframes #{$loading-duration} linear both
+	-moz-animation-play-state: paused
+	-moz-animation-iteration-count: infinite
+	-o-animation: #{$loading}-keyframes #{$loading-duration} linear both
+	-o-animation-play-state: paused
+	-o-animation-iteration-count: infinite
+	animation: #{$loading}-keyframes #{$loading-duration} linear both
+	animation-play-state: paused
+	animation-iteration-count: infinite
+
+
+	&._anim-start_
+		-webkit-animation-play-state: running
+		-moz-animation-play-state: running
+		-o-animation-play-state: running
+		animation-play-state: running
+ 

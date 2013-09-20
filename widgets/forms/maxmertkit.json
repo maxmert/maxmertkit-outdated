@@ -1,25 +1,20 @@
 {
     "type": "widget",
     "name": "forms",
-    "version": "0.0.0",
+    "version": "0.0.5",
     "description": "Standart forms for maxmertkit",
     "repository": "",
     "author": "maxmert",
+    "themeUse": true,
+    "tags": "form, input, select, grid",
     "license": "BSD",
 
     "dependences": {
-        "object": {
-            "version": "0.0.0"
-        },
-        "bourbon": {
-            "version": "3.1.8"
-        },
-        "grid": {
-            "version": "0.0.0"
-        },
-         "caret": {
-            "version": "0.0.0"
-        }
+        "bourbon": "3.1.8",
+        "object": "0.0.0",
+        "grid": "0.0.0",
+        "caret": "0.0.5",
+        "sizes": "0.0.3"
     },
 
    "modifiers": {
@@ -37,6 +32,6 @@
     "themes": {
         "default": "0.0.0",
         "disabled": "0.0.0",
-        "primary": "0.0.0"
+        "primary": "0.0.2"
     }
 }

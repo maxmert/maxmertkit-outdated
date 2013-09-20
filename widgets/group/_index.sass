@@ -2,143 +2,292 @@
 @import "params" 
 @import "vars" 
 @import "myvars" 
- 
-@mixin group( $index ) 
+
+
+%appendix
+	display: inline-block
+	@extend %object
+	vertical-align: middle
+
+	@if $themes
+		@each $theme in $themes 
+			
+			$index: 1
+			@if length( $themes ) != 1
+				$index: index( $themes, $theme )
+
+			@if $theme != 'default'
+				&.#{$theme}
+					color: nth( $color-invert, $index )
+					background-color: nth( $background-color-lightener, $index )
+			@else
+				color: nth( $color-invert, $index )
+				background-color: nth( $background-color-lightener, $index )
+
+%#{$group}
+	@extend %object
+	vertical-align: middle
 
 	#{$all-btn}
-		@if nth( $themes, $index ) != 'default'
-			@extend %#{$btn}#{nth( $themes, $index )}
+		@extend %#{$btn}
+		border-radius: 0
+
+		&:first-child
+			border-radius: $btn-border-radius 0 0 $btn-border-radius
+
+		&:last-child
+			border-radius: 0 $btn-border-radius $btn-border-radius 0
+
+	label
+		@extend %appendix
+
+	#{$all-text-inputs}
+		@extend %all-text-inputs
+		@include box-sizing(border-box)
+		display: inline-block
+		width: auto
+
+	.#{$form-field}
+		@extend %#{$form-field}
+		@include box-sizing(border-box)
+		display: inline-block
+		width: auto
+		border-radius: 0
+		&:first-child
+			border-radius: $btn-border-radius 0 0 $btn-border-radius
+		&:last-child
+			border-radius: 0 $btn-border-radius $btn-border-radius 0
+
+	&.#{$mod-unclickable}
+		#{$all-btn}
+			@extend %#{$btn}.#{$mod-unclickable}
+
+	&.#{$mod-hover}
+		#{$all-btn}
+			@extend %#{$btn}.#{$mod-hover}
+
+	&.#{$mod-active}
+		#{$all-btn}
+			@extend %#{$btn}.#{$mod-active}
+
+	&.#{$mod-unstyled}
+		#{$all-btn}
+			@extend %#{$btn}.#{$mod-unstyled}
+
+	&.#{$mod-loading}
+		#{$all-btn}
+			@extend %#{$btn}.#{$mod-loading}
+		&._anim-start_
+			#{$all-btn}
+				@extend %#{$btn}.#{$mod-loading}._anim-start_
+
+
+
+
+	@each $size in $sizes
+		
+		$sz: #{nth($size, 1)}
+		
+		@if $sz != _minor
+			&.#{nth($size, 1)}
+				#{$all-btn}
+					@extend %#{$btn}.#{nth($size, 1)}
+					padding: nth($size,2)/3 + $form-field-border-width + $form-input-border-width nth($size,2)
+				#{$all-text-inputs}
+					@extend %all-text-inputs.#{nth($size, 1)}
+				.#{$form-field}
+					@extend %#{$form-field}.#{nth($size, 1)}
+				label
+					padding: nth($size,2)/3 + $form-field-border-width + $form-input-border-width nth($size,2)
+					font-size: nth($size,2)
+				
 		@else
-			@extend %#{$btn}
+			#{$all-btn}
+				@extend %#{$btn}.#{nth($size, 1)}
+				padding: nth($size,2)/3 + $form-field-border-width + $form-input-border-width nth($size,2)
+			#{$all-text-inputs}
+				@extend %all-text-inputs.#{nth($size, 1)}
+			.#{$form-field}
+				@extend %#{$form-field}.#{nth($size, 1)}
+			label
+				padding: nth($size,2)/3 + $form-field-border-width + $form-input-border-width nth($size,2)
+				font-size: nth($size,2)
+			
 
-	&.#{$form}
-		#{$all-text-inputs},
-		select,
-		textfield
-			@if nth( $themes, $index ) != 'default'
-				@extend %input.#{nth( $themes, $index )}
+
+
+
+	@if $themes
+		@each $theme in $themes 
+			
+			$index: 1
+			@if length( $themes ) != 1
+				$index: index( $themes, $theme )
+
+			@if $theme != 'default'
+				&.#{$theme}
+					#{$all-btn}
+						@extend %#{$btn}.#{$theme}
+					.#{$form-field}
+						@extend %#{$form-field}.#{$theme}
+					#{$all-text-inputs}
+						@extend %all-text-inputs.#{$theme}
+					label
+						@extend %appendix.#{$theme}
+
+
 			@else
-				@extend %input
-
-		.#{$form-field}
-			@if nth( $themes, $index ) != 'default'
-				@extend %#{$form-field}.#{nth( $themes, $index )}
-			@else
-				@extend %#{$form-field}
-
-
-
-
-
-
-@mixin group-size( $mod, $top, $left, $font )
-	#{$all-btn}
-		@include btn-size( $mod, $top, $left, $font )
-
-
-	&.#{$form}
-		$field-top: $top - $form-field-border-width
-		#{$all-text-inputs},
-		select,
-		textfield
-			@include form-input-size( $mod, $field-top, $left, $font )
-
-		.#{$form-field}
-			@include form-field-size( $mod, $field-top, $left, $font )
-
-
-
-@mixin group-sizes( $mod, $top, $left, $font )
-
-	@if $mod != ''
-		&.#{$mod}
-			@include group-size( $mod, $top, $left, $font )
-
-	@else
-		@include group-size( $mod, $top, $left, $font )
-
-
-
-
+				#{$all-btn}
+					@extend %#{$btn}.#{$theme}
+				.#{$form-field}
+					@extend %#{$form-field}.#{$theme}
+				#{$all-text-inputs}
+					@extend %all-text-inputs.#{$theme}
+				label
+					@extend %appendix.#{$theme}
 
 
 
 @if $dependent == null
 	.#{$group}
-		@extend %object
-		vertical-align: middle
+		@extend %#{$group}
+ 
+// @mixin group( $index ) 
+
+// 	#{$all-btn}
+// 		@if nth( $themes, $index ) != 'default'
+// 			@extend %#{$btn}#{nth( $themes, $index )}
+// 		@else
+// 			@extend %#{$btn}
+
+// 	&.#{$form}
+// 		#{$all-text-inputs},
+// 		select,
+// 		textfield
+// 			@if nth( $themes, $index ) != 'default'
+// 				@extend %input.#{nth( $themes, $index )}
+// 			@else
+// 				@extend %input
+
+// 		.#{$form-field}
+// 			@if nth( $themes, $index ) != 'default'
+// 				@extend %#{$form-field}.#{nth( $themes, $index )}
+// 			@else
+// 				@extend %#{$form-field}
+
+
+
+
+
+
+// @mixin group-size( $mod, $top, $left, $font )
+// 	#{$all-btn}
+// 		@include btn-size( $mod, $top, $left, $font )
+
+
+// 	&.#{$form}
+// 		$field-top: $top - $form-field-border-width
+// 		#{$all-text-inputs},
+// 		select,
+// 		textfield
+// 			@include form-input-size( $mod, $field-top, $left, $font )
+
+// 		.#{$form-field}
+// 			@include form-field-size( $mod, $field-top, $left, $font )
+
+
+
+// @mixin group-sizes( $mod, $top, $left, $font )
+
+// 	@if $mod != ''
+// 		&.#{$mod}
+// 			@include group-size( $mod, $top, $left, $font )
+
+// 	@else
+// 		@include group-size( $mod, $top, $left, $font )
+
+
+
+
+
+
+
+// @if $dependent == null
+// 	.#{$group}
+// 		@extend %object
+// 		vertical-align: middle
 		
-		#{$all-btn}
-			@extend %#{$btn}-init
-			@extend %#{$btn}-shadow
-			vertical-align: middle
-			z-index: 1
-			position: relative
-			@include border-radius( 0 )
-			&:first-child
-				@include border-radius( $btn-border-radius 0 0 $btn-border-radius )
-			&:last-child
-				@include border-radius(  0 $btn-border-radius $btn-border-radius 0 )
+// 		#{$all-btn}
+// 			@extend %#{$btn}-init
+// 			@extend %#{$btn}-shadow
+// 			vertical-align: middle
+// 			z-index: 1
+// 			position: relative
+// 			@include border-radius( 0 )
+// 			&:first-child
+// 				@include border-radius( $btn-border-radius 0 0 $btn-border-radius )
+// 			&:last-child
+// 				@include border-radius(  0 $btn-border-radius $btn-border-radius 0 )
 
-		&.#{$form}
-			@extend %#{$form}
+// 		&.#{$form}
+// 			@extend %#{$form}
 
-		&.#{$form}
-			.#{$form-field}
-				z-index: 0
-				margin: 0!important
-				@include border-radius( 0 )
-				&:first-child
-					@include border-radius( $form-field-border-radius 0 0 $form-field-border-radius )
-				&:last-child
-					@include border-radius(  0 $form-field-border-radius $form-field-border-radius 0 )
+// 		&.#{$form}
+// 			.#{$form-field}
+// 				z-index: 0
+// 				margin: 0!important
+// 				@include border-radius( 0 )
+// 				&:first-child
+// 					@include border-radius( $form-field-border-radius 0 0 $form-field-border-radius )
+// 				&:last-child
+// 					@include border-radius(  0 $form-field-border-radius $form-field-border-radius 0 )
 
-			#{$all-text-inputs}
-				@extend %object
-				vertical-align: middle
-				z-index: 0
-				margin: 0!important
+// 			#{$all-text-inputs}
+// 				@extend %object
+// 				vertical-align: middle
+// 				z-index: 0
+// 				margin: 0!important
 
-		@include group-sizes( $mod-small, 3px, 5px, round(golden-ratio(14px, -1) + 2) )
-		@include group-sizes( '', 6px, 10px, 14px )
-		@include group-sizes( $mod-big, 7px, 13px, round(golden-ratio(14px, 1)) )
-		@include group-sizes( $mod-huge, 10px, 16px, round(golden-ratio(14px, 2)) )
+// 		@include group-sizes( $mod-small, 3px, 5px, round(golden-ratio(14px, -1) + 2) )
+// 		@include group-sizes( '', 6px, 10px, 14px )
+// 		@include group-sizes( $mod-big, 7px, 13px, round(golden-ratio(14px, 1)) )
+// 		@include group-sizes( $mod-huge, 10px, 16px, round(golden-ratio(14px, 2)) )
 
 
 
 
 
  
-$themes: null !default 
+// $themes: null !default 
  
-@if $themes 
-	@if type-of( $themes ) == list 
+// @if $themes 
+// 	@if type-of( $themes ) == list 
 	  
-		@each $theme in $themes 
+// 		@each $theme in $themes 
 	 
-			$index: index( $themes, $theme ) 
+// 			$index: index( $themes, $theme ) 
 	 
-			// With each theme do 
-			@if $dependent == null 
-				@if $theme != "default" 
-					.#{$group}.#{$theme} 
-						@include group( $index ) 
-				@else 
-					.#{$group} 
-						@include group( $index ) 
-			@else 
-				%#{$group}.#{$theme} 
-					@include group( $index ) 
+// 			// With each theme do 
+// 			@if $dependent == null 
+// 				@if $theme != "default" 
+// 					.#{$group}.#{$theme} 
+// 						@include group( $index ) 
+// 				@else 
+// 					.#{$group} 
+// 						@include group( $index ) 
+// 			@else 
+// 				%#{$group}.#{$theme} 
+// 					@include group( $index ) 
  
-	@else 
-		@if type-of( $themes ) == string 
-			@if $dependent == null 
-				@if $theme != "default" 
-					.#{$group}.#{$theme} 
-						@include group( $index ) 
-				@else 
-					.#{$group} 
-						@include group( $index ) 
-			@else 
-				%#{$group}.#{$theme} 
-					@include group( $index ) 
+// 	@else 
+// 		@if type-of( $themes ) == string 
+// 			@if $dependent == null 
+// 				@if $theme != "default" 
+// 					.#{$group}.#{$theme} 
+// 						@include group( $index ) 
+// 				@else 
+// 					.#{$group} 
+// 						@include group( $index ) 
+// 			@else 
+// 				%#{$group}.#{$theme} 
+// 					@include group( $index ) 
