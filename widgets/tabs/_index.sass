@@ -1,166 +1,218 @@
-@import "imports" 
-@import "params" 
-@import "vars" 
+
+@import "imports"  
+@import "params"  
 @import "myvars" 
-
-
-@mixin tabs( $index )
-	border-bottom-color: nth( $border-color, $index )
-	color: nth( $color, $index )
-	
-	li
-		&:hover a
-			background-color: nth( $background-color, $index )
-			color: nth( $color-invert, $index )
-
-		&:active a
-			background-color: nth( $background-color-darken, $index )
-			color: nth( $color-invert, $index )
-
-		&.#{$mod-hover} a
-			background-color: nth( $background-color, $index )!important
-			color: nth( $color-invert, $index )!important
-
-		&.#{$mod-active} a
-			border-color: nth( $border-color, $index ) nth( $border-color, $index ) transparent nth( $border-color, $index )!important
-			background-color: nth( $background-color-darken, $index )!important
-			color: nth( $color-invert, $index )!important
-
-		&.#{$mod-loading} a
-			@include loading( rgba( nth( $background-color-darken, $index ), 1), rgba( nth( $background-color-lighten, $index ), 1) )
-
-
-@mixin tab( $index )
-	
-	color: nth( $color, $index )
-	
-	&:hover a
-		background-color: nth( $background-color, $index )
-		color: nth( $color-invert, $index )
-
-	&:active a
-		background-color: nth( $background-color-darken, $index )
-		color: nth( $color-invert, $index )
-
-	&.#{$mod-hover} a
-		background-color: nth( $background-color, $index )!important
-		color: nth( $color-invert, $index )!important
-
-	&.#{$mod-active} a
-		border-color: nth( $border-color, $index ) nth( $border-color, $index ) transparent nth( $border-color, $index )!important
-		background-color: nth( $background-color-darken, $index )!important
-		color: nth( $color-invert, $index )!important
-
-	&.#{$mod-loading} a
-		@include loading( rgba( nth( $background-color-darken, $index ), 1), rgba( nth( $background-color-lighten, $index ), 1) )
+@import "vars"  
  
 
 
-
-@mixin tab-size( $mod, $top, $left, $font )
-	li > a
-		padding: $top $left
-		font-size: $font
-
-		.#{$caret}
-			@include triangle($font/1.7, rgba(0,0,0,.5), down)
-			border-bottom-width: 0!important
-
-	li.#{$mod-active} > a
-		.#{$caret}
-			@include triangle($font/1.7, rgba(0,0,0,.5), up)
-			border-top-width: 0!important
-			border-bottom-width: $font/1.7/2!important
-
-
-
-@mixin tabs-sizes( $mod, $top, $left, $font )
-
-	@if $mod != ''
-		&.#{$mod}
-			@include tab-size( $mod, $top, $left, $font )
-
-	@else
-		@include tab-size( $mod, $top, $left, $font )
-
-
-
-
-@if $dependent == null
-	.#{$tabs},
-	.#{$tabs} li > a
-		@extend %object
-		vertical-align: middle
-		@include user-select
-
-	.#{$tabs}
-		list-style: none
-		margin: 0
-		border-bottom: $tabs-border-width $tabs-border-style transparent
-		vertical-align: bottom
+%tabs-loading
+	position: relative
 		
+	&:before
+		@extend .-anim-loading
+		background-size: 52px 52px
+		
+		background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.35, rgba(255,255,255,.35)), color-stop(.35, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255,255,255,.35)), color-stop(.75, rgba(255,255,255,.35)), color-stop(.75, transparent), to(transparent))!important
+		background-image: -webkit-linear-gradient(-45deg, rgba(255,255,255,.35) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.35) 50%, rgba(255,255,255,.35) 75%, transparent 75%, transparent)!important
+		background-image: -moz-linear-gradient(-45deg, rgba(255,255,255,.35) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.35) 50%, rgba(255,255,255,.35) 75%, transparent 75%, transparent)!important
+		background-image: -o-linear-gradient(-45deg, rgba(255,255,255,.35) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.35) 50%, rgba(255,255,255,.35) 75%, transparent 75%, transparent)!important
+		background-image: linear-gradient(-45deg, rgba(255,255,255,.35) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.35) 50%, rgba(255,255,255,.35) 75%, transparent 75%, transparent)!important
+		
+		content: " "
+		display: block
+		position: absolute
+		top: 0
+		bottom: 0
+		left: 0
+		right: 0
+
+%tabs-loading-start
+	&:before
+		@extend .-anim-loading._anim-start_
+
+
+ 
+%#{$tab} 
+	@extend %object 
+	display: inline-block
+	border-radius: $tab-border-radius $tab-border-radius 0 0
+	cursor: pointer
+	vertical-align: bottom
+	margin-right: $tab-margin
+
+	@include user-select(none)
+
+	&.#{$mod-loading}
+		@extend %tabs-loading
+
+		&._anim-start_
+			@extend %tabs-loading-start
+
+	// Set _minor to default size 
+	$sizes: null!default 
+	@if $sizes 
+		@each $size in $sizes 
+			$sz: #{nth($size, 1)} 
+			@if $sz != "_minor" 
+				&.#{nth($size, 1)} 
+					font-size: nth($size,2) 
+					padding: nth($size,2)/3 nth($size,2)/2 
+			@else 
+				font-size: nth($size,2) 
+				padding: nth($size,2)/3 nth($size,2)/2 
+	 
+	 
+	 
+	 
+	// Modifiers 
+	 
+	 
+	 
+	// Themes 
+	$themes: null!default 
+	@if $themes 
+		@each $theme in $themes  
+	 
+			$index: 1 
+			@if length( $themes ) != 1 
+				$index: index( $themes, $theme ) 
+	 
+			$imp: "" 
+			@if $theme == "-disabled-" 
+				$imp: !important 
+	 
+	 
+			@if $theme != "default" 
+				&.#{$theme} 
+					color: nth( $color-invert, $index )#{$imp}
+					background-color: nth( $background-color, $index )#{$imp}
+
+					&.#{$mod-hover}, &:hover
+						background-color: nth( $background-color-darken, $index )#{$imp}
+
+					&.#{$mod-active}, &:active
+						background-color: nth( $background-color-darkener, $index )#{$imp}
+	 
+			@else 
+				color: nth( $color-invert, $index )#{$imp}
+				background-color: nth( $background-color, $index )#{$imp}
+
+				&.#{$mod-hover}, &:hover
+					background-color: nth( $background-color-darken, $index )#{$imp}
+
+				&.#{$mod-active}, &:active
+					background-color: nth( $background-color-darkener, $index )#{$imp}
+
+
+%#{$tabs}
+	margin: 0
+	padding: 0
+	list-style: none
+	border-bottom-width: $tabs-border-width
+	border-bottom-style: solid
+	border-bottom-color: transparent
+
+	
+
+	&.#{$mod-left}, &.#{$mod-right}
+		border-bottom-width: 0
 		li
-			display: inline-block
+			display: block
+			margin: 0 0 $tab-margin 0
 
-		li > a
-			display: inline-block
-			border: $tabs-border-width $tabs-border-style transparent
-			@include border-radius($tabs-border-radius $tabs-border-radius 0 0)
-			@include user-select
-			cursor: pointer
+	&.#{$mod-left}
+		border-right-width: $tabs-border-width
+		border-right-style: solid
+		border-right-color: transparent
+		li
+			border-radius: $tab-border-radius 0 0 $tab-border-radius!important
 
-		li.#{$mod-active} a
-			cursor: inherit
-			margin-bottom: -$tabs-border-width - 1
+	&.#{$mod-right}
+		border-left-width: $tabs-border-width
+		border-left-style: solid
+		border-left-color: transparent
+		li
+			border-radius: 0 $tab-border-radius $tab-border-radius 0
 
+	&.#{$mod-bottom}
+		border-bottom-width: 0
+		border-top-width: $tabs-border-width
+		border-top-style: solid
+		border-top-color: transparent
+		li
+			vertical-align: top
+			border-radius: 0 0 $tab-border-radius $tab-border-radius
 
-		.#{$caret}
-			@extend %object
+	
 
-		@include tabs-sizes( $mod-small, 3px, 5px, round(golden-ratio(14px, -1) + 2) )
-		@include tabs-sizes( '', 6px, 10px, 14px )
-		@include tabs-sizes( $mod-big, 13px, 13px, round(golden-ratio(14px, 1)) )
-		@include tabs-sizes( $mod-huge, 22px, 16px, round(golden-ratio(14px, 2)) )
+	&.#{$mod-loading}
+		li
+			@extend %tabs-loading
+	&._anim-start_
+		li
+			@extend %tabs-loading-start
 
- 
-$themes: null !default 
- 
-@if $themes 
-	@if type-of( $themes ) == list 
-	  
-		@each $theme in $themes 
-	 
-			$index: index( $themes, $theme ) 
-	 
-			// With each theme do 
-			@if $dependent == null 
-				@if $theme != "default" 
-					.#{$tabs}.#{$theme} 
-						@include tabs( $index ) 
-					.#{$tabs} li.#{$theme}
-						@include tab( $index ) 
-				@else 
-					.#{$tabs} 
-						@include tabs( $index )
+	li
+		@extend %#{$tab}
+		position: relative
+
+	// Set _minor to default size 
+	$sizes: null!default 
+	@if $sizes 
+		@each $size in $sizes 
+			$sz: #{nth($size, 1)} 
+			@if $sz != "_minor"
+				&.#{nth($size, 1)} 
+					li
+						@extend %#{$tab}.#{nth($size, 1)}
 			@else 
-				%#{$tabs}.#{$theme} 
-					@include tabs( $index )
-				li.%#{$theme}
-					@include tab( $index ) 
- 
-	@else 
-		@if type-of( $themes ) == string 
-			@if $dependent == null 
-				@if $theme != "default" 
-					.#{$tabs}.#{$theme} 
-						@include tabs( $index )
-					.#{$tabs} li.#{$theme}
-						@include tab( $index ) 
-				@else 
-					.#{$tabs} 
-						@include tabs( $index ) 
+				li
+					%#{$tab}.#{nth($size, 1)}
+
+
+	// Themes 
+	$themes: null!default 
+	@if $themes 
+		@each $theme in $themes  
+	 
+			$index: 1 
+			@if length( $themes ) != 1 
+				$index: index( $themes, $theme ) 
+	 
+			$imp: "" 
+			@if $theme == "-disabled-" 
+				$imp: !important 
+	 
+	 
+			@if $theme != "default" 
+				&.#{$theme}
+					
+					border-bottom-color: nth( $border-color-lighten, $index )#{$imp}
+					&.#{$mod-left}
+						border-right-color: nth( $border-color-lighten, $index )#{$imp}
+					&.#{$mod-right}
+						border-left-color: nth( $border-color-lighten, $index )#{$imp}
+					&.#{$mod-bottom}
+						border-top-color: nth( $border-color-lighten, $index )#{$imp}
+
+					li
+						@extend %#{$tab}.#{$theme}
+	 
 			@else 
-				%#{$tabs}.#{$theme} 
-					@include tabs( $index )
-				li.%#{$theme}
-					@include tab( $index ) 
+				border-bottom-color: nth( $border-color-lighten, $index )#{$imp}
+				&.#{$mod-left}
+					border-right-color: nth( $border-color-lighten, $index )#{$imp}
+				&.#{$mod-right}
+					border-left-color: nth( $border-color-lighten, $index )#{$imp}
+				&.#{$mod-bottom}
+					border-top-color: nth( $border-color-lighten, $index )#{$imp}
+				li
+					@extend %#{$tab}.#{$theme}
+	 
+	 
+	 
+	 
+@if $dependent == null 
+	.#{$tabs}
+		@extend %#{$tabs}

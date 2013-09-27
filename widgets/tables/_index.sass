@@ -1,0 +1,335 @@
+$tables: -tables 
+ 
+@import "imports" 
+@import "params" 
+@import "vars" 
+@import "myvars" 
+
+%tables-loading
+	&.#{$mod-loading}
+		position: relative
+			
+		&:before
+			@extend .-anim-loading
+			background-size: 52px 52px
+			
+			background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.35, rgba(255,255,255,.35)), color-stop(.35, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255,255,255,.35)), color-stop(.75, rgba(255,255,255,.35)), color-stop(.75, transparent), to(transparent))!important
+			background-image: -webkit-linear-gradient(-45deg, rgba(255,255,255,.35) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.35) 50%, rgba(255,255,255,.35) 75%, transparent 75%, transparent)!important
+			background-image: -moz-linear-gradient(-45deg, rgba(255,255,255,.35) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.35) 50%, rgba(255,255,255,.35) 75%, transparent 75%, transparent)!important
+			background-image: -o-linear-gradient(-45deg, rgba(255,255,255,.35) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.35) 50%, rgba(255,255,255,.35) 75%, transparent 75%, transparent)!important
+			background-image: linear-gradient(-45deg, rgba(255,255,255,.35) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.35) 50%, rgba(255,255,255,.35) 75%, transparent 75%, transparent)!important
+			
+			content: " "
+			display: block
+			position: absolute
+			top: 0
+			bottom: 0
+			left: 0
+			right: 0
+
+%tables-loading-start
+	&:before
+		@extend .-anim-loading._anim-start_
+
+%td
+	@extend %object
+	vertical-align: top
+	border: 1px solid transparent
+
+	@extend %tables-loading
+	@extend %tables-loading-start
+
+	@each $size in $sizes
+		
+		$sz: #{nth($size, 1)}
+		
+		@if $sz != _minor
+			&.#{nth($size, 1)}
+				font-size: nth($size,2)
+				padding: nth($size,2)/3 nth($size,2)/2
+				
+		@else
+			font-size: nth($size,2)
+			padding: nth($size,2)/3 nth($size,2)/2
+
+
+	// Themes
+
+	@if $themes
+		@each $theme in $themes 
+			
+
+			$index: 1
+			@if length( $themes ) != 1
+				$index: index( $themes, $theme )
+
+			$imp: ''
+			@if $theme == '-disabled-'
+				$imp: !important
+				// &.#{$theme}
+				// 	box-shadow: none!important
+				// 	cursor: default!important
+
+					// &.#{$mod-unstyled}
+					// 	text-decoration: none!important
+				
+
+			@if $theme != 'default'
+				&.#{$theme}
+					color: nth( $color-invert, $index )#{$imp}
+					background-color: nth( $background-color, $index )#{$imp}
+					text-shadow: unquote(nth( $text-shadow, $index ))#{$imp}
+					// border-top-color: nth( $border-color, $index )#{$imp}
+
+					&.#{$mod-horizontal}
+						border-top-color: nth( $border-color, $index )#{$imp}
+
+					&.#{$mod-vertical}
+						border-left-color: nth( $border-color, $index )#{$imp}
+						&:first-child
+							border-left-color: transparent#{$imp}
+
+					&.#{$mod-striped}
+						background-color: nth( $background-color-darken, $index )#{$imp}
+
+					&.#{$mod-hover}
+						&:hover
+							background-color: nth( $background-color-darkener, $index )#{$imp}
+
+					&._hovered_
+						background-color: nth( $background-color-darkener, $index )#{$imp}
+
+					
+					
+
+			@else
+				color: nth( $color-invert, $index )
+				// border-top-color: nth( $border-color-lightener, $index )#{$imp}
+
+				&.#{$mod-horizontal}
+					border-top-color: nth( $border-color-lighten, $index )#{$imp}
+
+				&.#{$mod-vertical}
+					border-left-color: nth( $border-color-lightener, $index )#{$imp}
+					&:first-child
+						border-left-color: transparent#{$imp}
+
+				&.#{$mod-striped}
+					background-color: nth( $background-color-darken, $index )#{$imp}
+
+				&.#{$mod-hover}
+					&:hover
+						background-color: nth( $background-color-darkener, $index )#{$imp}
+				
+				&._hovered_
+					background-color: nth( $background-color-darkener, $index )#{$imp}
+
+			
+
+
+
+
+%tr
+
+	&.#{$mod-loading}
+		td
+			@extend %td.#{$mod-loading}
+		&._anim-start_
+			td
+				@extend %tables-loading-start
+
+	&.#{$table-header}
+		td
+			font-weight: bold
+
+	@each $size in $sizes
+		
+		$sz: #{nth($size, 1)}
+		
+		@if $sz != _minor
+			&.#{nth($size, 1)}
+				td
+					@extend %td.#{nth($size, 1)}
+				
+		@else
+			td
+				@extend %td.#{nth($size, 1)}
+
+
+	// Themes
+	@if $themes
+		@each $theme in $themes 
+			
+
+			$index: 1
+			@if length( $themes ) != 1
+				$index: index( $themes, $theme )
+
+			$imp: ''
+			@if $theme == '-disabled-'
+				$imp: !important
+
+			@if $theme != 'default'
+				&.#{$theme}
+					td
+						@extend %td.#{$theme}
+
+					&.#{$mod-horizontal}
+						td
+							@extend %td.#{$theme}.#{$mod-horizontal}
+						&:first-child
+							td
+								border-top-color: transparent
+
+					&.#{$mod-vertical}
+						td
+							@extend %td.#{$theme}.#{$mod-vertical}
+
+					&.#{$mod-hover}
+						&:hover
+							td
+								@extend %td.#{$theme}._hovered_
+
+					&.#{$mod-striped}
+						td
+							&:nth-child(2n)
+								@extend %td.#{$theme}.#{$mod-striped}
+
+					&._striped-all_
+						td
+							@extend %td.#{$theme}.#{$mod-striped}
+			@else
+				td
+					@extend %td.#{$theme}
+
+				&.#{$mod-horizontal}
+					td
+						@extend %td.#{$mod-horizontal}
+					&:first-child
+						td
+							border-top-color: transparent
+
+				&.#{$mod-vertical}
+					td
+						@extend %td.#{$mod-vertical}
+
+				&.#{$mod-hover}
+					&:hover
+						td
+							@extend %td._hovered_
+
+				&.#{$mod-striped}
+					td
+						&:nth-child(2n)
+							@extend %td.#{$mod-striped}
+
+				&._striped-all_
+					td
+						@extend %td.#{$mod-striped}
+
+
+
+
+
+%table
+	border: 1px solid transparent
+	// table-layout: fixed
+	// box-sizing: border-box
+
+	&.#{$mod-loading}
+		tr
+			@extend %tr.#{$mod-loading}
+		&._anim-start_
+			tr
+				td
+					@extend %tables-loading-start
+
+	@each $size in $sizes
+		
+		$sz: #{nth($size, 1)}
+		
+		@if $sz != _minor
+			&.#{nth($size, 1)}
+				tr
+					@extend %tr.#{nth($size, 1)}
+				
+		@else
+			tr
+				@extend %tr.#{nth($size, 1)}
+
+	// Themes
+	@if $themes
+		@each $theme in $themes 
+			
+
+			$index: 1
+			@if length( $themes ) != 1
+				$index: index( $themes, $theme )
+
+			$imp: ''
+			@if $theme == '-disabled-'
+				$imp: !important
+
+			@if $theme != 'default'
+				&.#{$theme}
+					&.#{$mod-bordered}
+						border-color: nth( $border-color, $index )#{$imp}
+
+					tr
+						@extend %tr.#{$theme}
+
+					&.#{$mod-horizontal}
+						tr
+							@extend %tr.#{$theme}.#{$mod-horizontal}
+
+					&.#{$mod-vertical}
+						tr
+							@extend %tr.#{$theme}.#{$mod-vertical}
+
+					&.#{$mod-hover}
+						&:hover
+							tr
+								@extend %tr.#{$theme}.#{$mod-hover}
+
+					&.#{$mod-striped}
+						tr
+							&:nth-child(2n)
+								@extend %tr.#{$theme}._striped-all_
+
+			@else
+
+				&.#{$mod-bordered}
+					border-color: nth( $border-color-lighten, $index )#{$imp}
+
+				tr
+					@extend %tr.#{$theme}
+
+				&.#{$mod-horizontal}
+					tr
+						@extend %tr.#{$mod-horizontal}
+
+				&.#{$mod-vertical}
+					tr
+						@extend %tr.#{$mod-vertical}
+
+				&.#{$mod-hover}
+					&:hover
+						tr
+							@extend %tr.#{$mod-hover}
+
+				&.#{$mod-striped}
+					tr
+						&:nth-child(2n)
+							@extend %tr._striped-all_
+
+ 
+ 
+@if $dependent == null
+	.#{$table}
+		@extend %table
+
+		tr
+			@extend %tr
+
+			td
+				@extend %td

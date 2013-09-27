@@ -1,159 +1,239 @@
-$dropdown: -dropdown 
- 
-@import "imports" 
-@import "params" 
-@import "vars" 
+
+@import "imports"  
+@import "params"  
 @import "myvars" 
+@import "vars"  
  
-@mixin dropdown( $index )
-	
-	$brdr-color: nth( $border-color, $index )!default
+ 
+%#{$dropdown} 
+	@extend %object
+	position: relative
 
-	@if nth( $themes, $index ) == 'default'
-		$brdr-color: nth( $border-color-darkener, $index )
-	
+	border-radius: $dropdown-border-radius
+	box-shadow: $dropdown-box-shadow
+
+	.#{$dropdown-content}
+		background-color: $dropdown-content-background
+		border-radius: 0 0 $dropdown-border-radius $dropdown-border-radius
+
 	.#{$dropdown-header}
-		background-color: nth( $background-color, $index )
-		color: nth( $color-invert, $index )
-		text-shadow: nth( $text-shadow-invert, $index )
-		border-bottom: 1px solid nth( $border-color-darken, $index )
-	
-	&.#{$mod-bottom}
-		.#{$arrow}
-			@include triangle( $dropdown-arrow-size, $brdr-color, up )
+		text-align: center
+		border-radius: $dropdown-border-radius $dropdown-border-radius 0 0
+	 
+	// Set _minor to default size 
+	$sizes: null!default 
+	@if $sizes 
+		@each $size in $sizes 
+			$sz: #{nth($size, 1)} 
+			
+			&.#{nth($size, 1)}
+				.#{$dropdown-content}
+					padding: nth($size,2)/3 nth($size,2)/2 
+				.#{$dropdown-header}
+					font-size: nth($size,2) 
+					padding: nth($size,2)/3 nth($size,2)/2
+				
 
-	&.#{$mod-top}
-		.#{$arrow}
-			@include triangle( $dropdown-arrow-size, $brdr-color, down )
+				&:before
+					@extend %caret.#{nth($size, 1)}
+				&.#{$mod-top}, &.#{$mod-bottom}
+					&:before
+						margin-left: - nth($size,2)/3
+				&.#{$mod-left}, &.#{$mod-right}
+					&:before
+						margin-top: - nth($size,2)/3
 
-	&.#{$mod-left}
-		.#{$arrow}
-			@include triangle( $dropdown-arrow-size, $brdr-color, right )
+				&.#{$mod-top}
+					&:before
+						top: 100%
+				&.#{$mod-bottom}
+					&:before
+						bottom: 100%
+				&.#{$mod-left}
+					&:before
+						left: 100%
+				&.#{$mod-right}
+					&:before
+						right: 100%
+			
+			@if $sz == _minor
+				.#{$dropdown-content}
+					padding: nth($size,2)/3 nth($size,2)/2 
+				.#{$dropdown-header}
+					font-size: nth($size,2)
+					padding: nth($size,2)/3 nth($size,2)/2
 
-	&.#{$mod-right}
-		.#{$arrow}
-			@include triangle( $dropdown-arrow-size, $brdr-color, left )
+				&:before
+					@extend %caret.#{nth($size, 1)}
+				&.#{$mod-top}, &.#{$mod-bottom}
+					&:before
+						margin-left: - nth($size,2)/3
+				&.#{$mod-left}, &.#{$mod-right}
+					&:before
+						margin-top: - nth($size,2)/3
 
-	&.#{$mod-bottom},
-	&.#{$mod-top}
-		&:after
-			@include background-image( linear-gradient(      to right, rgba($brdr-color,0), rgba($brdr-color, 1) 50%, rgba($brdr-color, 0)     ) )
-
-	&.#{$mod-left},
-	&.#{$mod-right}
-		&:after
-			@include background-image( linear-gradient(      to bottom, rgba($brdr-color,0), rgba($brdr-color, 1) 50%, rgba($brdr-color, 0)     ) )
-
-	&.#{$mod-loading}
-		.#{$dropdown-header}
-			@include loading( rgba( nth( $background-color-darken, $index ), 1), rgba( nth( $background-color, $index ), 1) )
- 
-
-@if $dependent == null
-	.#{$dropdown}
-		@extend %object
-		min-width: $dropdown-min-width
-		border-width: $dropdown-border-width
-		border-style: $dropdown-border-style
-		@include border-radius( $dropdown-border-radius )
-		@include box-shadow( $dropdown-shadow )
-		position: relative
-
-		.#{$dropdown-header}
-			padding: $dropdown-header-padding
-			@include border-radius( $dropdown-border-radius $dropdown-border-radius 0 0 )
-
-		.#{$dropdown-content}
-			padding: $dropdown-content-padding
-
-		.#{$arrow}
+				&.#{$mod-top}
+					&:before
+						top: 100%
+				&.#{$mod-bottom}
+					&:before
+						bottom: 100%
+				&.#{$mod-left}
+					&:before
+						left: 100%
+				&.#{$mod-right}
+					&:before
+						right: 100%
+	 
+	 
+	 
+	// Modifiers
+	&.#{$mod-top}, &.#{$mod-bottom}, &.#{$mod-left}, &.#{$mod-right}
+		&:after, &:before
+			content: " "
+			display: block
 			position: absolute
 
-		&.#{$mod-bottom},
-		&.#{$mod-top}
-			&:after
-				height: 1px
-				width: 100%
-				left: 0
-				position: absolute
-				display: inline-block
-				content: " "
+		&:before
+			position: absolute
+			// @extend %caret
+	 
 
-		&.#{$mod-top}
-			.#{$arrow}
-				left: 50%
-				margin-left: -$dropdown-arrow-size/2
-				bottom: -$dropdown-arrow-size
+	 
+	 
+	// Themes 
+	$themes: null!default 
+	@if $themes 
+		@each $theme in $themes  
+	 
+			$index: 1 
+			@if length( $themes ) != 1 
+				$index: index( $themes, $theme ) 
+	 
+			$imp: "" 
+			@if $theme == "-disabled-" 
+				$imp: !important
+				&.#{$theme}
+					box-shadow: none#{$imp}
+					color: nth( $color, $index )
+	 
+	 
 			
-			&:after
-				bottom: -1px
+			&.#{$theme}
+				.#{$dropdown-header} 
+					color: nth( $color-invert, $index )
+					background-color: nth( $background-color, $index )
+					text-shadow: nth( $text-shadow, $index )
+				&.#{$mod-top}, &.#{$mod-bottom}
+					&:after
+						@include background-image( linear-gradient(      to right, rgba(nth( $border-color, $index ),0), rgba(nth( $border-color, $index ), 1) 50%, rgba(nth( $border-color, $index ), 0)     ) )
+				&.#{$mod-left}, &.#{$mod-right}
+					&:after
+						@include background-image( linear-gradient(      to bottom, rgba(nth( $border-color, $index ),0), rgba(nth( $border-color, $index ), 1) 50%, rgba(nth( $border-color, $index ), 0)     ) )
+				&.#{$mod-top}
+					&:before
+						@extend %caret.#{$mod-bottom}.#{$theme}
+				&.#{$mod-bottom}
+					&:before
+						@extend %caret.#{$mod-top}.#{$theme}
+				&.#{$mod-left}
+					&:before
+						@extend %caret.#{$mod-right}.#{$theme}
+				&.#{$mod-right}
+					&:before
+						@extend %caret.#{$mod-left}.#{$theme}
+	 
+			@if $theme == "default" 
+				.#{$dropdown-header} 
+					color: nth( $color-invert, $index )
+					background-color: nth( $background-color, $index )
+					text-shadow: nth( $text-shadow, $index )
+				&.#{$mod-top}, &.#{$mod-bottom}
+					&:after
+						@include background-image( linear-gradient(      to right, rgba(nth( $border-color, $index ),0), rgba(nth( $border-color, $index ), 1) 50%, rgba(nth( $border-color, $index ), 0)     ) )
+				&.#{$mod-left}, &.#{$mod-right}
+					&:after
+						@include background-image( linear-gradient(      to bottom, rgba(nth( $border-color, $index ),0), rgba(nth( $border-color, $index ), 1) 50%, rgba(nth( $border-color, $index ), 0)     ) )
 
-		&.#{$mod-bottom}
-			.#{$arrow}
-				left: 50%
-				margin-left: -$dropdown-arrow-size/2
-				top: -$dropdown-arrow-size
-			&:after
-				top: -1px
+				&.#{$mod-top}
+					&:before
+						@extend %caret.#{$mod-bottom}.#{$theme}
+				&.#{$mod-bottom}
+					&:before
+						@extend %caret.#{$mod-top}.#{$theme}
+				&.#{$mod-left}
+					&:before
+						@extend %caret.#{$mod-right}.#{$theme}
+				&.#{$mod-right}
+					&:before
+						@extend %caret.#{$mod-left}.#{$theme}
+	 
+	 
 
-		&.#{$mod-left},
-		&.#{$mod-right}
-			&:after
-				height: 100%
-				width: 1px
-				top: 0
-				position: absolute
-				display: inline-block
-				content: " "
+	
+	&.#{$mod-top}, &.#{$mod-bottom}
+		&:after
+			height: $dropdown-line-height
+			left: $dropdown-border-radius
+			right: $dropdown-border-radius
+		&:before
+			left: 50%
 
-		&.#{$mod-left}
-			.#{$arrow}
-				top: 50%
-				margin-top: -$dropdown-arrow-size/2
-				right: -$dropdown-arrow-size
-			&:after
-				right: -1px
+	&.#{$mod-left}, &.#{$mod-right}
+		&:after
+			width: $dropdown-line-height
+			top: $dropdown-border-radius
+			bottom: $dropdown-border-radius
+		&:before
+			top: 50%
+
+	&.#{$mod-top}
+		&:after
+			bottom: - $dropdown-line-height
+
+	&.#{$mod-bottom}
+		&:after
+			top: - $dropdown-line-height
+
+	&.#{$mod-left}
+		&:after
+			right: - $dropdown-line-height
+
+	&.#{$mod-right}
+		&:after
+			left: - $dropdown-line-height
+
 		
-		&.#{$mod-right}
-			.#{$arrow}
-				top: 50%
-				margin-top: -$dropdown-arrow-size/2
-				left: -$dropdown-arrow-size
-			&:after
-				left: -1px
-
-
-
-$themes: null !default 
- 
-@if $themes 
-	@if type-of( $themes ) == list 
-	  
-		@each $theme in $themes 
 	 
-			$index: index( $themes, $theme ) 
+	&.#{$mod-loading}
+		.#{$dropdown-header}
+			position: relative
+				
+			&:before
+				@extend .-anim-loading
+				background-size: 52px 52px
+				
+				background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.35, rgba(255,255,255,.35)), color-stop(.35, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255,255,255,.35)), color-stop(.75, rgba(255,255,255,.35)), color-stop(.75, transparent), to(transparent))!important
+				background-image: -webkit-linear-gradient(-45deg, rgba(255,255,255,.35) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.35) 50%, rgba(255,255,255,.35) 75%, transparent 75%, transparent)!important
+				background-image: -moz-linear-gradient(-45deg, rgba(255,255,255,.35) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.35) 50%, rgba(255,255,255,.35) 75%, transparent 75%, transparent)!important
+				background-image: -o-linear-gradient(-45deg, rgba(255,255,255,.35) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.35) 50%, rgba(255,255,255,.35) 75%, transparent 75%, transparent)!important
+				background-image: linear-gradient(-45deg, rgba(255,255,255,.35) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.35) 50%, rgba(255,255,255,.35) 75%, transparent 75%, transparent)!important
+				
+				content: " "
+				display: block
+				position: absolute
+				top: 0
+				bottom: 0
+				left: 0
+				right: 0
+
+		&._anim-start_
+			.#{$dropdown-header}
+				&:before
+					@extend .-anim-loading._anim-start_
+
+
 	 
-			// With each theme do 
-			@if $dependent == null 
-				@if $theme != "default" 
-					.#{$dropdown}.#{$theme} 
-						@include dropdown( $index ) 
-				@else 
-					.#{$dropdown} 
-						@include dropdown( $index ) 
-			@else 
-				%#{$dropdown}.#{$theme} 
-					@include dropdown( $index ) 
- 
-	@else 
-		@if type-of( $themes ) == string 
-			@if $dependent == null 
-				@if $theme != "default" 
-					.#{$dropdown}.#{$theme} 
-						@include dropdown( $index ) 
-				@else 
-					.#{$dropdown} 
-						@include dropdown( $index ) 
-			@else 
-				%#{$dropdown}.#{$theme} 
-					@include dropdown( $index ) 
+@if $dependent == null 
+	.#{$dropdown} 
+		@extend %#{$dropdown}

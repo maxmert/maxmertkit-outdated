@@ -1,203 +1,268 @@
-@import "imports" 
-@import "params" 
-@import "vars" 
+@import "imports"  
+@import "params"  
 @import "myvars" 
+@import "vars"  
  
-@mixin menu( $index ) 
-	& > li
-		&.#{$mod-loading}
-			& > a
-				color: nth( $color-invert, $index )
-				@include loading( rgba( nth( $background-color-lighten, $index ), 1), rgba( nth( $background-color, $index ), 1) )
+ 
+%#{$menu-item} 
+	@extend %object
+	display: inline-block
+	cursor: pointer
+	vertical-align: middle
+	position: relative
+	@include user-select(none)
 
-	li:hover
-		& > a
-			background-color: nth( $background-color, $index )
-			color: nth( $color-invert, $index )
-			border: $menu-border-width $menu-border-style nth( $border-color, $index )
-		&.#{$mod-loading}
-			& > a
-				@include loading( rgba( nth( $background-color-darken, $index ), 1), rgba( nth( $background-color, $index ), 1) )
+	& > a
+		white-space: nowrap
+		display: block
+		border-width: 1px
+		border-style: solid
+		border-color: transparent
+	
 
-	li.#{$mod-hover}
-		& > a
-			background-color: nth( $background-color, $index )!important
-			color: nth( $color-invert, $index )!important
-			border: $menu-border-width $menu-border-style nth( $border-color, $index )!important
-		&.#{$mod-loading}
-			& > a
-				@include loading( rgba( nth( $background-color-darken, $index ), 1), rgba( nth( $background-color, $index ), 1) )
-
-	li
-		& > a:active
-			background-color: nth( $background-color-darken, $index )!important
-			color: nth( $color-invert, $index )!important
-			border: $menu-border-width $menu-border-style nth( $border-color, $index )!important
-		&.#{$mod-loading}
-			& > a:active
-				@include loading( rgba( nth( $background-color-darkener, $index ), 1), rgba( nth( $background-color-darken, $index ), 1) )
-
-	& > li.#{$mod-active}
-		& > a
-			background-color: nth( $background-color-darken, $index )!important
-			color: nth( $color-invert, $index )!important
-			border: $menu-border-width $menu-border-style nth( $border-color, $index )!important
-		&.#{$mod-loading}
-			& > a
-				@include loading( rgba( nth( $background-color-darkener, $index ), 1), rgba( nth( $background-color-darken, $index ), 1) )
+	&.#{$menu-sub}
+		&:before
+			@extend %caret
+			display: block
+			content: " "
+			position: absolute
+			top: 50%
+	
 
 
-
-
-
-@mixin menu-size( $mod, $top, $left, $font )
-	li
-		& > a
-			padding: $top $left
-			font-size: $font
-			line-height: $font
+	// Set _minor to default size 
+	$sizes: null!default 
+	@if $sizes 
+		@each $size in $sizes 
+			$sz: #{nth($size, 1)} 
 			
-			.-icon-caret-right
-				margin-top: -$font/2
-
-
-@mixin menu-sizes( $mod, $top, $left, $font )
-
-	@if $mod != ''
-		&.#{$mod}
-			@include menu-size( $mod, $top, $left, $font )
-
-	@else
-		@include menu-size( $mod, $top, $left, $font )
-
-
-
-%dropdown-show
-	display: block
-	&:after
-		display: none
-
-	&.#{$mod-bottom}
-		top: 100%
-
-	&.#{$mod-left}
-		top: 0
-		right: 100%
-
-	&.#{$mod-top}
-		bottom: 100%
-
-	&.#{$mod-right}
-		left: 100%
-		top: 0
-
-
-@if $dependent == null
-	.#{$menu}
-		list-style: none
-		margin: 0
-
-		li
-			@extend %object
-			position: relative
-
-			& > a
-				@extend %object
-				border: $menu-border-width $menu-border-style transparent
-				cursor: pointer
-				@include user-select
-
-				.-icon-caret-right
-					position: absolute
-					right: 4px
-					top: 50%
-					opacity: .3
-
-			& > .#{$dropdown}
-				position: absolute
-				display: none
-				@include border-radius( $menu-dropdown-border-radius )
-				@include box-shadow( $menu-dropdown-shadow )
-
-				& > .#{$menu}
-					li
-						width: 100%
-						a
-							display: block
-
-			&.#{$mod-active},
-			&.#{$mod-hover},
-			&:active,
-			&:hover
+			&.#{nth($size, 1)}
 				& > a
-					.-icon-caret-right
-						opacity: 1
+					font-size: nth($size,2) 
+					padding: nth($size,2)/3 nth($size,2)/2
+				&.#{$menu-sub}
+					&:before
+						@extend %caret.#{nth($size, 1)}
+						margin-top: - nth($size,2)/4
+						right: nth($size,2)/2
+			@if $sz == _minor 
+				& > a
+					font-size: nth($size,2) 
+					padding: nth($size,2)/3 nth($size,2)/2
+				&.#{$menu-sub}
+					&:before
+						@extend %caret.#{nth($size, 1)}
+						margin-top: - nth($size,2)/4
+						right: nth($size,2)/2
+	 
+	 
+	 
+	 
+	// Modifiers
+	& > ul, & > .#{$dropdown}
+		display: none
+		position: absolute
+		z-index: 1
 
-			&.#{$mod-active}
-				& > .#{$dropdown}
-					@extend %dropdown-show
-		
+		li a
+			border: none!important
+
+	&:hover, &.#{$mod-hover}
+		& > ul, & > .#{$dropdown}
+			display: block
+
+
+
+	// Set positions of the menu
+	// Standart hotizontal
+	& > ul, & > .#{$dropdown}
+		top: 100%
+		left: 0
+
+
+	
+	// Themes 
+	$themes: null!default 
+	@if $themes 
+		@each $theme in $themes  
+	 
+			$index: 1 
+			@if length( $themes ) != 1 
+				$index: index( $themes, $theme ) 
+	 
+			$imp: "" 
+			@if $theme == "-disabled-" 
+				$imp: !important
+				&.#{$theme}
+					cursor: default!important
+
+					&.#{$menu-sub}
+						&:before
+							display: none!important
+
+					& > a
+						color: nth( $color, $index )#{$imp} 
+						background-color: transparent#{$imp} 
+						border-color: transparent#{$imp} 
+	 
+	 
+			
+			&.#{$theme}
+
+				&:hover, &.#{$mod-hover}
+					& > a
+						@if $theme != "-disabled-" 
+							color: nth( $color-invert, $index )#{$imp} 
+							background-color: nth( $background-color-lighten, $index )#{$imp}
+							border-color: nth( $border-color, $index )#{$imp}
+							text-shadow: nth( $text-shadow, $index )#{$imp}
+					// &.#{$menu-sub}
+					// 	&:before
+					// 		@if $theme != "-disabled-" 
+					// 			@extend %caret.#{$theme}
+
+				& > a
+					&:active, &.#{$mod-active}
+						@if $theme != "-disabled-" 
+							color: nth( $color-invert, $index )#{$imp} 
+							background-color: nth( $background-color, $index )#{$imp}
+							border-color: nth( $border-color, $index )#{$imp}
+							text-shadow: nth( $text-shadow, $index )#{$imp}
+
+	 
+			@if $theme == "default" 
+
+				// &.#{$menu-sub}
+				// 	&:before
+				// 		@extend %caret.#{$theme}
+
+
+				&:hover, &.#{$mod-hover}
+					& > a
+						color: nth( $color-invert, $index )#{$imp} 
+						background-color: nth( $background-color, $index )#{$imp}
+						border-color: nth( $border-color, $index )#{$imp}
+						text-shadow: nth( $text-shadow, $index )#{$imp}
+
+				& > a
+					&:active, &.#{$mod-active}
+						color: nth( $color-invert, $index )#{$imp} 
+						background-color: nth( $background-color-darken, $index )#{$imp}
+						border-color: nth( $border-color, $index )#{$imp}
+						text-shadow: nth( $text-shadow, $index )#{$imp}
+	 
+
+	& > .#{$dropdown}
+		@extend %#{$dropdown}
+		background-color: $dropdown-content-background
+		border-radius: $dropdown-border-radius
+		padding: $dropdown-border-radius 0
+		// margin-top: -$dropdown-border-radius + $dropdown-line-height
+		&:before, &:after
+			display: none!important
+	 
+
+%#{$menu}
+	list-style: none
+	margin: 0
+	padding: 0
+	width: auto
+ 
+	 
+@if $dependent == null 
+	.#{$menu}
+		@extend %#{$menu}
+		li
+			@extend %#{$menu-item}
+
+		// &.#{$mod-horizontal}		
+		// 	li
+		// 		&.#{$menu-sub}
+		// 			&:before
+		// 				@extend %caret.#{$mod-bottom}
+
+
 		&.#{$mod-vertical}
 			li
 				display: block
-				a
-					display: block
 
-		&.#{$mod-active}
-			li
-				&:hover,
-				&.#{$mod-hover}
-					& > .#{$dropdown}
-						@extend %dropdown-show
+				// &.#{$menu-sub}
+				// 	&:before
+				// 		@extend %caret.#{$mod-right}
 
+				& > ul, & > .#{$dropdown}
+					left: 100%
+					top: 0
 
-		&.#{$mod-unstyled}
-			li
-				&:hover a,
-				&.#{$mod-hover} a,
-				&:active a,
-				&.#{$mod-active} a
-					border-color: transparent!important
-					background-color: transparent!important
+					&.#{$mod-top}
+						top: inherit!important
+						bottom: 0
 
-		@include menu-sizes( $mod-tiny, 3px, 5px, round(golden-ratio(14px, -2) + 4) )
-		@include menu-sizes( $mod-small, 3px, 5px, round(golden-ratio(14px, -1) + 2) )
-		@include menu-sizes( '', 6px, 10px, 14px )
-		@include menu-sizes( $mod-big, 7px, 13px, round(golden-ratio(14px, 1)) )
-		@include menu-sizes( $mod-huge, 10px, 16px, round(golden-ratio(14px, 2)) )
+					&.#{$mod-left}
+						left: inherit
+						right: 100%
 
 
- 
-$themes: null !default 
- 
-@if $themes 
-	@if type-of( $themes ) == list 
-	  
-		@each $theme in $themes 
-	 
-			$index: index( $themes, $theme ) 
-	 
-			// With each theme do 
-			@if $dependent == null 
-				@if $theme != "default" 
-					.#{$menu}.#{$theme} 
-						@include menu( $index ) 
-				@else 
-					.#{$menu} 
-						@include menu( $index ) 
-			@else 
-				%#{$menu}.#{$theme} 
-					@include menu( $index ) 
- 
-	@else 
-		@if type-of( $themes ) == string 
-			@if $dependent == null 
-				@if $theme != "default" 
-					.#{$menu}.#{$theme} 
-						@include menu( $index ) 
-				@else 
-					.#{$menu} 
-						@include menu( $index ) 
-			@else 
-				%#{$menu}.#{$theme} 
-					@include menu( $index ) 
+		// Set _minor to default size 
+		$sizes: null!default 
+		@if $sizes 
+			@each $size in $sizes 
+				$sz: #{nth($size, 1)} 
+				@if $sz != _minor 
+					&.#{nth($size, 1)}
+						li
+							@extend %#{$menu-item}.#{nth($size, 1)}		
+						li.#{$menu-sub} > a
+							padding: nth($size,2)/3 nth($size,2)/2*3 nth($size,2)/3 nth($size,2)/2
+				@else
+					li
+						@extend %#{$menu-item}.#{nth($size, 1)}	
+					li.#{$menu-sub} > a
+						padding: nth($size,2)/3 nth($size,2)/2*3 nth($size,2)/3 nth($size,2)/2
+
+		// Themes 
+		$themes: null!default 
+		@if $themes 
+			@each $theme in $themes  
+		 
+				$index: 1 
+				@if length( $themes ) != 1 
+					$index: index( $themes, $theme ) 
+		 
+				$imp: "" 
+				@if $theme == "-disabled-" 
+					$imp: !important 
+		 
+		 
+				
+				&.#{$theme}
+					&.#{$mod-horizontal}
+						li	
+							&.#{$menu-sub}
+								&:before
+									@extend %caret.#{$theme}.#{$mod-bottom}
+
+
+					&.#{$mod-vertical}
+						li
+							&.#{$menu-sub}
+								&:before
+									@extend %caret.#{$theme}.#{$mod-right}
+					li
+						@extend %#{$menu-item}.#{$theme}
+		 
+				@if $theme == "default" 
+					&.#{$mod-horizontal}
+						li		
+							&.#{$menu-sub}
+								&:before
+									@extend %caret.#{$theme}.#{$mod-bottom}
+
+
+					&.#{$mod-vertical}
+						li
+							&.#{$menu-sub}
+								&:before
+									@extend %caret.#{$theme}.#{$mod-right}
+					li
+						@extend %#{$menu-item}.#{$theme}

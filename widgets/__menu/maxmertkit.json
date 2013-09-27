@@ -1,0 +1,35 @@
+{
+    "type": "widget",
+    "name": "menu",
+    "version": "0.0.0",
+    "description": "",
+    "repository": "",
+    "author": "maxmert",
+    "license": "BSD",
+
+     "dependences": {
+    	"bourbon": "*",
+    	"object": "*",
+        "loading": "*",
+
+        "dropdown": "*"
+    },
+
+    "themes": {
+        "default": "*",
+        "disabled": "*",
+        "primary": "*"
+    },
+
+    "modifiers": {
+        "loading": "*",
+        "hover": "*",
+        "active": "*",
+        "unstyled": "*",
+        "vertical": "*",
+        "tiny": "*",
+        "small": "*",
+        "big": "*",
+        "huge": "*"
+    }
+}
