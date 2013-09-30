@@ -68,6 +68,7 @@
   .-dropdown._bottom_:after, .-dropdown._top_:after {
     height: 1px;
     width: 100%;
+    left: 0;
     position: absolute;
     display: inline-block;
     content: " "; }
