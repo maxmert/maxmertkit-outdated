@@ -1,0 +1,13 @@
+{
+    "type": "theme",
+    "name": "info",
+    "version": "0.0.0",
+    "description": "",
+    "image": null,
+    "tags": "info, blue",
+    "themeUse": null,
+    "repository": "",
+    "site": "",
+    "author": "maxmert",
+    "license": "BSD"
+}

@@ -71,6 +71,31 @@
 		& > ul, & > .#{$dropdown}
 			display: block
 
+	&.#{$mod-loading}
+		position: relative
+			
+		&:after
+			@extend .-anim-loading
+			background-size: 52px 52px
+			
+			background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.35, rgba(255,255,255,.35)), color-stop(.35, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255,255,255,.35)), color-stop(.75, rgba(255,255,255,.35)), color-stop(.75, transparent), to(transparent))!important
+			background-image: -webkit-linear-gradient(-45deg, rgba(255,255,255,.35) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.35) 50%, rgba(255,255,255,.35) 75%, transparent 75%, transparent)!important
+			background-image: -moz-linear-gradient(-45deg, rgba(255,255,255,.35) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.35) 50%, rgba(255,255,255,.35) 75%, transparent 75%, transparent)!important
+			background-image: -o-linear-gradient(-45deg, rgba(255,255,255,.35) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.35) 50%, rgba(255,255,255,.35) 75%, transparent 75%, transparent)!important
+			background-image: linear-gradient(-45deg, rgba(255,255,255,.35) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.35) 50%, rgba(255,255,255,.35) 75%, transparent 75%, transparent)!important
+			
+			content: " "
+			display: block
+			position: absolute
+			top: 0
+			bottom: 0
+			left: 0
+			right: 0
+
+		&._anim-start_
+			&:after
+				@extend .-anim-loading._anim-start_
+
 
 
 	// Set positions of the menu

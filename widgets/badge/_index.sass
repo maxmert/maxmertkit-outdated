@@ -1,0 +1,63 @@
+
+@import "imports"  
+@import "params"  
+@import "myvars" 
+@import "vars"  
+ 
+ 
+%#{$badge} 
+	@extend %object
+	 
+	// Set _minor to default size 
+	$sizes: null!default 
+	@if $sizes 
+		@each $size in $sizes 
+			$sz: #{nth($size, 1)} 
+			
+			&.#{nth($size, 1)} 
+				font-size: nth($size,2) 
+				padding: nth($size,2)/10 nth($size,2)/2
+				border-radius: nth($size,2)
+			@if $sz == _minor 
+				font-size: nth($size,2) 
+				padding: nth($size,2)/10 nth($size,2)/2
+				border-radius: nth($size,2)
+	 
+	 
+	 
+	 
+	// Modifiers 
+	 
+	 
+	 
+	// Themes 
+	$themes: null!default 
+	@if $themes 
+		@each $theme in $themes  
+	 
+			$index: 1 
+			@if length( $themes ) != 1 
+				$index: index( $themes, $theme ) 
+	 
+			$imp: "" 
+			@if $theme == "-disabled-" 
+				$imp: !important 
+	 
+	 
+			@if $theme != "default" 
+				&.#{$theme} 
+					color: nth( $color-invert, $index ) 
+					background-color: nth( $background-color-lighten, $index ) 
+					text-shadow: unquote(nth( $text-shadow, $index ) )
+	 
+			@else 
+				color: nth( $color-invert, $index ) 
+				background-color: nth( $background-color-darken, $index ) 
+				text-shadow: unquote(nth( $text-shadow, $index ) )
+	 
+	 
+	 
+	 
+@if $dependent == null 
+	.#{$badge} 
+		@extend %#{$badge}

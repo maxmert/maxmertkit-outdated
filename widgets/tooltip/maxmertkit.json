@@ -3,16 +3,19 @@
     "name": "tooltip",
     "version": "0.0.0",
     "description": "",
+    "image": null,
+    "tags": "tooltip",
+    "themeUse": true,
     "repository": "",
+    "site": "",
     "author": "maxmert",
     "license": "BSD",
 
      "dependences": {
-    	"bourbon": "*",
-    	"object": "*",
-        "loading": "*",
-
-        "arrow": "*"
+        "bourbon": "3.1.8",
+        "object": "0.0.0",
+        "sizes": "0.0.3",
+        "caret": "0.0.6"
     },
 
     "themes": {
@@ -22,12 +25,19 @@
     },
 
     "modifiers": {
-        "loading": "*",
-        "big": "*",
-        "huge": "*",
-        "left": "*",
-        "right": "*",
+        "tiny": "0.0.0",
+        "small": "0.0.0",
+        "minor": "0.0.0",
+        "normal": "0.0.0",
+        "major": "0.0.0",
+        "big": "0.0.0",
+        "huge": "0.0.0",
+        "giant": "0.0.0",
+        "divine": "0.0.0",
+
         "top": "*",
-        "bottom": "*"
+        "bottom": "*",
+        "left": "*",
+        "right": "*"
     }
 }

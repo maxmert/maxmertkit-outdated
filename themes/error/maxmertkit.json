@@ -1,0 +1,13 @@
+{
+    "type": "theme",
+    "name": "error",
+    "version": "0.0.1",
+    "description": "",
+    "image": null,
+    "tags": "error, red",
+    "themeUse": null,
+    "repository": "",
+    "site": "",
+    "author": "maxmert",
+    "license": "BSD"
+}

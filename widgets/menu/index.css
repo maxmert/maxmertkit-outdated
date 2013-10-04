@@ -19,7 +19,7 @@
   to {
     background-position: 52px 52px; } }
 
-.-anim-loading, .-menu li > ._loading_.-dropdown .-dropdown-header:before {
+.-anim-loading, .-menu li > ._loading_.-dropdown .-dropdown-header:before, .-menu li._loading_:after {
   -webkit-animation: -anim-loading-keyframes 1000ms linear both;
   -webkit-animation-play-state: paused;
   -moz-animation: -anim-loading-keyframes 1000ms linear both;
@@ -32,7 +32,7 @@
   -webkit-animation-iteration-count: infinite;
   -moz-animation-iteration-count: infinite;
   -o-animation-iteration-count: infinite; }
-  .-anim-loading._anim-start_, .-menu li > ._loading_.-dropdown ._anim-start_.-dropdown-header:before, .-menu li > ._loading_._anim-start_.-dropdown .-dropdown-header:before {
+  .-anim-loading._anim-start_, .-menu li > ._loading_.-dropdown ._anim-start_.-dropdown-header:before, .-menu li > ._loading_._anim-start_.-dropdown .-dropdown-header:before, .-menu li._anim-start_._loading_:after {
     -webkit-animation-play-state: running;
     -moz-animation-play-state: running;
     -o-animation-play-state: running;
@@ -188,7 +188,7 @@
   to {
     background-position: 52px 52px; } }
 
-.-anim-loading, .-menu li > ._loading_.-dropdown .-dropdown-header:before {
+.-anim-loading, .-menu li > ._loading_.-dropdown .-dropdown-header:before, .-menu li._loading_:after {
   -webkit-animation: -anim-loading-keyframes 1000ms linear both;
   -webkit-animation-play-state: paused;
   -moz-animation: -anim-loading-keyframes 1000ms linear both;
@@ -201,7 +201,7 @@
   -webkit-animation-iteration-count: infinite;
   -moz-animation-iteration-count: infinite;
   -o-animation-iteration-count: infinite; }
-  .-anim-loading._anim-start_, .-menu li > ._loading_.-dropdown ._anim-start_.-dropdown-header:before, .-menu li > ._loading_._anim-start_.-dropdown .-dropdown-header:before {
+  .-anim-loading._anim-start_, .-menu li > ._loading_.-dropdown ._anim-start_.-dropdown-header:before, .-menu li > ._loading_._anim-start_.-dropdown .-dropdown-header:before, .-menu li._anim-start_._loading_:after {
     -webkit-animation-play-state: running;
     -moz-animation-play-state: running;
     -o-animation-play-state: running;
@@ -690,6 +690,22 @@
       border: none !important; }
   .-menu li:hover > ul, .-menu li:hover > .-dropdown, .-menu li._hover_ > ul, .-menu li._hover_ > .-dropdown {
     display: block; }
+  .-menu li._loading_ {
+    position: relative; }
+    .-menu li._loading_:after {
+      background-size: 52px 52px;
+      background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.35, rgba(255, 255, 255, 0.35)), color-stop(0.35, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.35)), color-stop(0.75, rgba(255, 255, 255, 0.35)), color-stop(0.75, transparent), to(transparent)) !important;
+      background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.35) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.35) 50%, rgba(255, 255, 255, 0.35) 75%, transparent 75%, transparent) !important;
+      background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 0.35) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.35) 50%, rgba(255, 255, 255, 0.35) 75%, transparent 75%, transparent) !important;
+      background-image: -o-linear-gradient(-45deg, rgba(255, 255, 255, 0.35) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.35) 50%, rgba(255, 255, 255, 0.35) 75%, transparent 75%, transparent) !important;
+      background-image: linear, -45deg, rgba(255, 255, 255, 0.35) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.35) 50%, rgba(255, 255, 255, 0.35) 75%, transparent 75%, transparent !important;
+      content: " ";
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0; }
   .-menu li > ul, .-menu li > .-dropdown {
     top: 100%;
     left: 0; }

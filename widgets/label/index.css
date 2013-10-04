@@ -1,0 +1,50 @@
+.-label {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  display: inline-block;
+  outline: none;
+  vertical-align: middle; }
+
+.-label {
+  border-radius: 2px;
+  font-size: 16px;
+  padding: 1.6px 5.33333px;
+  color: #333333;
+  background-color: #eeeeee;
+  text-shadow: 0 1px 0 rgba(255,255,255,1); }
+  ._tiny.-label {
+    font-size: 12px;
+    padding: 1.2px 4px; }
+  ._small.-label {
+    font-size: 14px;
+    padding: 1.4px 4.66667px; }
+  ._minor.-label {
+    font-size: 16px;
+    padding: 1.6px 5.33333px; }
+  ._normal.-label {
+    font-size: 24px;
+    padding: 2.4px 8px; }
+  ._major.-label {
+    font-size: 32px;
+    padding: 3.2px 10.66667px; }
+  ._big.-label {
+    font-size: 40px;
+    padding: 4px 13.33333px; }
+  ._huge.-label {
+    font-size: 48px;
+    padding: 4.8px 16px; }
+  ._giant.-label {
+    font-size: 60px;
+    padding: 6px 20px; }
+  ._divine.-label {
+    font-size: 78px;
+    padding: 7.8px 26px; }
+  .-disabled-.-label {
+    color: white;
+    background-color: #f3f3f3;
+    text-shadow: none; }
+  .-primary-.-label {
+    color: white;
+    background-color: #3da0e7;
+    text-shadow: 0 -1px rgba(0,0,0,.3); }

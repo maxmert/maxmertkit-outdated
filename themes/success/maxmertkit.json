@@ -1,0 +1,13 @@
+{
+    "type": "theme",
+    "name": "success",
+    "version": "0.0.0",
+    "description": "success, green",
+    "image": null,
+    "tags": "success, green",
+    "themeUse": null,
+    "repository": "",
+    "site": "",
+    "author": "maxmert",
+    "license": "BSD"
+}
