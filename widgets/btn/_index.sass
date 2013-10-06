@@ -11,6 +11,7 @@
 	border-radius: $btn-border-radius
 	@include user-select(none)
 	cursor: pointer
+	text-decoration: none
 
 	box-shadow: $btn-shadow
 
@@ -26,13 +27,12 @@
 		
 		$sz: #{nth($size, 1)}
 		
-		@if $sz != _minor
-			&.#{nth($size, 1)}
-				font-size: nth($size,2)
-				padding: nth($size,2)/3 nth($size,2)/2
-				.#{$caret}
-					@extend %caret.#{nth($size, 1)}
-		@else
+		&.#{nth($size, 1)}
+			font-size: nth($size,2)
+			padding: nth($size,2)/3 nth($size,2)/2
+			.#{$caret}
+				@extend %caret.#{nth($size, 1)}
+		@if $sz == _minor
 			font-size: nth($size,2)
 			padding: nth($size,2)/3 nth($size,2)/2
 			.#{$caret}
