@@ -1,9 +1,0 @@
-{
-    "type": "widget",
-    "name": "bourbon",
-    "version": "3.1.1",
-    "description": "Bourbon mixins",
-    "repository": "https://github.com/thoughtbot/bourbon",
-    "author": "maxmert",
-    "license": "BSD"
-}

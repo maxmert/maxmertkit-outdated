@@ -1,1 +1,1 @@
-# Go to <a href="http://maxmert.com">maxmert.com</a> for documentation.
+# Go to <a href="http://maxmert.com">maxmertkit.com</a> for documentation.
