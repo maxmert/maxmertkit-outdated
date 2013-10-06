@@ -1,0 +1,37 @@
+{
+    "type": "widget",
+    "name": "label",
+    "version": "0.0.2",
+    "description": "Standart label for maxmertkit.",
+    "image": null,
+    "tags": "label",
+    "themeUse": true,
+    "repository": "",
+    "site": "",
+    "author": "maxmert",
+    "license": "BSD",
+
+     "dependences": {
+        "bourbon": "3.1.8",
+        "object": "0.0.0",
+        "sizes": "0.0.3"
+    },
+
+    "themes": {
+        "default": "*",
+        "disabled": "*",
+        "primary": "*"
+    },
+
+    "modifiers": {
+        "tiny": "0.0.0",
+        "small": "0.0.0",
+        "minor": "0.0.0",
+        "normal": "0.0.0",
+        "major": "0.0.0",
+        "big": "0.0.0",
+        "huge": "0.0.0",
+        "giant": "0.0.0",
+        "divine": "0.0.0"
+    }
+}

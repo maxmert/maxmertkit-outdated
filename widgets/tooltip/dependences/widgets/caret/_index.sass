@@ -1,0 +1,90 @@
+@import "imports" 
+@import "params" 
+@import "myvars"
+@import "vars"
+
+
+%caret
+	@extend %object
+
+	width: 0
+	height: 0
+	
+	$themes: null !default 
+	
+
+
+	@each $size in $sizes
+		
+		$sz: #{nth($size, 1)}
+		
+		
+		&.#{nth($size, 1)}
+			border-width: nth($size,2)/3
+			border-style: solid
+		@if $sz == _minor
+			border-width: nth($size,2)/3
+			border-style: solid
+
+	
+	@if $themes 
+		@each $theme in $themes 
+		 
+			$index: 1
+			@if length( $themes ) != 1
+				$index: index( $themes, $theme )
+	
+
+			
+			&.#{$theme}
+				&.#{$mod-bottom}
+					border-left-color: transparent
+					border-right-color: transparent
+					border-bottom-color: transparent
+					border-top-color: nth( $border-color-darkener, $index )
+				&.#{$mod-top}
+					border-left-color: transparent
+					border-right-color: transparent
+					border-top-color: transparent
+					border-bottom-color: nth( $border-color-darkener, $index )
+				&.#{$mod-left}
+					border-left-color: transparent
+					border-bottom-color: transparent
+					border-top-color: transparent
+					border-right-color: nth( $border-color-darkener, $index )
+				&.#{$mod-right}
+					border-right-color: transparent
+					border-bottom-color: transparent
+					border-top-color: transparent
+					border-left-color: nth( $border-color-darkener, $index )
+			@if $theme == 'default'
+				&.#{$mod-bottom}
+					border-left-color: transparent
+					border-right-color: transparent
+					border-bottom-color: transparent
+					border-top-color: nth( $border-color-darkener, $index )
+				&.#{$mod-top}
+					border-left-color: transparent
+					border-right-color: transparent
+					border-top-color: transparent
+					border-bottom-color: nth( $border-color-darkener, $index )
+				&.#{$mod-left}
+					border-left-color: transparent
+					border-bottom-color: transparent
+					border-top-color: transparent
+					border-right-color: nth( $border-color-darkener, $index )
+				&.#{$mod-right}
+					border-right-color: transparent
+					border-bottom-color: transparent
+					border-top-color: transparent
+					border-left-color: nth( $border-color-darkener, $index )
+				
+	 
+		
+
+
+
+
+@if $dependent == null
+	.#{$caret}
+		@extend %caret

@@ -1,122 +1,145 @@
-@import "imports" 
-@import "params" 
-@import "vars" 
+
+@import "imports"  
+@import "params"  
 @import "myvars" 
+@import "vars"  
  
-@mixin tooltip( $index ) 
-	@include background-image( linear-gradient(      to bottom, rgba(nth( $background-color, $index ),1), rgba(nth( $background-color-darken, $index ),1)     ) )
-	color: nth( $color-invert, $index )
+ 
+%#{$tooltip} 
+	@extend %object 
+	
+	box-shadow: inset 0 2px 0 rgba(#fff, .3), 0 0 6px rgba(0,0,0,0.2)
+	border-radius: $tooltip-border-radius
 
-	$brdr-color: darken(nth( $border-color-darken, $index ), 10%)
-
-
-	&.#{$mod-bottom}
-		.#{$arrow}
-			@include triangle( $tooltip-arrow-size, $brdr-color, up )
-
-	&.#{$mod-top}
-		.#{$arrow}
-			@include triangle( $tooltip-arrow-size, $brdr-color, down )
-
-	&.#{$mod-left}
-		.#{$arrow}
-			@include triangle( $tooltip-arrow-size, $brdr-color, right )
-
-	&.#{$mod-right}
-		.#{$arrow}
-			@include triangle( $tooltip-arrow-size, $brdr-color, left )
-
-
-
-@mixin tooltip-size( $mod, $top, $left, $font )
-	padding: $top $left
-	font-size: $font
-	line-height: $font
-
-
-@mixin tooltip-sizes( $mod, $top, $left, $font )
-
-	@if $mod != ''
-		&.#{$mod}
-			@include tooltip-size( $mod, $top, $left, $font )
-
-	@else
-		@include tooltip-size( $mod, $top, $left, $font )
-
-
-
-
-@if $dependent == null
-	.#{$tooltip}
-		@extend %object
+	&.#{$mod-top}, &.#{$mod-bottom}, &.#{$mod-left}, &.#{$mod-right}
 		position: relative
 
-		@include border-radius( $tooltip-border-radius )
-		@include box-shadow( 0 0 6px rgba(0,0,0,.2), inset 0 2px 0 rgba(255,255,255,.3) )
+	&:before
+		position: absolute
+		content: " "
+		display: block
 
-		@include tooltip-sizes( '', 4px, 6px, 12px )
-		@include tooltip-sizes( $mod-big, 6px, 8px, round(golden-ratio(10px, 1)) )
-		@include tooltip-sizes( $mod-huge, 8px, 10px, round(golden-ratio(8px, 2)) )
+	&.#{$mod-top}, &.#{$mod-bottom}
+		&:before
+			left: 50%
 
-		.#{$arrow}
-			position: absolute
+	&.#{$mod-left}, &.#{$mod-right}
+		&:before
+			top: 50%
 
-		&.#{$mod-top}
-			.#{$arrow}
-				left: 50%
-				margin-left: -$tooltip-arrow-size/2
-				bottom: -$tooltip-arrow-size
+	// Set _minor to default size 
+	$sizes: null!default 
+	@if $sizes 
+		@each $size in $sizes 
+			$sz: #{nth($size, 1)} 
 			
-		&.#{$mod-bottom}
-			.#{$arrow}
-				left: 50%
-				margin-left: -$tooltip-arrow-size/2
-				top: -$tooltip-arrow-size
+			&.#{nth($size, 1)} 
+				font-size: nth($size,2) 
+				padding: nth($size,2)/4 nth($size,2)/1.5
+				&:before
+					@extend %caret.#{nth($size, 1)}
+				&.#{$mod-top}, &.#{$mod-bottom}
+					&:before
+						margin-left: - nth($size,2)/3
+				&.#{$mod-left}, &.#{$mod-right}
+					&:before
+						margin-top: - nth($size,2)/3
 
-		&.#{$mod-left}
-			.#{$arrow}
-				top: 50%
-				margin-top: -$tooltip-arrow-size/2
-				right: -$tooltip-arrow-size
+				&.#{$mod-top}
+					&:before
+						top: 100%
+				&.#{$mod-bottom}
+					&:before
+						bottom: 100%
+				&.#{$mod-left}
+					&:before
+						left: 100%
+				&.#{$mod-right}
+					&:before
+						right: 100%
+			@if $sz == _small 
+				font-size: nth($size,2) 
+				padding: nth($size,2)/4 nth($size,2)/1.5
+				&:before
+					@extend %caret.#{nth($size, 1)}
+				&.#{$mod-top}, &.#{$mod-bottom}
+					&:before
+						margin-left: - nth($size,2)/3
+				&.#{$mod-left}, &.#{$mod-right}
+					&:before
+						margin-top: - nth($size,2)/3
 
-		&.#{$mod-right}
-			.#{$arrow}
-				top: 50%
-				margin-top: -$tooltip-arrow-size/2
-				left: -$tooltip-arrow-size
-
-
-
-$themes: null !default 
- 
-@if $themes 
-	@if type-of( $themes ) == list 
-	  
-		@each $theme in $themes 
+				&.#{$mod-top}
+					&:before
+						top: 100%
+				&.#{$mod-bottom}
+					&:before
+						bottom: 100%
+				&.#{$mod-left}
+					&:before
+						left: 100%
+				&.#{$mod-right}
+					&:before
+						right: 100%
 	 
-			$index: index( $themes, $theme ) 
 	 
-			// With each theme do 
-			@if $dependent == null 
-				@if $theme != "default" 
-					.#{$tooltip}.#{$theme} 
-						@include tooltip( $index ) 
-				@else 
-					.#{$tooltip} 
-						@include tooltip( $index ) 
+	 
+	 
+	// Modifiers 
+	 
+	 
+	 
+	// Themes 
+	$themes: null!default 
+	@if $themes 
+		@each $theme in $themes  
+	 
+			$index: 1 
+			@if length( $themes ) != 1 
+				$index: index( $themes, $theme ) 
+	 
+			$imp: "" 
+			@if $theme == "-disabled-" 
+				$imp: !important 
+	 
+	 
+			@if $theme != "default" 
+				&.#{$theme} 
+					color: nth( $color-invert, $index ) 
+					@include background-image(linear-gradient(nth( $background-color, $index ) 0, nth( $background-color-darkener, $index ) 100%))
+
+					&.#{$mod-top}
+						&:before
+							@extend %caret.#{$mod-bottom}.#{$theme}
+					&.#{$mod-bottom}
+						&:before
+							@extend %caret.#{$mod-top}.#{$theme}
+					&.#{$mod-left}
+						&:before
+							@extend %caret.#{$mod-right}.#{$theme}
+					&.#{$mod-right}
+						&:before
+							@extend %caret.#{$mod-left}.#{$theme}
+	 
 			@else 
-				%#{$tooltip}.#{$theme} 
-					@include tooltip( $index ) 
- 
-	@else 
-		@if type-of( $themes ) == string 
-			@if $dependent == null 
-				@if $theme != "default" 
-					.#{$tooltip}.#{$theme} 
-						@include tooltip( $index ) 
-				@else 
-					.#{$tooltip} 
-						@include tooltip( $index ) 
-			@else 
-				%#{$tooltip}.#{$theme} 
-					@include tooltip( $index ) 
+				color: nth( $color-invert, $index ) 
+				@include background-image(linear-gradient(nth( $background-color, $index ) 0, nth( $background-color-darkener, $index ) 100%))
+
+				&.#{$mod-top}
+					&:before
+						@extend %caret.#{$mod-bottom}.#{$theme}
+				&.#{$mod-bottom}
+					&:before
+						@extend %caret.#{$mod-top}.#{$theme}
+				&.#{$mod-left}
+					&:before
+						@extend %caret.#{$mod-right}.#{$theme}
+				&.#{$mod-right}
+					&:before
+						@extend %caret.#{$mod-left}.#{$theme}
+	 
+	 
+	 
+@if $dependent == null 
+	.#{$tooltip} 
+		@extend %#{$tooltip}

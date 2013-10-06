@@ -1,0 +1,29 @@
+{
+    "type": "widget",
+    "name": "caret",
+    "version": "0.0.6",
+    "description": "Standart caret widget for maxmertkit. Dont't use it standalone, just in other widgets.",
+    "repository": "",
+    "tags": "caret, dropdown",
+    "author": "maxmert",
+    "themeUse": true,
+    "license": "BSD",
+
+    "dependences": {
+    	"object": "0.0.0",
+    	"bourbon": "3.1.8",
+        "sizes": "0.0.3"
+    },
+
+    "modifiers": {
+        "bottom": "0.0.0",
+        "top": "0.0.0",
+        "left": "0.0.0",
+        "right": "0.0.0"
+    },
+
+    "themes": {
+        "default": "0.0.0",
+        "disabled": "0.0.0"
+    }
+}

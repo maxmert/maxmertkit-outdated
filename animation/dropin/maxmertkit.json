@@ -1,9 +1,9 @@
 {
     "type": "animation",
     "name": "dropin",
-    "version": "0.0.1",
+    "version": "0.0.3",
     "description": "",
-    "image": "http://dribbble.s3.amazonaws.com/users/3342/screenshots/764064/animated-icons-finale.gif",
+    "image": "http://habrastorage.org/storage3/9e7/6d2/2fb/9e76d22fb83f4ae1d89cb8ede38b4227.gif",
     "repository": "",
     "author": "maxmert",
     "license": "BSD"
