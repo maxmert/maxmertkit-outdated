@@ -3,17 +3,19 @@
     "name": "typography",
     "version": "0.0.0",
     "description": "Standart typography for maxmertkit",
+    "tags": "type, typography, text, paragraph, quotes, blockquote",
     "repository": "",
     "author": "maxmert",
     "license": "BSD",
+    "themeUse": false,
 
     "dependences": {
-    	"headers": {
+    	"type-headers": {
     		"version": "0.0.0"
     	}
     },
 
-    "modifyers": {
+    "modifiers": {
     	"horizontal": "0.0.0",
     	"right": "0.0.0"
     }

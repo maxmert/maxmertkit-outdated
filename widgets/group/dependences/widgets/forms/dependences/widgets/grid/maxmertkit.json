@@ -5,11 +5,11 @@
     "description": "Grid system for maxmertkit",
     "repository": "",
     "author": "maxmert",
+    "tags": "grid, maxmertkit",
+    "themeUse": false,
     "license": "BSD",
 
     "dependences": {
-    	"neat": {
-    		"version": "1.2.0"
-    	}
+    	"neat": "1.2.2"
     }
 }

@@ -1,0 +1,159 @@
+$dropdown: -dropdown 
+ 
+@import "imports" 
+@import "params" 
+@import "vars" 
+@import "myvars" 
+ 
+@mixin dropdown( $index )
+	
+	$brdr-color: nth( $border-color, $index )!default
+
+	@if nth( $themes, $index ) == 'default'
+		$brdr-color: nth( $border-color-darkener, $index )
+	
+	.#{$dropdown-header}
+		background-color: nth( $background-color, $index )
+		color: nth( $color-invert, $index )
+		text-shadow: nth( $text-shadow-invert, $index )
+		border-bottom: 1px solid nth( $border-color-darken, $index )
+	
+	&.#{$mod-bottom}
+		.#{$arrow}
+			@include triangle( $dropdown-arrow-size, $brdr-color, up )
+
+	&.#{$mod-top}
+		.#{$arrow}
+			@include triangle( $dropdown-arrow-size, $brdr-color, down )
+
+	&.#{$mod-left}
+		.#{$arrow}
+			@include triangle( $dropdown-arrow-size, $brdr-color, right )
+
+	&.#{$mod-right}
+		.#{$arrow}
+			@include triangle( $dropdown-arrow-size, $brdr-color, left )
+
+	&.#{$mod-bottom},
+	&.#{$mod-top}
+		&:after
+			@include background-image( linear-gradient(      to right, rgba($brdr-color,0), rgba($brdr-color, 1) 50%, rgba($brdr-color, 0)     ) )
+
+	&.#{$mod-left},
+	&.#{$mod-right}
+		&:after
+			@include background-image( linear-gradient(      to bottom, rgba($brdr-color,0), rgba($brdr-color, 1) 50%, rgba($brdr-color, 0)     ) )
+
+	&.#{$mod-loading}
+		.#{$dropdown-header}
+			@include loading( rgba( nth( $background-color-darken, $index ), 1), rgba( nth( $background-color, $index ), 1) )
+ 
+
+@if $dependent == null
+	.#{$dropdown}
+		@extend %object
+		min-width: $dropdown-min-width
+		border-width: $dropdown-border-width
+		border-style: $dropdown-border-style
+		@include border-radius( $dropdown-border-radius )
+		@include box-shadow( $dropdown-shadow )
+		position: relative
+
+		.#{$dropdown-header}
+			padding: $dropdown-header-padding
+			@include border-radius( $dropdown-border-radius $dropdown-border-radius 0 0 )
+
+		.#{$dropdown-content}
+			padding: $dropdown-content-padding
+
+		.#{$arrow}
+			position: absolute
+
+		&.#{$mod-bottom},
+		&.#{$mod-top}
+			&:after
+				height: 1px
+				width: 100%
+				left: 0
+				position: absolute
+				display: inline-block
+				content: " "
+
+		&.#{$mod-top}
+			.#{$arrow}
+				left: 50%
+				margin-left: -$dropdown-arrow-size/2
+				bottom: -$dropdown-arrow-size
+			
+			&:after
+				bottom: -1px
+
+		&.#{$mod-bottom}
+			.#{$arrow}
+				left: 50%
+				margin-left: -$dropdown-arrow-size/2
+				top: -$dropdown-arrow-size
+			&:after
+				top: -1px
+
+		&.#{$mod-left},
+		&.#{$mod-right}
+			&:after
+				height: 100%
+				width: 1px
+				top: 0
+				position: absolute
+				display: inline-block
+				content: " "
+
+		&.#{$mod-left}
+			.#{$arrow}
+				top: 50%
+				margin-top: -$dropdown-arrow-size/2
+				right: -$dropdown-arrow-size
+			&:after
+				right: -1px
+		
+		&.#{$mod-right}
+			.#{$arrow}
+				top: 50%
+				margin-top: -$dropdown-arrow-size/2
+				left: -$dropdown-arrow-size
+			&:after
+				left: -1px
+
+
+
+$themes: null !default 
+ 
+@if $themes 
+	@if type-of( $themes ) == list 
+	  
+		@each $theme in $themes 
+	 
+			$index: index( $themes, $theme ) 
+	 
+			// With each theme do 
+			@if $dependent == null 
+				@if $theme != "default" 
+					.#{$dropdown}.#{$theme} 
+						@include dropdown( $index ) 
+				@else 
+					.#{$dropdown} 
+						@include dropdown( $index ) 
+			@else 
+				%#{$dropdown}.#{$theme} 
+					@include dropdown( $index ) 
+ 
+	@else 
+		@if type-of( $themes ) == string 
+			@if $dependent == null 
+				@if $theme != "default" 
+					.#{$dropdown}.#{$theme} 
+						@include dropdown( $index ) 
+				@else 
+					.#{$dropdown} 
+						@include dropdown( $index ) 
+			@else 
+				%#{$dropdown}.#{$theme} 
+					@include dropdown( $index ) 

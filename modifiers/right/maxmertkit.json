@@ -1,0 +1,9 @@
+{
+    "type": "modifier",
+    "name": "right",
+    "version": "0.0.0",
+    "description": "Right modifier for maxmertkit",
+    "repository": "",
+    "author": "maxmert",
+    "license": "BSD"
+}

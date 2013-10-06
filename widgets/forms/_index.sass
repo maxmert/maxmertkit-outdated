@@ -4,291 +4,588 @@
 @import "myvars" 
 
 
+%#{$form-field}
+	@extend %object
+	@include box-sizing(border-box)
+	width: 100%
+	position: relative
+	// margin-bottom: $form-field-margin-bottom
+	border-width: $form-field-border-width
+	border-style: solid
+	border-radius: $form-field-border-radius
 
-@mixin form-field( $index )
+	#{$all-text-inputs}, select, label
+		display: block
+		// padding: $form-filed-input-padding
 
-	border-color: nth( $border-color-lighten, $index )
-	#{$all-text-inputs}
-		border-color: nth( $border-color, $index )
-		&:focus
-			@include box-shadow( unquote(nth( $outline, $index )) )
-			border-color: nth( $border-color-darken, $index )
-		&:hover
-			border-color: nth( $border-color-darken, $index )
-	select
-		background-color: transparent
-		border-color: nth( $border-color, $index )
-		@include border-radius( 0 )
-		@include appearance( textfield )
-	
 	.#{$caret}
-		@include triangle( 10px, nth( $border-color-darken, $index ), down )
+		@extend %caret
+		position: absolute
+		right: 10px
+		top: 50%
+		z-index: -1
+		margin-top: -2px
 
-	// Set disabled
-	@if nth( $themes, $index ) == '-disabled-'
-		border-color: nth( $border-color-lighten, $index )!important
-		#{$all-text-inputs},
-		select
-			background-color: nth( $background-color, $index )!important
-			color: nth( $color, $index )!important
-			border-color: nth( $border-color, $index )!important
+	@each $size in $sizes
+		$sz: #{nth($size, 1)}
+		
+		@if $sz != _minor
+			&.#{nth($size, 1)}
+				#{$all-text-inputs}, select, label
+					font-size: #{nth($size, 2)}
+					padding: nth($size,2)/3 nth($size,2)/2
+		@else
+			#{$all-text-inputs}, select, label
+				font-size: #{nth($size, 2)}
+				padding: nth($size,2)/3 nth($size,2)/2
+
+
+	@if $themes
+		@each $theme in $themes 
 			
-			&:focus
-				@include box-shadow( unquote(nth( $shadow, $index ))!important )
+			$index: 1
+			@if length( $themes ) != 1
+				$index: index( $themes, $theme )
 
-		.#{$caret}
-			@include triangle( 10px, nth( $border-color, $index ), down )
-
-
-
-@mixin form-input( $index )
-	border-color: nth( $border-color, $index )
-
-	&:focus
-		@include box-shadow( unquote(nth( $outline, $index )) )
-		border-color: nth( $border-color-darken, $index )
-
-	&:hover
-		border-color: nth( $border-color-darken, $index )
-
-	@if nth( $themes, $index ) == '-disabled-'
-		background-color: nth( $background-color, $index )!important
-		color: nth( $color, $index )!important
-		border-color: nth( $border-color, $index )!important
-		&:focus,
-		&:hover
-			background-color: nth( $background-color, $index )!important
-			color: nth( $color, $index )!important
-		&:focus
-			@include box-shadow( unquote(nth( $shadow, $index ))!important )
+			$imp: ''
+			@if $theme == '-disabled-'
+				$imp: !important
+				&.#{$theme}
+					#{$all-text-inputs}, select
+						background-color: nth( $background-color, $index )#{$imp}
 
 
+			@if $theme != 'default'
+				&.#{$theme}
+					border-color: nth( $border-color, $index )#{$imp}
+						
+					#{$all-text-inputs}, select
+						border-color: nth( $border-color, $index )#{$imp}
+
+						&:focus
+							box-shadow: unquote(nth( $outline, $index ))#{$imp}
+							border-color: nth( $border-color-darken, $index )#{$imp}
+						&:hover
+							border-color: nth( $border-color-darken, $index )#{$imp}
+
+					.#{$caret}
+						@extend %caret.#{$theme}
+			
+			@else
+				border-color: nth( $border-color, $index )#{$imp}
+					
+				#{$all-text-inputs}, select
+					border-color: nth( $border-color, $index )#{$imp}
+
+					&:focus
+						box-shadow: unquote(nth( $outline, $index ))#{$imp}
+						border-color: nth( $border-color-darken, $index )#{$imp}
+					&:hover
+						border-color: nth( $border-color-darken, $index )#{$imp}
+
+				.#{$caret}
+					@extend %caret.#{$theme}
 
 
 
 
-@mixin form-field-size( $mod, $top, $left, $font )
-	
-	#{$all-text-inputs},
-	select,
-	textfield
-		@if $top - $form-field-border-width >= 0
-			padding: $top - $form-field-border-width  $left
+
+%select
+	background-color: transparent
+	border-radius: 0
+	@include appearance( textfield )
+
+	@each $size in $sizes
+		$sz: #{nth($size, 1)}
+		
+		@if $sz != _minor
+			&.#{nth($size, 1)}
+				font-size: #{nth($size, 2)}
 		@else
-			padding: 0  $left
-		font-size: $font
-		line-height: $font + 2
+			font-size: #{nth($size, 2)}
 
+%all-text-inputs
+	@extend %object
+	@include box-sizing(border-box)
+	width: 100%
+	border-width: $form-input-border-width
+	border-style: solid
+	outline: none
+	padding: $form-input-padding
 
-@mixin form-input-size( $mod, $top, $left, $font )
-	padding: $top $left
-	font-size: $font
-	line-height: $font
-
-
-@mixin form-column-size( $mod, $top, $left, $font )
-	
-	#{$all-text-inputs},
-	select,
-	textfield
-		@include form-input-size( $mod, $top, $left, $font )
-
-	.#{$form-field}
-		@include form-field-size( $mod, $top, $left, $font )
-
-	label
-		@if $font <= 10
-			padding: 0 0 $top + $form-input-border-width + 2
+	@each $size in $sizes
+		$sz: #{nth($size, 1)}
+		
+		@if $sz != _minor
+			&.#{nth($size, 1)}
+				font-size: #{nth($size, 2)}
+				padding: nth($size,2)/3 + $form-field-border-width nth($size,2)/2
 		@else
-			padding: $top + $form-input-border-width + 1 0 $top + $form-field-border-width
-		line-height: $font
-		font-size: $font
+			font-size: #{nth($size, 2)}
+			padding: nth($size,2)/3 + $form-field-border-width nth($size,2)/2
 
-	.#{$form-info}
-		@if $font <= 10
-			line-height: $font
-			font-size: $font
+	@if $themes
+		@each $theme in $themes 
+
+			$index: 1
+			@if length( $themes ) != 1
+				$index: index( $themes, $theme )
+
+			$imp: ''
+			@if $theme == '-disabled-'
+				$imp: !important
+				&.#{$theme}
+					background-color: nth( $background-color, $index )#{$imp}
+
+			@if $theme != 'default'
+				&.#{$theme}
+					border-color: nth( $border-color, $index )#{$imp}
+					
+					&:focus
+						box-shadow: unquote(nth( $outline, $index ))#{$imp}
+						border-color: nth( $border-color-darken, $index )#{$imp}
+					&:hover
+						border-color: nth( $border-color-darken, $index )#{$imp}
+			
+			@else
+				border-color: nth( $border-color, $index )#{$imp}
+				
+				&:focus
+					box-shadow: unquote(nth( $outline, $index ))#{$imp}
+					border-color: nth( $border-color-darken, $index )#{$imp}
+				&:hover
+					border-color: nth( $border-color-darken, $index )#{$imp}
+
+
+
+
+%label
+	@extend %object
+	vertical-align: bottom
+	padding: $form-label-padding
+
+	@each $size in $sizes
+		$sz: #{nth($size, 1)}
+		
+		@if $sz != _minor
+			&.#{nth($size, 1)}
+				font-size: #{nth($size, 2)}
+				padding: nth($size,2)/3 + $form-field-border-width + $form-input-border-width nth($size,2)/2
 		@else
-			line-height: $font - 2
-			font-size: $font - 2
+			font-size: #{nth($size, 2)}
+			padding: nth($size,2)/3 + $form-field-border-width + $form-input-border-width nth($size,2)/2
 
-
-@mixin form-fields-size( $mod, $top, $left, $font )
-
-	@if $mod != ''
-		&.#{$mod}
-			@include form-field-size( $mod, $top, $left, $font )
-
-	@else
-		@include form-field-size( $mod, $top, $left, $font )
-
-@mixin form-inputs-size( $mod, $top, $left, $font )
-
-	@if $mod != ''
-		&.#{$mod}
-			@include form-input-size( $mod, $top, $left, $font )
-
-	@else
-		@include form-input-size( $mod, $top, $left, $font )
-
-
-@mixin form-columns-size( $mod, $top, $left, $font )
-
-	@if $mod != ''
-		&.#{$mod}
-			@include form-column-size( $mod, $top, $left, $font )
-
-	@else
-		@include form-column-size( $mod, $top, $left, $font )
-
-
-
-
-
-
-$themes: null !default 
 
 %#{$form}
-
-	label
-		@extend %object
-
-	// GRID
-	.#{$row},
-	&.#{$row}
+	// Form like a row now
+	.#{$row}
 		@extend %#{$row}
+		margin-bottom: $form-row-margin-bottom
 
-		// Basic theme in grid
-		#{$all-text-inputs},
-		select,
-		textfield
-			display: block
-			width: 100%
-
-		.#{$form-field}
-			display: block
-			#{$all-text-inputs},
-			select,
-			textfield
-				width: 100%
-
-			& + .#{$form-info}
-				margin-top: -$form-field-margin-bottom + 2
-				margin-bottom: $form-field-margin-bottom + 2
-
-	[class^="#{$col}"]
-		&.#{$mod-right}
-			text-align: right
-
-		@include form-columns-size( '', 6px, 10px, 14px )
-		@include form-columns-size( $mod-tiny, 1px, 2px, 10px )
-		@include form-columns-size( $mod-small, 3px, 5px, round(golden-ratio(14px, -1) + 2) )
-		@include form-columns-size( $mod-big, 7px, 13px, round(golden-ratio(14px, 1)) )
-		@include form-columns-size( $mod-huge, 10px, 16px, round(golden-ratio(14px, 2)) )
-
-
+	// Each field should be in the column
 	@for $index from 1 through $grid-columns
 		.#{$col}#{$index}
 			@extend %#{$col}#{$index}
 		.#{$offset}#{$index}
 			@extend %#{$offset}#{$index}
 
+	[class^="#{$col}"]
+		&.#{$mod-right}
+			text-align: right
 
+		label
+			@extend %label
 
+		#{$all-text-inputs}, select
+			@extend %all-text-inputs
 
-	// Basic theme
-	#{$all-text-inputs},
-	select,
-	textfield
-		border-width: $form-input-border-width
-		border-style: solid
-		outline: none
-		margin-bottom: $form-field-margin-bottom
-		@include form-inputs-size( '', 6px, 10px, 14px )
-		@include form-inputs-size( $mod-tiny, 1px, 2px, 10px )
-		@include form-inputs-size( $mod-small, 3px, 5px, round(golden-ratio(14px, -1) + 2) )
-		@include form-inputs-size( $mod-big, 7px, 13px, round(golden-ratio(14px, 1)) )
-		@include form-inputs-size( $mod-huge, 10px, 16px, round(golden-ratio(14px, 2)) )
-
-
-	// Basic for form-field
-	.#{$form-field}
-		@extend %object
-		position: relative
-		margin-bottom: $form-field-margin-bottom
-		border-width: $form-field-border-width
-		border-style: solid
-		@include border-radius( $form-field-border-radius )
 		
-		#{$all-text-inputs},
-		select,
-		textfield
-			margin-bottom: 0
+		.#{$form-field}
+			@extend %#{$form-field}
+			
 
-		.#{$caret}
-			@extend %object
-			position: absolute
-			right: 10px
-			top: 50%
-			z-index: -1
-			margin-top: -2px
+		select
+			@extend %select
 
-		@include form-fields-size( '', 6px, 10px, 14px )
-		@include form-fields-size( $mod-tiny, 1px, 2px, 10px )
-		@include form-fields-size( $mod-small, 3px, 5px, round(golden-ratio(14px, -1) + 2) )
-		@include form-fields-size( $mod-big, 7px, 13px, round(golden-ratio(14px, 1)) )
-		@include form-fields-size( $mod-huge, 10px, 16px, round(golden-ratio(14px, 2)) )
+		.#{$form-info}
+			font-size: .9em
 
 
+
+	// Set SIZES
+	@each $size in $sizes
+		[class^="#{$col}"].#{nth($size, 1)}
+			@extend %#{$form-field}.#{nth($size, 1)}
+			#{$all-text-inputs}, select, label
+				@extend %all-text-inputs.#{nth($size, 1)}
+
+		#{$all-text-inputs}, select, label
+			&.#{nth($size, 1)}
+				@extend %all-text-inputs.#{nth($size, 1)}
+
+		.#{$form-field}.#{nth($size, 1)}
+			#{$all-text-inputs}, select, label
+				@extend %all-text-inputs.#{nth($size, 1)}
+
+
+
+	// Set THEMES
+	@if $themes
+		@each $theme in $themes 
+			$index: 1
+			@if length( $themes ) != 1
+				$index: index( $themes, $theme )
+
+			$imp: ''
+			
+			@if $theme == '-disabled-'
+				
+				$imp: !important
+				
+				// #{$all-text-inputs}, select
+				// 	&.#{$theme}
+				// 		background-color: nth( $background-color, $index )#{$imp}
+				// .#{$form-field}.#{$theme}
+				// 	#{$all-text-inputs}, select
+				// 		background-color: nth( $background-color, $index )#{$imp}
+				[class^="#{$col}"]
+					&.#{$theme}
+						.#{$form-field}
+							#{$all-text-inputs}, select
+								background-color: nth( $background-color, $index )#{$imp}
+
+
+
+			// If themes set for inputs
+			#{$all-text-inputs}, select
+				@if $theme != 'default'
+					&.#{$theme}
+						@extend %all-text-inputs.#{$theme}
+				@else
+					@extend %all-text-inputs.#{$theme}
+
+			
+
+			// If themes set for fields (width thick border)
+			.#{$form-field}
+				@if $theme != 'default'
+					&.#{$theme}
+						@extend %#{$form-field}.#{$theme}
+				@else
+					@extend %#{$form-field}.#{$theme}
+
+
+
+			// If themes set for columns
+			[class^="#{$col}"]
+				@if $theme != 'default'
+					&.#{$theme}
+						.#{$form-field}
+							@extend %#{$form-field}.#{$theme}
+							
+				@else
+					.#{$form-field}
+						@extend %#{$form-field}.#{$theme}
+
+
+
+
+
+
+
+
+
+// If Forms is not for nesting, compile classes
 @if $dependent == null
-
 	.#{$form}
 		@extend %#{$form}
 
 
 
+// @mixin form-field( $index )
+
+// 	border-color: nth( $border-color-lighten, $index )
+// 	#{$all-text-inputs}
+// 		border-color: nth( $border-color, $index )
+// 		&:focus
+// 			box-shadow: unquote(nth( $outline, $index ))
+// 			border-color: nth( $border-color-darken, $index )
+// 		&:hover
+// 			border-color: nth( $border-color-darken, $index )
+// 	select
+// 		background-color: transparent
+// 		border-color: nth( $border-color, $index )
+// 		border-radius: 0
+// 		@include appearance( textfield )
+	
+// 	.#{$caret}
+// 		@include triangle( 10px, nth( $border-color-darken, $index ), down )
+
+// 	// Set disabled
+// 	@if nth( $themes, $index ) == '-disabled-'
+// 		border-color: nth( $border-color-lighten, $index )!important
+// 		#{$all-text-inputs},
+// 		select
+// 			background-color: nth( $background-color, $index )!important
+// 			color: nth( $color, $index )!important
+// 			border-color: nth( $border-color, $index )!important
+			
+// 			&:focus
+// 				box-shadow: unquote(nth( $shadow, $index ))!important
+
+// 		.#{$caret}
+// 			@include triangle( 10px, nth( $border-color, $index ), down )
 
 
-@if $themes
 
-	$length: length( $themes ) 
+// @mixin form-input( $index )
+// 	border-color: nth( $border-color, $index )
 
-	@for $index from 1 through $length
- 
-		// $index: index( $themes, $theme ) 
-		$theme: nth( $themes, $index )
+// 	&:focus
+// 		box-shadow: unquote(nth( $outline, $index ))
+// 		border-color: nth( $border-color-darken, $index )
+
+// 	&:hover
+// 		border-color: nth( $border-color-darken, $index )
+
+// 	@if nth( $themes, $index ) == '-disabled-'
+// 		background-color: nth( $background-color, $index )!important
+// 		color: nth( $color, $index )!important
+// 		border-color: nth( $border-color, $index )!important
+// 		&:focus,
+// 		&:hover
+// 			background-color: nth( $background-color, $index )!important
+// 			color: nth( $color, $index )!important
+// 		&:focus
+// 			box-shadow: unquote(nth( $shadow, $index ))!important
+
+
+
+
+
+
+// @mixin form-field-size( $mod, $top, $left, $font )
+	
+// 	#{$all-text-inputs},
+// 	select,
+// 	textfield
+// 		@if $top - $form-field-border-width >= 0
+// 			padding: $top - $form-field-border-width  $left
+// 		@else
+// 			padding: 0  $left
+// 		font-size: $font
+// 		line-height: $font + 2
+
+
+// @mixin form-input-size( $mod, $top, $left, $font )
+// 	padding: $top $left
+// 	font-size: $font
+// 	line-height: $font
+
+
+// @mixin form-column-size( $mod, $top, $left, $font )
+	
+// 	#{$all-text-inputs},
+// 	select,
+// 	textfield
+// 		@include form-input-size( $mod, $top, $left, $font )
+
+// 	.#{$form-field}
+// 		@include form-field-size( $mod, $top, $left, $font )
+
+// 	label
+// 		@if $font <= 10
+// 			padding: 0 0 $top + $form-input-border-width + 2
+// 		@else
+// 			padding: $top + $form-input-border-width + 1 0 $top + $form-field-border-width
+// 		line-height: $font
+// 		font-size: $font
+
+// 	.#{$form-info}
+// 		@if $font <= 10
+// 			line-height: $font
+// 			font-size: $font
+// 		@else
+// 			line-height: $font - 2
+// 			font-size: $font - 2
+
+
+// @mixin form-fields-size( $mod, $top, $left, $font )
+
+// 	@if $mod != ''
+// 		&.#{$mod}
+// 			@include form-field-size( $mod, $top, $left, $font )
+
+// 	@else
+// 		@include form-field-size( $mod, $top, $left, $font )
+
+// @mixin form-inputs-size( $mod, $top, $left, $font )
+
+// 	@if $mod != ''
+// 		&.#{$mod}
+// 			@include form-input-size( $mod, $top, $left, $font )
+
+// 	@else
+// 		@include form-input-size( $mod, $top, $left, $font )
+
+
+// @mixin form-columns-size( $mod, $top, $left, $font )
+
+// 	@if $mod != ''
+// 		&.#{$mod}
+// 			@include form-column-size( $mod, $top, $left, $font )
+
+// 	@else
+// 		@include form-column-size( $mod, $top, $left, $font )
+
+
+
+
+
+
+// $themes: null !default 
+
+// %#{$form}
+
+// 	label
+// 		@extend %object
+
+// 	// GRID
+// 	.#{$row},
+// 	&.#{$row}
+// 		@extend %#{$row}
+
+// 		// Basic theme in grid
+// 		#{$all-text-inputs},
+// 		select,
+// 		textfield
+// 			display: block
+// 			width: 100%
+
+// 		.#{$form-field}
+// 			display: block
+// 			#{$all-text-inputs},
+// 			select,
+// 			textfield
+// 				width: 100%
+
+// 			& + .#{$form-info}
+// 				margin-top: -$form-field-margin-bottom + 2
+// 				margin-bottom: $form-field-margin-bottom + 2
+
+// 	[class^="#{$col}"]
+// 		&.#{$mod-right}
+// 			text-align: right
+
+// 		@include form-columns-size( '', 6px, 10px, 14px )
+// 		@include form-columns-size( $mod-tiny, 1px, 2px, 10px )
+// 		@include form-columns-size( $mod-small, 3px, 5px, round(golden-ratio(14px, -1) + 2) )
+// 		@include form-columns-size( $mod-big, 7px, 13px, round(golden-ratio(14px, 1)) )
+// 		@include form-columns-size( $mod-huge, 10px, 16px, round(golden-ratio(14px, 2)) )
+
+
+// 	@for $index from 1 through $grid-columns
+// 		.#{$col}#{$index}
+// 			@extend %#{$col}#{$index}
+// 		.#{$offset}#{$index}
+// 			@extend %#{$offset}#{$index}
+
+
+
+
+// 	// Basic theme
+// 	#{$all-text-inputs},
+// 	select,
+// 	textfield
+// 		border-width: $form-input-border-width
+// 		border-style: solid
+// 		outline: none
+// 		margin-bottom: $form-field-margin-bottom
+// 		@include form-inputs-size( '', 6px, 10px, 14px )
+// 		@include form-inputs-size( $mod-tiny, 1px, 2px, 10px )
+// 		@include form-inputs-size( $mod-small, 3px, 5px, round(golden-ratio(14px, -1) + 2) )
+// 		@include form-inputs-size( $mod-big, 7px, 13px, round(golden-ratio(14px, 1)) )
+// 		@include form-inputs-size( $mod-huge, 10px, 16px, round(golden-ratio(14px, 2)) )
+
+
+// 	// Basic for form-field
+// 	.#{$form-field}
+// 		@extend %object
+// 		position: relative
+// 		margin-bottom: $form-field-margin-bottom
+// 		border-width: $form-field-border-width
+// 		border-style: solid
+// 		border-radius: $form-field-border-radius
 		
-		// With each theme do 
-		@if $dependent == null 
-			.#{$form}
-				@if $theme != 'default'
-					.#{$form-field}.#{$theme} 
-						@include form-field( $index )
-					#{$all-text-inputs},
-					select
-						&.#{$theme} 
-							@include form-input( $index )
+// 		#{$all-text-inputs},
+// 		select,
+// 		textfield
+// 			margin-bottom: 0
+
+// 		.#{$caret}
+// 			@extend %object
+// 			position: absolute
+// 			right: 10px
+// 			top: 50%
+// 			z-index: -1
+// 			margin-top: -2px
+
+// 		@include form-fields-size( '', 6px, 10px, 14px )
+// 		@include form-fields-size( $mod-tiny, 1px, 2px, 10px )
+// 		@include form-fields-size( $mod-small, 3px, 5px, round(golden-ratio(14px, -1) + 2) )
+// 		@include form-fields-size( $mod-big, 7px, 13px, round(golden-ratio(14px, 1)) )
+// 		@include form-fields-size( $mod-huge, 10px, 16px, round(golden-ratio(14px, 2)) )
+
+
+// @if $dependent == null
+
+// 	.#{$form}
+// 		@extend %#{$form}
+
+
+
+
+
+// @if $themes
+
+// 	$length: length( $themes ) 
+
+// 	@for $index from 1 through $length
+ 
+// 		// $index: index( $themes, $theme ) 
+// 		$theme: nth( $themes, $index )
+		
+// 		// With each theme do 
+// 		@if $dependent == null 
+// 			.#{$form}
+// 				@if $theme != 'default'
+// 					.#{$form-field}.#{$theme} 
+// 						@include form-field( $index )
+// 					#{$all-text-inputs},
+// 					select
+// 						&.#{$theme} 
+// 							@include form-input( $index )
 					
 
-				@else
-					.#{$form-field}
-						@include form-field( $index )
-					#{$all-text-inputs},
-					select
-						@include form-input( $index )
+// 				@else
+// 					.#{$form-field}
+// 						@include form-field( $index )
+// 					#{$all-text-inputs},
+// 					select
+// 						@include form-input( $index )
 
 
-		@else 
-			@if $theme != 'default'
-				%#{$form-field}.#{$theme} 
-					@include form-field( $index )
-				%input.#{$theme},
-				%select.#{$theme}
-					@include form-input( $index )
+// 		@else 
+// 			@if $theme != 'default'
+// 				%#{$form-field}.#{$theme} 
+// 					@include form-field( $index )
+// 				%input.#{$theme},
+// 				%select.#{$theme}
+// 					@include form-input( $index )
 			
-			@else
-				%#{$form-field}
-					@include form-field( $index )
-				%input,
-				%select
-					@include form-input( $index )
+// 			@else
+// 				%#{$form-field}
+// 					@include form-field( $index )
+// 				%input,
+// 				%select
+// 					@include form-input( $index )

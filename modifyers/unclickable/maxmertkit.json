@@ -1,9 +1,0 @@
-{
-    "type": "modifyer",
-    "name": "unclickable",
-    "version": "0.0.0",
-    "description": "Unclickable object",
-    "repository": "",
-    "author": "maxmert",
-    "license": "BSD"
-}

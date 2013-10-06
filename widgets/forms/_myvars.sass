@@ -1,11 +1,21 @@
 $form: -form
+$form-row-margin-bottom: 7px
 
-$form-input-border-width: 1px
 
 $form-field: -field
 $form-field-border-width: 3px
 $form-field-border-radius: 3px
 $form-field-margin-bottom: 10px
+
+$form-input-border-width: 1px
+$form-input-padding-top: 4px
+$form-input-padding-left: 7px
+
+$form-input-padding: $form-input-padding-top + $form-field-border-width * 2 - $form-input-border-width * 2 $form-input-padding-left + $form-field-border-width * 2 - $form-input-border-width * 2
+
+$form-filed-input-padding: $form-input-padding-top $form-input-padding-left
+
+$form-label-padding: $form-input-padding-top + $form-field-border-width * 2 0
 
 $form-label: -label
 $form-info: -info

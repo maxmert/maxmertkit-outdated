@@ -1,0 +1,17 @@
+@import "imports"
+@import "params" 
+@import "vars"
+@import "myvars"
+
+ 
+// Multi-dimensional array, where:
+// the first value is the name of the class
+// and the second value is the variable for the size
+$sizes: $mod-tiny $tiny, $mod-small $small, $mod-minor $minor, $mod-normal $normal, $mod-major $major, $mod-big $big, $mod-huge $huge, $mod-giant $giant, $mod-divine $divine
+
+// for each size in the scale, create a class
+// example:
+
+// @each $size in $sizes
+// 	.#{nth($size, 1)}
+// 		font-size: nth($size, 2)

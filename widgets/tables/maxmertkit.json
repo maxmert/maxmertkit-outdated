@@ -1,0 +1,48 @@
+{
+    "type": "widget",
+    "name": "tables",
+    "version": "0.0.0",
+    "description": "Tables for maxmertkit",
+    "image": null,
+    "tags": "table, tables",
+    "themeUse": true,
+    "repository": "",
+    "site": "",
+    "author": "maxmert",
+    "license": "BSD",
+
+    "dependences": {
+        "bourbon": "3.1.8",
+        "object": "0.0.0",
+        "sizes": "0.0.3"
+    },
+
+    "themes": {
+        "default": "*",
+        "disabled": "*",
+        "primary": "*"
+    },
+
+    "modifiers": {
+        "tiny": "0.0.0",
+        "small": "0.0.0",
+        "minor": "0.0.0",
+        "normal": "0.0.0",
+        "major": "0.0.0",
+        "big": "0.0.0",
+        "huge": "0.0.0",
+        "giant": "0.0.0",
+        "divine": "0.0.0",
+
+        "loading": "*",
+        "striped": "*",
+        "hover": "*",
+        "vertical": "*",
+        "horizontal": "*",
+        "bordered": "*"
+    },
+
+    "animation": {
+        "loading": "0.0.2"
+    }
+}

@@ -7,5 +7,6 @@
     "site": "http://necolas.github.io/normalize.css/",
     "author": "maxmert",
     "tags": "normalize, init, reset",
+    "themeUse": false,
     "license": "BSD"
 }

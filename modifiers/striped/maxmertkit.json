@@ -1,0 +1,13 @@
+{
+    "type": "modifier",
+    "name": "striped",
+    "version": "0.0.0",
+    "description": "",
+    "image": null,
+    "tags": "striped",
+    "themeUse": null,
+    "repository": "",
+    "site": "",
+    "author": "maxmert",
+    "license": "BSD"
+}

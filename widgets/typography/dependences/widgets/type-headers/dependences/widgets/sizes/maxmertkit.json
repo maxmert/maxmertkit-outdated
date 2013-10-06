@@ -1,0 +1,13 @@
+{
+    "type": "widget",
+    "name": "sizes",
+    "version": "0.0.0",
+    "description": "Sizes mixins for all widgets",
+    "image": null,
+    "repository": "",
+    "tags": "sizes, nesting, variables",
+    "site": "",
+    "author": "maxmert",
+    "themeUse": false,
+    "license": "BSD"
+}

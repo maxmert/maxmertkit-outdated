@@ -2,6 +2,7 @@
  *
 .||..||..||..||..||..||..||..||..||..||..||..||..||..||..||..||..||..||..||.
 
+<<<<<<< HEAD
     .                                      '||            .           
   .||.  .... ... ... ...    ....  ... ...   ||   ....   .||.    ....  
    ||    '|.  |   ||'  || .|...||  ||'  ||  ||  '' .||   ||   .|...|| 
@@ -12,6 +13,18 @@
   
   URL ........... http://typeplate.com
   VERSION ....... 1.1.0
+=======
+	.                                      '||            .
+  .||.  .... ... ... ...    ....  ... ...   ||   ....   .||.    ....
+   ||    '|.  |   ||'  || .|...||  ||'  ||  ||  '' .||   ||   .|...||
+   ||     '|.|    ||    | ||       ||    |  ||  .|' ||   ||   ||
+   '|.'    '|     ||...'   '|...'  ||...'  .||. '|..'|'  '|.'  '|...'
+		.. |      ||               ||
+		 ''      ''''             ''''      A Typographic Starter Kit
+
+  URL ........... http://typeplate.com
+  VERSION ....... 1.1.1
+>>>>>>> 526953e4827d8852136a2e443fb685b3b1054878
   Github ........ https://github.com/typeplate/typeplate.github.io
   AUTHORS ....... Dennis Gaebel (@gryghostvisuals) & Zachary Kain (@zakkain)
   LICENSE ....... Creative Commmons Attribution 3.0
@@ -32,11 +45,20 @@
 
 // $Variable $BaseType
 // -------------------------------------//
+<<<<<<< HEAD
+=======
+//the serif boolean var can be redeclared from another stylesheet. However
+//the var must be placed after your @import "typeplate.scss";
+$serif-boolean: true !default;
+
+$font-family: if($serif-boolean, serif, sans-serif) !default; // Non-font-face font-stack
+>>>>>>> 526953e4827d8852136a2e443fb685b3b1054878
 
 $font-weight: normal !default;
 $line-height: 1.65 !default;
 $font-size: 112.5 !default; // percentage value (16 * 112.5% = 18px)
 $font-base: 16 * ($font-size/100) !default; // converts our percentage to a pixel value
+<<<<<<< HEAD
 $measure: $font-base * $line-height;
 $font-family: serif;
 $font-family-sans: sans-serif;
@@ -45,6 +67,10 @@ $font-properties: $font-weight, $line-height, $font-size, $font-family;
 //the serif boolean var can be redeclared from another stylesheet. However
 //the var must be placed after your @import "typeplate.scss";
 $serif-boolean: true !default;
+=======
+$custom-font-family: false !default; // Custom font-face stack, if set will be added to the $font-family
+$measure: $font-base * $line-height;
+>>>>>>> 526953e4827d8852136a2e443fb685b3b1054878
 
 
 // $Variable $Small-Print
@@ -247,6 +273,7 @@ $dropcap-bg: transparent !default;
 	}
 }
 
+<<<<<<< HEAD
 
 // $Mixin $Body-Copy
 // -------------------------------------//
@@ -260,6 +287,8 @@ $dropcap-bg: transparent !default;
 }
 
 
+=======
+>>>>>>> 526953e4827d8852136a2e443fb685b3b1054878
 // $Mixin $Hypens
 // -------------------------------------//
 //http://trentwalton.com/2011/09/07/css-hyphenation
@@ -422,8 +451,13 @@ $dropcap-bg: transparent !default;
  *
  */
 
+<<<<<<< HEAD
 // Use @include dropcap($dropcap-float-position, $dropcap-font-size, $dropcap-font-family, $dropcap-txt-indent, $dropcap-margin, $dropcap-padding, $dropcap-color, $dropcap-line-height, $dropcap-bg); 
 // to pass the following arguments below. Feel free to pass in custom 
+=======
+// Use @include dropcap($dropcap-float-position, $dropcap-font-size, $dropcap-font-family, $dropcap-txt-indent, $dropcap-margin, $dropcap-padding, $dropcap-color, $dropcap-line-height, $dropcap-bg);
+// to pass the following arguments below. Feel free to pass in custom
+>>>>>>> 526953e4827d8852136a2e443fb685b3b1054878
 // values for the variables we've provided.
 //
 // Make sure you add the class “drop-cap” to your markup in order to operate.
@@ -527,7 +561,15 @@ $dropcap-bg: transparent !default;
 // -------------------------------------//
 
 html {
+<<<<<<< HEAD
 	@include base-type($font-properties...);
+=======
+	@if $custom-font-family {
+		font: $font-weight #{$font-size}%/#{$line-height} $custom-font-family, $font-family;
+	} @else {
+		font: $font-weight #{$font-size}%/#{$line-height} $font-family;
+	}
+>>>>>>> 526953e4827d8852136a2e443fb685b3b1054878
 }
 
 body {

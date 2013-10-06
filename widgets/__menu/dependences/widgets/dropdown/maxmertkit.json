@@ -1,0 +1,31 @@
+{
+    "type": "widget",
+    "name": "dropdown",
+    "version": "0.0.0",
+    "description": "",
+    "repository": "",
+    "author": "maxmert",
+    "license": "BSD",
+
+     "dependences": {
+    	"bourbon": "*",
+    	"object": "*",
+        "loading": "*",
+
+        "arrow": "*"
+    },
+
+    "themes": {
+        "default": "*",
+        "disabled": "*",
+        "primary": "*"
+    },
+
+    "modifiers": {
+        "loading": "*",
+        "left": "*",
+        "right": "*",
+        "top": "*",
+        "bottom": "*"
+    }
+}

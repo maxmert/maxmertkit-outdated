@@ -1,4 +1,51 @@
+<<<<<<< HEAD
 @import "imports" 
 @import "params" 
 @import "vars" 
 @import "myvars" 
+=======
+$typelate: -typelate 
+ 
+@import "imports" 
+@import "params" 
+@import "vars" 
+@import "myvars" 
+ 
+@mixin typelate( $index ) 
+	// All here 
+ 
+ 
+$themes: null !default 
+ 
+@if $themes 
+	@if type-of( $themes ) == list 
+	 
+		@each $theme in $themes 
+	 
+			$index: index( $themes, $theme ) 
+	 
+			// With each theme do 
+			@if $dependent == null 
+				@if $theme != "default" 
+					.#{$typelate}.#{$theme} 
+						@include typelate( $index ) 
+				@else 
+					.#{$typelate} 
+						@include typelate( $index ) 
+			@else 
+				%#{$typelate}.#{$theme} 
+					@include typelate( $index ) 
+ 
+	@else 
+		@if type-of( $themes ) == string 
+			@if $dependent == null 
+				@if $theme != "default" 
+					.#{$typelate}.#{$theme} 
+						@include typelate( $index ) 
+				@else 
+					.#{$typelate} 
+						@include typelate( $index ) 
+			@else 
+				%#{$typelate}.#{$theme} 
+					@include typelate( $index ) 
+>>>>>>> 526953e4827d8852136a2e443fb685b3b1054878

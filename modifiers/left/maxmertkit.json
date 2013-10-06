@@ -1,0 +1,10 @@
+{
+    "type": "modifier",
+    "name": "left",
+    "version": "0.0.0",
+    "description": "",
+    "repository": "",
+    "tags": "position",
+    "author": "maxmert",
+    "license": "BSD"
+}

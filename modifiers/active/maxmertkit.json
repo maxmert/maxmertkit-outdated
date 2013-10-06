@@ -1,0 +1,9 @@
+{
+    "type": "modifier",
+    "name": "active",
+    "version": "0.0.1",
+    "description": "Active modifier",
+    "repository": "",
+    "author": "maxmert",
+    "license": "BSD"
+}

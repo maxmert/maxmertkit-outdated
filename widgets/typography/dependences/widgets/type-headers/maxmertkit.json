@@ -1,0 +1,18 @@
+{
+    "type": "widget",
+    "name": "type-headers",
+    "version": "0.0.0",
+    "description": "Headers for better typography.",
+    "image": null,
+    "tags": "type, font, headers, typography",
+    "themeUse": "false",
+    "repository": "",
+    "site": "",
+    "author": "maxmert",
+    "license": "BSD",
+    "themeUse": false,
+
+    "dependences": {
+        "sizes": "0.0.0"
+    }
+}

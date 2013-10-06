@@ -4,9 +4,14 @@
     "version": "1.1.0",
     "description": "Typeplate is a “typographic starter kit”. We don’t make aesthetic design choices, but define proper markup with extensible styling for common typographic patterns. A stripped-down Sass or CSS library of your choosing primarily concerned with the appropriate technical implementation of design patterns—not how they look.",
     "image": null,
+<<<<<<< HEAD
     "repository": "http://github.com/typeplate/typeplate.github.com",
     "site": "http://typeplate.com/",
     "tags": "type, typeface, font, headers",
+=======
+    "repository": "https://github.com/typeplate/typeplate.github.io",
+    "site": "http://typeplate.com/",
+>>>>>>> 526953e4827d8852136a2e443fb685b3b1054878
     "author": "maxmert",
     "license": "BSD"
 }

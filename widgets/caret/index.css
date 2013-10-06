@@ -1,0 +1,100 @@
+.-caret {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  display: inline-block;
+  outline: none;
+  vertical-align: middle; }
+
+.-caret {
+  width: 0;
+  height: 0;
+  border-width: 5.33333px;
+  border-style: solid; }
+  ._tiny.-caret {
+    border-width: 4px;
+    border-style: solid; }
+  ._small.-caret {
+    border-width: 4.66667px;
+    border-style: solid; }
+  ._minor.-caret {
+    border-width: 5.33333px;
+    border-style: solid; }
+  ._normal.-caret {
+    border-width: 8px;
+    border-style: solid; }
+  ._major.-caret {
+    border-width: 10.66667px;
+    border-style: solid; }
+  ._big.-caret {
+    border-width: 13.33333px;
+    border-style: solid; }
+  ._huge.-caret {
+    border-width: 16px;
+    border-style: solid; }
+  ._giant.-caret {
+    border-width: 20px;
+    border-style: solid; }
+  ._divine.-caret {
+    border-width: 26px;
+    border-style: solid; }
+  .default._bottom_.-caret {
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-top-color: #cdcdcd; }
+  .default._top_.-caret {
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    border-bottom-color: #cdcdcd; }
+  .default._left_.-caret {
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-top-color: transparent;
+    border-right-color: #cdcdcd; }
+  .default._right_.-caret {
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-top-color: transparent;
+    border-left-color: #cdcdcd; }
+  ._bottom_.-caret {
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-top-color: #cdcdcd; }
+  ._top_.-caret {
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    border-bottom-color: #cdcdcd; }
+  ._left_.-caret {
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-top-color: transparent;
+    border-right-color: #cdcdcd; }
+  ._right_.-caret {
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-top-color: transparent;
+    border-left-color: #cdcdcd; }
+  .-disabled-._bottom_.-caret {
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-top-color: #d9d9d9; }
+  .-disabled-._top_.-caret {
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    border-bottom-color: #d9d9d9; }
+  .-disabled-._left_.-caret {
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-top-color: transparent;
+    border-right-color: #d9d9d9; }
+  .-disabled-._right_.-caret {
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-top-color: transparent;
+    border-left-color: #d9d9d9; }

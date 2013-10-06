@@ -1,0 +1,25 @@
+{
+    "type": "widget",
+    "name": "sizes",
+    "version": "0.0.1",
+    "description": "Sizes mixins for all widgets",
+    "image": null,
+    "repository": "",
+    "tags": "sizes, nesting, variables",
+    "site": "",
+    "author": "maxmert",
+    "themeUse": false,
+    "license": "BSD",
+
+    "modifiers": {
+        "tiny": "0.0.0",
+        "small": "0.0.0",
+        "minor": "0.0.0",
+        "normal": "0.0.0",
+        "major": "0.0.0",
+        "big": "0.0.0",
+        "huge": "0.0.0",
+        "giant": "0.0.0",
+        "divine": "0.0.0"
+    }
+}

@@ -4,6 +4,8 @@
 $btn: -btn
 $all-btn: '.#{$btn}, input[type="button"], input[type="submit"], input[type="reset"]'
 
+$btn-padding: 5px 10px
+
 $btn-border-width: 0
 $btn-border-radius: 3px
 
@@ -23,6 +25,8 @@ $caret: -caret
 $btn: -btn
 $all-btn: '.#{$btn}, input[type="button"], input[type="submit"], input[type="reset"]'
 
+$btn-padding: 5px 10px
+
 $btn-border-width: 0
 $btn-border-radius: 3px
 
@@ -40,36 +44,36 @@ $caret: -caret
 	background-image: add-prefix($images)!important
 
 $form: -form
+$form-row-margin-bottom: 7px
 
-$form-input-border-width: 1px
-
-$form-field: -field
-$form-field-border-width: 3px
-$form-field-border-radius: 3px
-$form-field-margin-bottom: 10px
-
-$form-label: -label
-$form-info: -info
-
-$form-select: -select
-
-$form: -form
-
-$form-input-border-width: 1px
 
 $form-field: -field
 $form-field-border-width: 3px
 $form-field-border-radius: 3px
 $form-field-margin-bottom: 10px
 
+$form-input-border-width: 1px
+$form-input-padding-top: 4px
+$form-input-padding-left: 7px
+
+$form-input-padding: $form-input-padding-top + $form-field-border-width * 2 - $form-input-border-width * 2 $form-input-padding-left + $form-field-border-width * 2 - $form-input-border-width * 2
+
+$form-filed-input-padding: $form-input-padding-top $form-input-padding-left
+
+$form-label-padding: $form-input-padding-top + $form-field-border-width * 2 0
+
 $form-label: -label
 $form-info: -info
 
 $form-select: -select
+
+$caret: -caret
 
 $btn: -btn
 $all-btn: '.#{$btn}, input[type="button"], input[type="submit"], input[type="reset"]'
 
+$btn-padding: 5px 10px
+
 $btn-border-width: 0
 $btn-border-radius: 3px
 
@@ -87,27 +91,102 @@ $caret: -caret
 	background-image: add-prefix($images)!important
 
 $form: -form
+$form-row-margin-bottom: 7px
 
-$form-input-border-width: 1px
 
 $form-field: -field
 $form-field-border-width: 3px
 $form-field-border-radius: 3px
 $form-field-margin-bottom: 10px
+
+$form-input-border-width: 1px
+$form-input-padding-top: 4px
+$form-input-padding-left: 7px
+
+$form-input-padding: $form-input-padding-top + $form-field-border-width * 2 - $form-input-border-width * 2 $form-input-padding-left + $form-field-border-width * 2 - $form-input-border-width * 2
+
+$form-filed-input-padding: $form-input-padding-top $form-input-padding-left
+
+$form-label-padding: $form-input-padding-top + $form-field-border-width * 2 0
 
 $form-label: -label
 $form-info: -info
 
 $form-select: -select
 
-$form: -form
 
-$form-input-border-width: 1px
+
+$btn: -btn
+$all-btn: '.#{$btn}, input[type="button"], input[type="submit"], input[type="reset"]'
+
+$btn-padding: 5px 10px
+
+$btn-border-width: 0
+$btn-border-radius: 3px
+
+$btn-shadow: 0px 1px 2px rgba(0,0,0,.2), 0px 1px 2px rgba(0,0,0,.2), 0 4px 4px rgba(0,0,0,.05), 0 6px 6px rgba(0,0,0,.1), inset 0 -4px 4px rgba(0,0,0,.05)
+$btn-shadow-hover: 1px 1px 2px rgba(0,0,0,.2), -1px 1px 2px rgba(0,0,0,.2), 0 4px 4px rgba(0,0,0,.05), 0 6px 6px rgba(0,0,0,.1)
+$btn-shadow-active: 0 1px 2px rgba(0,0,0,.4), inset 0 -15px 15px rgba(0,0,0,.1)
+
+$caret: -caret
+
+@mixin background-image-important($images...)
+	background-image: add-prefix($images, webkit)!important
+	background-image: add-prefix($images, moz)!important
+	background-image: add-prefix($images, ms)!important
+	background-image: add-prefix($images, o)!important
+	background-image: add-prefix($images)!important
+
+
+
+$form: -form
+$form-row-margin-bottom: 7px
+
 
 $form-field: -field
 $form-field-border-width: 3px
 $form-field-border-radius: 3px
 $form-field-margin-bottom: 10px
+
+$form-input-border-width: 1px
+$form-input-padding-top: 4px
+$form-input-padding-left: 7px
+
+$form-input-padding: $form-input-padding-top + $form-field-border-width * 2 - $form-input-border-width * 2 $form-input-padding-left + $form-field-border-width * 2 - $form-input-border-width * 2
+
+$form-filed-input-padding: $form-input-padding-top $form-input-padding-left
+
+$form-label-padding: $form-input-padding-top + $form-field-border-width * 2 0
+
+$form-label: -label
+$form-info: -info
+
+$form-select: -select
+
+$caret: -caret
+
+$caret: -caret
+
+
+
+$form: -form
+$form-row-margin-bottom: 7px
+
+
+$form-field: -field
+$form-field-border-width: 3px
+$form-field-border-radius: 3px
+$form-field-margin-bottom: 10px
+
+$form-input-border-width: 1px
+$form-input-padding-top: 4px
+$form-input-padding-left: 7px
+
+$form-input-padding: $form-input-padding-top + $form-field-border-width * 2 - $form-input-border-width * 2 $form-input-padding-left + $form-field-border-width * 2 - $form-input-border-width * 2
+
+$form-filed-input-padding: $form-input-padding-top $form-input-padding-left
+
+$form-label-padding: $form-input-padding-top + $form-field-border-width * 2 0
 
 $form-label: -label
 $form-info: -info
@@ -128,10 +207,40 @@ $gutter: 30px
 $grid-columns: 12
 $max-width: em(1088)
 
+$caret: -caret
 
+$form: -form
+$form-row-margin-bottom: 7px
+
+
+$form-field: -field
+$form-field-border-width: 3px
+$form-field-border-radius: 3px
+$form-field-margin-bottom: 10px
+
+$form-input-border-width: 1px
+$form-input-padding-top: 4px
+$form-input-padding-left: 7px
+
+$form-input-padding: $form-input-padding-top + $form-field-border-width * 2 - $form-input-border-width * 2 $form-input-padding-left + $form-field-border-width * 2 - $form-input-border-width * 2
+
+$form-filed-input-padding: $form-input-padding-top $form-input-padding-left
+
+$form-label-padding: $form-input-padding-top + $form-field-border-width * 2 0
+
+$form-label: -label
+$form-info: -info
+
+$form-select: -select
+
+$caret: -caret
 
 
 
 $caret: -caret
 
 
+
+$caret: -caret
+
+$caret: -caret

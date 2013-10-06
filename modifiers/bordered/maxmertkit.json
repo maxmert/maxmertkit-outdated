@@ -1,0 +1,13 @@
+{
+    "type": "modifier",
+    "name": "bordered",
+    "version": "0.0.0",
+    "description": "",
+    "image": null,
+    "tags": "bordered",
+    "themeUse": null,
+    "repository": "",
+    "site": "",
+    "author": "maxmert",
+    "license": "BSD"
+}

@@ -1,16 +1,16 @@
 {
     "type": "widget",
     "name": "neat",
-    "version": "1.2.0",
-    "description": "Neat sass",
+    "version": "1.2.2",
+    "description": "Neat sass. Fast and easy grid sass mixins.",
     "repository": "https://github.com/thoughtbot/neat",
+    "site": "http://neat.bourbon.io/",
     "author": "maxmert",
     "tags": "grid, neat, sass, mixins",
     "license": "BSD",
+    "themeUse": false,
 
     "dependences": {
-    	"bourbon": {
-    		"version": "3.1.1"
-    	}
+    	"bourbon": "*"
     }
 }

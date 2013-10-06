@@ -1,0 +1,123 @@
+@import "imports" 
+@import "params" 
+@import "vars" 
+@import "myvars" 
+
+
+
+
+
+
+// .x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x //
+//
+// $Functions
+//
+// .x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x //
+
+
+// $Function $Context Calculator
+// -------------------------------------//
+// divide a given font-size by base font-size & return a relative value
+
+@function context-calc($type-h-scale, $type-h-base, $type-h-value)
+	@return ($type-h-scale/$type-h-base)#{$type-h-value}
+
+
+// $Function $Measure-Margin
+// -------------------------------------//
+// divide 1 unit of measure by given font-size & return a relative em value
+
+@function measure-margin($type-h-scale, $type-h-measure, $type-h-value)
+	@return ($type-h-measure/$type-h-scale)#{$type-h-value}
+
+
+// .x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x //
+//
+// $Mixins / $Placeholders
+//
+// .x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x //
+
+
+// $Mixin $Type-Scale
+// -------------------------------------//
+// provides a pixel fallback if you decide
+// to use 'rems' as a unit over ems.
+
+@mixin type-scale($type-h-scale, $type-h-base, $type-h-value, $type-h-measure:"")
+	// If 'rem' is used as a $value then provide a px fallback.
+	@if $type-h-value == rem
+		font-size: $type-h-scale#{px}
+
+	font-size: context-calc($type-h-scale, $type-h-base, $type-h-value)
+	@if $type-h-measure != ""
+		margin-top: measure-margin($type-h-scale, $type-h-measure, $type-h-value)
+		margin-bottom: measure-margin($type-h-scale, $type-h-measure, $type-h-value)
+
+
+%hN
+	// voodoo to enable ligatures and kerning
+	text-rendering: optimizeLegibility
+	// this fixes huge spaces when a heading wraps onto two lines
+	line-height: 1
+	margin-top: 0
+
+// Sass loop to associate h1-h6 tags with their appropriate greek
+// heading based on a modular scale.
+// for each size in the scale, create a class
+@each $size in $sizes
+	%#{nth($size, 1)}_type
+		@include type-scale(nth($size, 2), $type-h-font-base, '#{$type-h-type-scale-unit-value}', $type-h-measure)
+
+// associate h1-h6 tags with their appropriate greek heading
+@if $dependent == null 
+
+	h1
+		@extend %_divine_type
+		@extend %hN
+
+	h2
+		@extend %_giant_type
+		@extend %hN
+
+	h3
+		@extend %_huge_type
+		@extend %hN
+
+
+	h4
+		@extend %_big_type
+		@extend %hN
+
+	h5 
+		@extend %_major_type
+		@extend %hN
+
+	h6
+		@extend %_normal_type
+		@extend %hN
+
+@else
+	%h1
+		@extend %_divine_type
+		@extend %hN
+
+	%h2
+		@extend %_giant_type
+		@extend %hN
+
+	%h3
+		@extend %_huge_type
+		@extend %hN
+
+
+	%h4
+		@extend %_big_type
+		@extend %hN
+
+	%h5 
+		@extend %_major_type
+		@extend %hN
+
+	%h6
+		@extend %_normal_type
+		@extend %hN
